@@ -1,0 +1,13 @@
+{
+  "name": "rental-law-navigator-site",
+  "private": true,
+  "type": "module",
+  "description": "Build and smoke checks for the Rental Housing Law Navigator demo page.",
+  "scripts": {
+    "build": "python3 build.py --rules ../navigator/out/echo",
+    "smoke": "node smoke.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.47.0"
+  }
+}
