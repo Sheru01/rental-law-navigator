@@ -1,0 +1,15 @@
+# Python dependencies.
+#
+# The navigator pipeline (extract, geocode, engine, changes) and the site
+# build are standard library only; nothing below is needed to RUN the
+# project. These are for tests and for optional live extraction.
+
+pytest>=8.0        # test suite: python3 -m pytest navigator/tests
+pdfplumber>=0.11   # only to regenerate the submission one-pager preview
+reportlab>=4.0     # only to regenerate submission/RentalLawNavigator_OnePager.pdf
+
+# Optional, live model extraction only (never needed for the demo build):
+# openai>=1.0      # --transport openai, needs OPENAI_API_KEY
+# anthropic>=0.30  # --transport anthropic, needs ANTHROPIC_API_KEY
+
+# Browser smoke suite is Node: cd site && npm install && node smoke.mjs
