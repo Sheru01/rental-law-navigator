@@ -144,7 +144,7 @@ Legend. FROZEN: the contract is organizer-specified and fixed; the field name is
 
 | UI element | Semantic needed | Expected artifact | Status | Degrade if absent |
 |---|---|---|---|---|
-| Card presence | one entry per rule that is not omitted | lookups.json: lookups[address_id][] | FROZEN | n/a |
+| Card presence | one entry per rule that is not omitted | lookups.json: `lookups[address_id][]` | FROZEN | n/a |
 | State chip | one of applies, unknown, superseded, not_yet_effective, pending | lookups.json: result | FROZEN | n/a |
 | Indeterminate vs unknown | a flag distinguishing legal-record gap from building-record gap | NEEDED (P1) | NEEDED | Render both as UNKNOWN with the validated reason text; lose the double-rule glyph; never render the gated sentence |
 | Why line | the deciding fact named | lookups.json: explanation | FROZEN | n/a |

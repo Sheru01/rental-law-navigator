@@ -17,6 +17,7 @@ Every spoken factual claim is evidence-conditioned: say "in force," "enacted," o
 Most teams will hide their uncertainty. The scoring rewards the opposite, and so does the law: a missed applicable rule costs double, an honest unknown earns partial credit. So the interface has to make an unknown feel like the system working, not the system breaking.
 
 Three rules follow, and they're why the unknown card gets equal visual weight:
+
 - **R1 — Equal finish.** An unknown card has the same border, padding, and provenance chain as an "applies" card. Never thinner, greyer, or apologetic.
 - **R2 — Name the gap.** Every uncertain state names the specific missing fact and what would resolve it.
 - **R3 — No alarm colors.** Uncertainty is ochre and typographic, never red. Red means the system failed; ochre means the record is thin.
