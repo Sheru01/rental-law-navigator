@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#F7F7F3;--bg:#0B0B12;--bg2:#16161F;--yellow:#FFD60A;--blue:#4D82FF;--violet:#A77BFF;--red:#FF6B6B;--cyan:#3BD6EE;--mute:#9A9AA8;
+--display:'Syne',sans-serif;--sans:'IBM Plex Sans',sans-serif;--mono:'IBM Plex Mono',monospace;}
+*{box-sizing:border-box}
+body{margin:0;width:1440px;height:900px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;position:relative}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.34;pointer-events:none}
+.slide{position:absolute;inset:0;padding:56px 86px 142px;display:none;flex-direction:column;justify-content:center}
+.slide.on{display:flex}
+.tag{font-family:var(--mono);font-size:14px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--yellow);margin-bottom:14px}
+h2{font-family:var(--display);font-weight:800;font-size:54px;line-height:1.02;letter-spacing:-.03em;margin:0 0 26px}
+h2 em{font-style:normal;color:var(--blue)}
+h2 .y{color:var(--yellow)}
+.cap{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);background:rgba(11,11,18,.94);border:2px solid var(--yellow);border-radius:14px;padding:14px 28px;font-size:21px;font-weight:600;line-height:1.4;max-width:1120px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+code,pre{font-family:var(--mono)}
+pre{background:var(--bg2);border:2px solid #2A2A38;border-radius:14px;padding:20px 24px;font-size:17px;line-height:1.65;margin:0;overflow:hidden;color:#D8D8E2}
+pre .c{color:#6E6E80}.k{color:var(--violet)}.s{color:var(--cyan)}.f{color:var(--yellow)}.n{color:var(--blue)}
+.del{color:var(--red)}.add{color:#6BE39A}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
+.card{background:var(--bg2);border-radius:16px;padding:24px 26px;border-top:5px solid var(--yellow)}
+.card.b{border-top-color:var(--blue)}.card.v{border-top-color:var(--violet)}.card.r{border-top-color:var(--red)}
+.card h3{margin:0 0 10px;font-family:var(--display);font-size:25px;font-weight:800;letter-spacing:-.02em}
+.card p{margin:0;font-size:17px;line-height:1.5;color:#C5C5D2}
+.rule{font-size:19px;line-height:1.6;color:#C5C5D2;margin:0}
+.rule b{color:var(--ink)}
+.big{font-family:var(--display);font-weight:800;font-size:40px;letter-spacing:-.03em;line-height:1.1}
+.pass{color:#6BE39A}
+</style></head><body>
+<div class="blob" style="width:720px;height:720px;background:#1F5BFF;left:-260px;top:-300px"></div>
+<div class="blob" style="width:620px;height:620px;background:#7B2CFF;right:-220px;bottom:-280px"></div>
+
+<!-- 1. TECH STACK -->
+<section class="slide" id="s1">
+  <div class="tag">1 &middot; Tech stack</div>
+  <h2>A model <em>reads</em>. Code <span class="y">decides</span>.</h2>
+  <svg width="1270" height="330" viewBox="0 0 1270 330" fill="none" font-family="IBM Plex Mono" font-size="15">
+    <defs><marker id="a" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 z" fill="#9A9AA8"/></marker></defs>
+    <g stroke="#9A9AA8" stroke-width="2" marker-end="url(#a)">
+      <path d="M252 72 H322"/><path d="M560 72 H630"/><path d="M252 212 H322"/><path d="M560 212 H630"/>
+      <path d="M868 72 V124 Q868 142 886 142 H900"/><path d="M868 212 V160 Q868 142 886 142 H900"/>
+      <path d="M1118 142 H1180"/>
+    </g>
+    <g>
+      <rect x="20" y="36" width="232" height="72" rx="12" fill="#16161F" stroke="#2A2A38" stroke-width="2"/>
+      <text x="40" y="66" fill="#F7F7F3" font-size="17" font-weight="600">74 corpus documents</text>
+      <text x="40" y="90" fill="#9A9AA8">state and city legal text</text>
+
+      <rect x="322" y="36" width="238" height="72" rx="12" fill="#16161F" stroke="#FFD60A" stroke-width="2"/>
+      <text x="342" y="66" fill="#FFD60A" font-size="17" font-weight="600">LLM extraction</text>
+      <text x="342" y="90" fill="#9A9AA8">swappable transports</text>
+
+      <rect x="630" y="36" width="238" height="72" rx="12" fill="#16161F" stroke="#2A2A38" stroke-width="2"/>
+      <text x="650" y="66" fill="#F7F7F3" font-size="17" font-weight="600">rules.json</text>
+      <text x="650" y="90" fill="#9A9AA8">+ verified spans</text>
+
+      <rect x="20" y="176" width="232" height="72" rx="12" fill="#16161F" stroke="#2A2A38" stroke-width="2"/>
+      <text x="40" y="206" fill="#F7F7F3" font-size="17" font-weight="600">500 addresses</text>
+      <text x="40" y="230" fill="#9A9AA8">assessor records</text>
+
+      <rect x="322" y="176" width="238" height="72" rx="12" fill="#16161F" stroke="#3BD6EE" stroke-width="2"/>
+      <text x="342" y="206" fill="#3BD6EE" font-size="17" font-weight="600">Census geocoder</text>
+      <text x="342" y="230" fill="#9A9AA8">live, two passes</text>
+
+      <rect x="630" y="176" width="238" height="72" rx="12" fill="#16161F" stroke="#2A2A38" stroke-width="2"/>
+      <text x="650" y="206" fill="#F7F7F3" font-size="17" font-weight="600">jurisdictions.json</text>
+      <text x="650" y="230" fill="#9A9AA8">479 resolved, 21 not</text>
+
+      <rect x="900" y="104" width="218" height="76" rx="12" fill="#16161F" stroke="#4D82FF" stroke-width="3"/>
+      <text x="920" y="136" fill="#4D82FF" font-size="17" font-weight="600">Engine</text>
+      <text x="920" y="160" fill="#9A9AA8">deterministic, 3-valued</text>
+
+      <rect x="1180" y="104" width="76" height="76" rx="12" fill="#16161F" stroke="#2A2A38" stroke-width="2"/>
+      <text x="1198" y="138" fill="#F7F7F3" font-size="15" font-weight="600">static</text>
+      <text x="1200" y="160" fill="#9A9AA8" font-size="13">page</text>
+    </g>
+  </svg>
+  <p class="rule" style="margin-top:22px">Python standard library end to end. <b>No LLM decides whether a rule applies.</b> Playwright gates every push; Vercel serves one self-contained page.</p>
+  <div class="cap">Python throughout. A model extracts structured rules from legal text, the Census geocoder resolves each address, and a deterministic engine decides coverage.</div>
+</section>
+
+<!-- 2. HIGHLIGHT: SPANS -->
+<section class="slide" id="s2">
+  <div class="tag">2 &middot; Implementation highlight</div>
+  <h2>No record ships with an <em>unverified span</em>.</h2>
+  <pre><span class="c"># CONTRACT.md section 7, frozen before any code was written</span>
+
+quoted_span must be an <span class="f">exact substring</span> of the source text file after
+normalising whitespace runs to single spaces. The verifier recomputes this.
+A record that fails is retried once with the span re-copied, <span class="f">then dropped</span>
+and logged. <span class="f">No record ships with an unverified span.</span></pre>
+  <p class="rule" style="margin-top:24px">Verified three times: at extraction, at build, and again <b>in the browser at render time</b>, where the drawer locates the span by exact match or says it could not. <span style="color:#6BE39A">7 of 7 pass.</span></p>
+  <div class="cap">Every quoted span must exact-match its source document, or the rule is dropped. Checked at extraction, at build, and again in the browser.</div>
+</section>
+
+<!-- 3. HIGHLIGHT: TWO SILENCES -->
+<section class="slide" id="s3">
+  <div class="tag">2 &middot; Implementation highlight</div>
+  <h2>Two kinds of <span class="y">silence</span>, never collapsed.</h2>
+  <div class="two">
+    <div class="card"><h3>unknown</h3><p>The rule is operative, but a <b style="color:#FFD60A">building fact</b> is absent from the public record. The card names the fact and what would resolve it.</p></div>
+    <div class="card v"><h3>indeterminate</h3><p>The <b style="color:#A77BFF">legal record</b> itself cannot establish the rule is operative. Status is withheld as null, so it can never resolve to "applies".</p></div>
+  </div>
+  <pre style="margin-top:24px"><span class="c"># engine, three-valued AND over predicates</span>
+AND: any <span class="k">false</span> -> false; else any <span class="k">unknown</span> -> unknown; else true
+
+<span class="c"># a withheld projection reaches the UI, it is never silently dropped</span>
+<span class="s">"result_state"</span>: <span class="s">"indeterminate"</span>, <span class="s">"reason_code"</span>: <span class="s">"projection_withheld"</span></pre>
+  <div class="cap">A gap in the building record and a gap in the legal record have different fixes, so the engine reports them as different states.</div>
+</section>
+
+<!-- 4. CHALLENGE -->
+<section class="slide" id="s4">
+  <div class="tag">3 &middot; Challenges</div>
+  <h2>Two modules, <span style="color:#FF6B6B">one disagreement</span>.</h2>
+  <p class="rule" style="margin:0 0 20px">The geocoder wrote <code style="color:#3BD6EE">legal_city</code>. The engine read <code style="color:#4D82FF">jurisdiction</code>. Nobody had wired them, because the engine had only ever run against a fixture using the other spelling. Every one of the 500 addresses read "not resolved".</p>
+  <pre><span class="c"># navigator/engine/run.py</span>
+  jur = j.get(<span class="s">"jurisdiction"</span>)
+<span class="add">+ if jur in (None, ""):</span>
+<span class="add">+     jur = j.get("legal_city")   # accept either spelling</span>
+  <span class="c"># never fall back to postal_city: unresolved stays None</span></pre>
+  <p class="rule" style="margin-top:20px">Found only by <b>binding real output instead of fixtures</b>. Fixed with the suite green: <span class="pass">273 passed, 2 skipped</span>.</p>
+  <div class="cap">The geocoder and the engine disagreed on a key name, so every address read as unresolved. Only real data exposed it.</div>
+</section>
+
+<!-- 5. LIMITATION -->
+<section class="slide" id="s5">
+  <div class="tag">3 &middot; Limitations, stated on the product</div>
+  <h2>The demo says what it <em>is not</em>.</h2>
+  <div class="two">
+    <div class="card r"><h3>Not a live model run</h3><p>Demo rules replay recorded extraction fixtures. A live run needs a key and spend, so the site header says so, in every frame.</p></div>
+    <div class="card b"><h3>Integrity, scoped honestly</h3><p>The corpus manifest hashes match nothing in the distributed text, so the drawer claims only a locally recorded hash, never validation.</p></div>
+  </div>
+  <pre style="margin-top:24px"><span class="c"># site header, rendered from the pipeline's own flag</span>
+<span class="s">"is_real_extraction"</span>: <span class="k">false</span>
+<span class="f">&rarr;</span> "Rules replayed from extraction fixtures, not a live model run"</pre>
+  <p class="rule" style="margin-top:20px">A system whose argument is that it does not overclaim <b>cannot overclaim about itself</b>.</p>
+  <div class="cap">The rules come from replayed fixtures, not a live model run, and the site says so in its header. We did not overclaim about the thing that refuses to overclaim.</div>
+</section>
+
+<!-- 6. REFLECTION -->
+<section class="slide" id="s6" style="align-items:center;text-align:center">
+  <div class="tag">4 &middot; Takeaway</div>
+  <h2 style="font-size:60px;max-width:20ch">Refusing to guess turned out to be <span class="y">the product</span>.</h2>
+  <p class="rule" style="max-width:62ch;font-size:21px">The unknowns were supposed to be the scoring loss. Aggregated, they became a sourced map of what the public record cannot answer.</p>
+  <div class="big" style="margin-top:34px;color:#4D82FF">navigator.mdsrana.com</div>
+  <div class="cap">The unknowns were supposed to be the loss. Aggregated, they became the product.</div>
+</section>
+
+<script>
+function show(n){document.querySelectorAll('.slide').forEach(s=>s.classList.remove('on'));
+document.getElementById('s'+n).classList.add('on');}
+show(1);
+</script>
+</body></html>
