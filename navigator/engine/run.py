@@ -140,7 +140,14 @@ def build_addresses(juris, sample):
         for fact in ("state", "year_built", "units"):
             v = j.get(fact)
             row[fact] = v if v not in (None, "") else base.get(fact)
+        # The geocode module names the resolved incorporated place "legal_city"
+        # (navigator/geocode/parse.py); the engine and its fixtures call the same
+        # thing "jurisdiction". Accept either, preferring an explicit
+        # "jurisdiction". Never fall back to postal_city: an unresolved address
+        # stays None, per CONTRACT.md section 8.
         jur = j.get("jurisdiction")
+        if jur in (None, ""):
+            jur = j.get("legal_city")
         row["jurisdiction"] = jur if jur not in (None, "") else None
         addresses[aid] = row
     return addresses

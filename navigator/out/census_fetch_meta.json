@@ -1,0 +1,31 @@
+{
+  "batch": {
+    "attempts_per_chunk": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "benchmark": "Public_AR_Current",
+    "chunk_size": 100,
+    "chunks": 5,
+    "endpoint": "https://geocoding.geo.census.gov/geocoder/geographies/addressbatch",
+    "input_file": "census_batch_input.csv",
+    "input_sha256": "cb1e866d1b1e417353ba6a4bab1966a4658a430053360be144315d506f8d10ac",
+    "output_sha256": "16d8044984ccfd2de30e03c390e5a1b9dbd4e12b9ee3818979b16911756ff8ae",
+    "retrieved_at": "2026-10-04T06:30:31Z",
+    "rows": 500,
+    "vintage": "Current_Current"
+  },
+  "places": {
+    "batch_output_sha256": "16d8044984ccfd2de30e03c390e5a1b9dbd4e12b9ee3818979b16911756ff8ae",
+    "benchmark": "Public_AR_Current",
+    "endpoint": "https://geocoding.geo.census.gov/geocoder/geographies/coordinates",
+    "layers": "all",
+    "lookups": 479,
+    "output_sha256": "f4d17b648f934c9fa2a657b6689f683b5a1fa1799c3bb784213dccbc2feed5bf",
+    "retrieved_at": "2026-10-04T06:31:10Z",
+    "vintage": "Current_Current"
+  }
+}

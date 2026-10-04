@@ -1,0 +1,862 @@
+{
+  "started_utc": "2026-10-04T06:30:24Z",
+  "transport": "echo",
+  "model": "echo-fixture",
+  "is_real_extraction": false,
+  "as_of": "2026-10-01",
+  "prompt_version": "extract-v1",
+  "prompt_sha256": "af4a85a1530cf4e41e4750933797ad82b5d901d85e42d442127a0b12a45de31a",
+  "summary_policy": "drop",
+  "documents": 74,
+  "documents_errored": [],
+  "candidates": 10,
+  "rules_written": 5,
+  "withheld_projections": 2,
+  "dropped": 3,
+  "drop_reasons": {
+    "duplicate_of": 1,
+    "quoted_span_refused_summary_block": 2
+  },
+  "cache_hits": 0,
+  "invariant_violations": [],
+  "duplicates": [
+    {
+      "doc_id": "D047",
+      "index": 0,
+      "duplicate_of": "D046#0"
+    }
+  ],
+  "acceptance": {
+    "transport": "echo",
+    "model_confirmed": false,
+    "checks": [
+      {
+        "name": "shell_empty:D078",
+        "applies": true,
+        "passed": true,
+        "detail": "model returned 0 candidate rule(s) (echo transport: empty by construction, NOT confirmed by a model)"
+      },
+      {
+        "name": "shell_empty:D082",
+        "applies": true,
+        "passed": true,
+        "detail": "model returned 0 candidate rule(s) (echo transport: empty by construction, NOT confirmed by a model)"
+      },
+      {
+        "name": "shell_empty:D012",
+        "applies": true,
+        "passed": true,
+        "detail": "model returned 0 candidate rule(s) (echo transport: empty by construction, NOT confirmed by a model)"
+      },
+      {
+        "name": "shell_empty:D013",
+        "applies": true,
+        "passed": true,
+        "detail": "model returned 0 candidate rule(s) (echo transport: empty by construction, NOT confirmed by a model)"
+      },
+      {
+        "name": "shell_empty:D014",
+        "applies": true,
+        "passed": true,
+        "detail": "model returned 0 candidate rule(s) (echo transport: empty by construction, NOT confirmed by a model)"
+      },
+      {
+        "name": "shell_empty:D029",
+        "applies": true,
+        "passed": true,
+        "detail": "model returned 0 candidate rule(s) (echo transport: empty by construction, NOT confirmed by a model)"
+      },
+      {
+        "name": "shell_empty:D031",
+        "applies": true,
+        "passed": true,
+        "detail": "model returned 0 candidate rule(s) (echo transport: empty by construction, NOT confirmed by a model)"
+      },
+      {
+        "name": "shell_empty:D036",
+        "applies": true,
+        "passed": true,
+        "detail": "model returned 0 candidate rule(s) (echo transport: empty by construction, NOT confirmed by a model)"
+      },
+      {
+        "name": "la_zero_algorithmic_rent_setting",
+        "applies": true,
+        "passed": true,
+        "detail": "0 Los Angeles algorithmic_rent_setting record(s) in the output"
+      },
+      {
+        "name": "no_sb763_record",
+        "applies": true,
+        "passed": true,
+        "detail": "records mentioning SB 763: none"
+      },
+      {
+        "name": "D022_effective_date_null",
+        "applies": true,
+        "passed": true,
+        "detail": "effective_date=None"
+      },
+      {
+        "name": "D022_status_not_substantive",
+        "applies": true,
+        "passed": true,
+        "detail": "status=None establishable=False"
+      },
+      {
+        "name": "D022_stated_facts_quoted",
+        "applies": true,
+        "passed": true,
+        "detail": "needs spans containing CHAPTER 338, October 06, 2025 and 10/06/25 - Chaptered"
+      },
+      {
+        "name": "D022_rental_applicability_not_stated",
+        "applies": true,
+        "passed": true,
+        "detail": "rental_housing_applicability=inferred"
+      },
+      {
+        "name": "D022_scope_not_universal",
+        "applies": true,
+        "passed": true,
+        "detail": "needs_fact=['rental_housing_applicability: AB 325 amends the Cartwright Act and its text has no mention of rent, housing, landlord, tenant or lease', 'prohibition bites only when used as part of a contract, combination or conspiracy, or with coercion']"
+      },
+      {
+        "name": "D022_conditional_prohibition_captured",
+        "applies": true,
+        "passed": true,
+        "detail": "requirement/notes should mention the agreement-or-coercion condition"
+      },
+      {
+        "name": "D022_antitrust_savings_captured",
+        "applies": true,
+        "passed": true,
+        "detail": "exemptions/notes should mention that 16729(c) preserves antitrust law"
+      },
+      {
+        "name": "D001_status_unestablishable",
+        "applies": true,
+        "passed": true,
+        "detail": "status=None effective_date=None conflict_flag=True"
+      },
+      {
+        "name": "D001_external_dates_named",
+        "applies": true,
+        "passed": true,
+        "detail": "conflict_note must name 2026-03-01 and 2026-01 as external and unverified"
+      },
+      {
+        "name": "D069_preemption_sentence_verbatim",
+        "applies": true,
+        "passed": true,
+        "detail": "exact sentence must be inside a verified span"
+      },
+      {
+        "name": "D069_following_sentence_verbatim",
+        "applies": true,
+        "passed": true,
+        "detail": "following sentence must be inside a verified span"
+      },
+      {
+        "name": "D069_conflict_note_limits_stated",
+        "applies": true,
+        "passed": true,
+        "detail": "conflict_note should say enacting only, not maintain/enforce/void/supersede, and that neither Jersey City nor Hoboken is named; missing words: none"
+      },
+      {
+        "name": "D076_final_passage_unsupported",
+        "applies": true,
+        "passed": true,
+        "detail": "status='pending' effective_date=None"
+      },
+      {
+        "name": "D076_incorporated_definitions_flagged",
+        "applies": true,
+        "passed": true,
+        "detail": "needs_fact or notes must flag definitions incorporated from SDMC 98.0702"
+      },
+      {
+        "name": "D081_summary_visible_at_point_of_use",
+        "applies": true,
+        "passed": true,
+        "detail": "source_kind='official_summary'; marker in title=True, requirement=True"
+      }
+    ],
+    "failed": [],
+    "all_passed": true
+  },
+  "per_document": [
+    {
+      "doc_id": "D001",
+      "status": "ok",
+      "candidates": 1,
+      "kept": 0,
+      "withheld": 1,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D003",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D004",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D005",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D006",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D007",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D008",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D009",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D010",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D011",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D012",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D013",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D014",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D016",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D022",
+      "status": "ok",
+      "candidates": 1,
+      "kept": 0,
+      "withheld": 1,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D023",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D024",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D025",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D026",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D027",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D029",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D031",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D036",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D039",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D040",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D041",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D042",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D043",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D045",
+      "status": "ok",
+      "candidates": 1,
+      "kept": 1,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D046",
+      "status": "ok",
+      "candidates": 1,
+      "kept": 1,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D047",
+      "status": "ok",
+      "candidates": 1,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 1,
+      "error": null
+    },
+    {
+      "doc_id": "D048",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D049",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D050",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D051",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D052",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D053",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D057",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D058",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D065",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D066",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D067",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D068",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D069",
+      "status": "ok",
+      "candidates": 1,
+      "kept": 1,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D073",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D076",
+      "status": "ok",
+      "candidates": 1,
+      "kept": 1,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D078",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D079",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D080",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D081",
+      "status": "ok",
+      "candidates": 1,
+      "kept": 1,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D082",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D083",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D084",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D085",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D032",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D033",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D034",
+      "status": "ok",
+      "candidates": 1,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 1,
+      "error": null
+    },
+    {
+      "doc_id": "D035",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D037",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D056",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D059",
+      "status": "ok",
+      "candidates": 1,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 1,
+      "error": null
+    },
+    {
+      "doc_id": "D060",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D070",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D071",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D072",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D086",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "D087",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "SUPP_D059_gtlaw",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "SUPP_D059_massgov_ballot_initiatives_list",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "SUPP_D059_massgov_petition_text",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "SUPP_D059_massgov_summary_25-21",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "SUPP_D059_sjc_slip_opinion_caanet",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "SUPP_JC_insidernj",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    },
+    {
+      "doc_id": "SUPP_JC_riverviewobserver",
+      "status": "ok",
+      "candidates": 0,
+      "kept": 0,
+      "withheld": 0,
+      "dropped": 0,
+      "error": null
+    }
+  ],
+  "known_gaps": [
+    "SB 763",
+    "Jersey City ordinance text",
+    "Hoboken Ord. B-781 effective date"
+  ],
+  "engine_wiring_required": "The engine must call navigator.normalize.effective_date.derive_effective_date for withheld projections; extraction never applies it.",
+  "redactions_applied": 0
+}

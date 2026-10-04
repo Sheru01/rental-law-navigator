@@ -1,0 +1,13 @@
+# Raw geocoder passthrough: 4.4MB of verbatim Census place-lookup responses.
+# Regenerable with `python3 navigator/geocode/run.py`. The parsed result
+# (navigator/out/jurisdictions.json) is committed, so the build is reproducible
+# offline without this file.
+navigator/out/census_places_output.jsonl
+
+# Extraction cache for live model runs. Never commit: it holds raw provider
+# output keyed by prompt hash.
+navigator/out/cache/
+
+__pycache__/
+*.pyc
+.DS_Store

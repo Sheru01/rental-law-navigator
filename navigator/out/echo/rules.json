@@ -1,0 +1,963 @@
+{
+  "rules": [
+    {
+      "team_rule_id": "MA-ALG-P1",
+      "jurisdiction": "MA",
+      "level": "state",
+      "category": "algorithmic_rent_setting",
+      "status": "pending",
+      "title": "H.5222 An Act relative to preventing algorithmic rent fixing in the rental housing market",
+      "requirement": "A pending Massachusetts bill on algorithmic rent setting. The page gives its title and history, not its text.",
+      "key_value": null,
+      "coverage_conditions": {
+        "predicates": [
+          {
+            "fact": "state",
+            "op": "eq",
+            "value": "MA"
+          }
+        ],
+        "needs_fact": [],
+        "note": "If enacted as written; the bill text is not on this page."
+      },
+      "exemptions": null,
+      "overrides": [],
+      "interaction": null,
+      "effective_date": null,
+      "citation": "H.5222",
+      "source_doc_id": "D045",
+      "source_url": "https://malegislature.gov/Bills/194/H5222",
+      "quoted_span": "An Act relative to preventing algorithmic rent fixing in the rental housing market",
+      "confidence": 0.7,
+      "conflict_flag": false,
+      "conflict_note": null,
+      "status_establishable": true,
+      "status_basis": "derived",
+      "epistemics": {
+        "rental_housing_applicability": {
+          "category": "stated",
+          "basis": "The title concerns rent.",
+          "derivation_rule": null,
+          "span_ids": [
+            "quoted_span"
+          ]
+        },
+        "jurisdiction": {
+          "category": "stated",
+          "basis": "Massachusetts Legislature page.",
+          "derivation_rule": null,
+          "span_ids": [
+            "quoted_span"
+          ]
+        },
+        "category": {
+          "category": "derived",
+          "basis": "The bill title concerns algorithmic rent setting.",
+          "derivation_rule": "CATEGORY_FROM_BILL_TITLE",
+          "span_ids": [
+            "quoted_span"
+          ]
+        },
+        "title": {
+          "category": "stated",
+          "basis": "The title appears on the page.",
+          "derivation_rule": null,
+          "span_ids": [
+            "quoted_span"
+          ]
+        },
+        "requirement": {
+          "category": "inferred",
+          "basis": "Only the title is on the page.",
+          "derivation_rule": null,
+          "span_ids": [
+            "quoted_span"
+          ]
+        },
+        "key_value": {
+          "category": "unknown",
+          "basis": "No text.",
+          "derivation_rule": null,
+          "span_ids": []
+        },
+        "coverage_conditions": {
+          "category": "inferred",
+          "basis": "Statewide if enacted.",
+          "derivation_rule": null,
+          "span_ids": [
+            "quoted_span"
+          ]
+        },
+        "exemptions": {
+          "category": "unknown",
+          "basis": "No text.",
+          "derivation_rule": null,
+          "span_ids": []
+        },
+        "citation": {
+          "category": "stated",
+          "basis": "Bill designation on the page.",
+          "derivation_rule": null,
+          "span_ids": [
+            "quoted_span"
+          ]
+        },
+        "status": {
+          "category": "derived",
+          "basis": "Reported favorably and referred to Ways and Means: not enacted.",
+          "derivation_rule": "STATUS_PENDING_IF_NOT_ENACTED",
+          "span_ids": [
+            "s1"
+          ]
+        },
+        "effective_date": {
+          "category": "unknown",
+          "basis": "No text.",
+          "derivation_rule": null,
+          "span_ids": []
+        },
+        "overrides": {
+          "category": "unknown",
+          "basis": "No precedence relationship was extracted from this document; cross-document precedence is not established by single-document extraction.",
+          "derivation_rule": null,
+          "span_ids": []
+        },
+        "interaction": {
+          "category": "unknown",
+          "basis": "No precedence relationship was extracted from this document; cross-document precedence is not established by single-document extraction.",
+          "derivation_rule": null,
+          "span_ids": []
+        },
+        "level": {
+          "category": "derived",
+          "basis": "Level follows from the jurisdiction format (a bare state code is state, 'City, ST' is city).",
+          "derivation_rule": "LEVEL_FROM_JURISDICTION_FORMAT",
+          "span_ids": []
+        }
+      },
+      "supporting_spans": [
+        {
+          "id": "s1",
+          "text": "Bill reported favorably by committee and referred to the committee on House Ways and Means",
+          "supports": [
+            "status"
+          ],
+          "verified": true
+        }
+      ],
+      "source_kind": "bill_text",
+      "instrument_type": "bill",
+      "retrieved_at": "2026-10-01 22:36 UTC",
+      "relations_declared": [],
+      "relations_unresolved": [],
+      "external_unverified_claims": [],
+      "provenance": {
+        "doc_id": "D045",
+        "text_file": "corpus/text/D045.txt",
+        "text_file_sha256_local": "8bc537dfe4d0e00b829147ae82ba11d40bef8a2b0696f487c417ca517673bba7",
+        "manifest_hash_scope": "unknown",
+        "manifest_sha256_reported_unverified": "cc3a2eee30cb567368f01c10da2da5c38703954d3640199539737980a4caf8ca",
+        "prompt_version": "extract-v1",
+        "prompt_sha256": "af4a85a1530cf4e41e4750933797ad82b5d901d85e42d442127a0b12a45de31a",
+        "transport": "echo",
+        "model": "echo-fixture",
+        "as_of": "2026-10-01",
+        "candidate_index": 0
+      },
+      "provenance_grade": "source_text",
+      "quoted_span_kind": "source_text"
+    },
+    {
+      "team_rule_id": "MA-ALG-P2",
+      "jurisdiction": "MA",
+      "level": "state",
+      "category": "algorithmic_rent_setting",
+      "status": "pending",
+      "title": "S.2983 An Act prohibiting algorithmic rent setting",
+      "requirement": "A pending Massachusetts bill on algorithmic rent setting. The page gives its title and history, not its text.",
+      "key_value": null,
+      "coverage_conditions": {
+        "predicates": [
+          {
+            "fact": "state",
+            "op": "eq",
+            "value": "MA"
+          }
+        ],
+        "needs_fact": [],
+        "note": "If enacted as written; the bill text is not on this page."
+      },
+      "exemptions": null,
+      "overrides": [],
+      "interaction": null,
+      "effective_date": null,
+      "citation": "S.2983",
+      "source_doc_id": "D046",
+      "source_url": "https://malegislature.gov/Bills/194/S2983",
+      "quoted_span": "An Act prohibiting algorithmic rent setting",
+      "confidence": 0.7,
+      "conflict_flag": false,
+      "conflict_note": null,
+      "status_establishable": true,
+      "status_basis": "derived",
+      "epistemics": {
+        "rental_housing_applicability": {
+          "category": "stated",
+          "basis": "The title concerns rent.",
+          "derivation_rule": null,
+          "span_ids": [
+            "quoted_span"
+          ]
+        },
+        "jurisdiction": {
+          "category": "stated",
+          "basis": "Massachusetts Legislature page.",
+          "derivation_rule": null,
+          "span_ids": [
+            "quoted_span"
+          ]
+        },
+        "category": {
+          "category": "derived",
+          "basis": "The bill title concerns algorithmic rent setting.",
+          "derivation_rule": "CATEGORY_FROM_BILL_TITLE",
+          "span_ids": [
+            "quoted_span"
+          ]
+        },
+        "title": {
+          "category": "stated",
+          "basis": "The title appears on the page.",
+          "derivation_rule": null,
+          "span_ids": [
+            "quoted_span"
+          ]
+        },
+        "requirement": {
+          "category": "inferred",
+          "basis": "Only the title is on the page.",
+          "derivation_rule": null,
+          "span_ids": [
+            "quoted_span"
+          ]
+        },
+        "key_value": {
+          "category": "unknown",
+          "basis": "No text.",
+          "derivation_rule": null,
+          "span_ids": []
+        },
+        "coverage_conditions": {
+          "category": "inferred",
+          "basis": "Statewide if enacted.",
+          "derivation_rule": null,
+          "span_ids": [
+            "quoted_span"
+          ]
+        },
+        "exemptions": {
+          "category": "unknown",
+          "basis": "No text.",
+          "derivation_rule": null,
+          "span_ids": []
+        },
+        "citation": {
+          "category": "stated",
+          "basis": "Bill designation on the page.",
+          "derivation_rule": null,
+          "span_ids": [
+            "quoted_span"
+          ]
+        },
+        "status": {
+          "category": "derived",
+          "basis": "Reported favorably and referred to Ways and Means: not enacted.",
+          "derivation_rule": "STATUS_PENDING_IF_NOT_ENACTED",
+          "span_ids": [
+            "s1"
+          ]
+        },
+        "effective_date": {
+          "category": "unknown",
+          "basis": "No text.",
+          "derivation_rule": null,
+          "span_ids": []
+        },
+        "overrides": {
+          "category": "unknown",
+          "basis": "No precedence relationship was extracted from this document; cross-document precedence is not established by single-document extraction.",
+          "derivation_rule": null,
+          "span_ids": []
+        },
+        "interaction": {
+          "category": "unknown",
+          "basis": "No precedence relationship was extracted from this document; cross-document precedence is not established by single-document extraction.",
+          "derivation_rule": null,
+          "span_ids": []
+        },
+        "level": {
+          "category": "derived",
+          "basis": "Level follows from the jurisdiction format (a bare state code is state, 'City, ST' is city).",
+          "derivation_rule": "LEVEL_FROM_JURISDICTION_FORMAT",
+          "span_ids": []
+        }
+      },
+      "supporting_spans": [
+        {
+          "id": "s1",
+          "text": "Bill reported favorably by committee and referred to the committee on Senate Ways and Means",
+          "supports": [
+            "status"
+          ],
+          "verified": true
+        }
+      ],
+      "source_kind": "bill_text",
+      "instrument_type": "bill",
+      "retrieved_at": "2026-10-01 22:36 UTC",
+      "relations_declared": [],
+      "relations_unresolved": [],
+      "external_unverified_claims": [],
+      "provenance": {
+        "doc_id": "D046",
+        "text_file": "corpus/text/D046.txt",
+        "text_file_sha256_local": "6ea5313d0a656ab73b683e72b594cf143ee61bd6923ee1d9f3df46682248004d",
+        "manifest_hash_scope": "unknown",
+        "manifest_sha256_reported_unverified": "d6ea7aaf0dd90e92cbb141ec127402e0db1e00fa3aa67d67a0f1264dd2b96827",
+        "prompt_version": "extract-v1",
+        "prompt_sha256": "af4a85a1530cf4e41e4750933797ad82b5d901d85e42d442127a0b12a45de31a",
+        "transport": "echo",
+        "model": "echo-fixture",
+        "as_of": "2026-10-01",
+        "candidate_index": 0,
+        "also_seen_in": [
+          "D047"
+        ]
+      },
+      "provenance_grade": "source_text",
+      "quoted_span_kind": "source_text"
+    },
+    {
+      "team_rule_id": "NJ-ALG-01",
+      "jurisdiction": "NJ",
+      "level": "state",
+      "category": "algorithmic_rent_setting",
+      "status": "not_yet_effective",
+      "title": "New Jersey FAIR Act (P.L. 2026, c.43)",
+      "requirement": "It is unlawful, and a violation of the New Jersey Antitrust Act, for a coordinator to facilitate agreements among rental property owners that restrict competition, including by performing a coordinating function, and for a rental property owner to pay for a coordinator's services.",
+      "key_value": null,
+      "coverage_conditions": {
+        "predicates": [
+          {
+            "fact": "state",
+            "op": "eq",
+            "value": "NJ"
+          }
+        ],
+        "needs_fact": [],
+        "note": "Rental residential dwelling units in New Jersey; inpatient medical care, licensed long-term care and detention facilities are excluded from the definition."
+      },
+      "exemptions": "Coordinating function excludes research or testing use, free public rent estimates, certain brokerage databases and government affordability controls.",
+      "overrides": [],
+      "interaction": null,
+      "effective_date": "2027-07-01",
+      "citation": "P.L. 2026, c.43 (A3497), C.56:9-20 to 56:9-26",
+      "source_doc_id": "D069",
+      "source_url": "https://pub.njleg.state.nj.us/Bills/2026/AL26/43_.HTM",
+      "quoted_span": "b. a coordinator to facilitate a tacit or express agreement among rental property owners that restricts competition with respect to residential dwelling units, including by performing a coordinating function;",
+      "confidence": 0.85,
+      "conflict_flag": true,
+      "conflict_note": "Section 6.b says a municipality is prohibited from 'enacting' a conflicting ordinance. The word is enacting only: the clause does not say maintain, enforce, void or supersede; the text has no savings clause for existing ordinances and repeals nothing; 'conflicts' is not defined; the act names neither Jersey City nor Hoboken as conflicting (Hoboken appears only in a legislative finding about rent increases). Nothing here shows the clause affects ordinances already enacted. The act has a single effective-date clause, so on its face the clause is not operative on 2026-10-01.",
+      "status_establishable": true,
+      "status_basis": "derived",
+      "epistemics": {
+        "rental_housing_applicability": {
+          "category": "stated",
+          "basis": "The act concerns residential rental property.",
+          "derivation_rule": null,
+          "span_ids": [
+            "s4"
+          ]
+        },
+        "jurisdiction": {
+          "category": "stated",
+          "basis": "A New Jersey public law.",
+          "derivation_rule": null,
+          "span_ids": [
+            "s1"
+          ]
+        },
+        "category": {
+          "category": "stated",
+          "basis": "The act concerns residential rental property pricing by algorithm.",
+          "derivation_rule": null,
+          "span_ids": [
+            "s4"
+          ]
+        },
+        "title": {
+          "category": "stated",
+          "basis": "The act names itself the FAIR Act.",
+          "derivation_rule": null,
+          "span_ids": [
+            "s1"
+          ]
+        },
+        "requirement": {
+          "category": "derived",
+          "basis": "Paraphrase of section 4.",
+          "derivation_rule": "PARAPHRASE_OF_QUOTED_SECTIONS",
+          "span_ids": [
+            "quoted_span"
+          ]
+        },
+        "key_value": {
+          "category": "unknown",
+          "basis": "No headline number.",
+          "derivation_rule": null,
+          "span_ids": []
+        },
+        "coverage_conditions": {
+          "category": "stated",
+          "basis": "Definitions limit the act to residential dwelling units in the State.",
+          "derivation_rule": null,
+          "span_ids": [
+            "s4"
+          ]
+        },
+        "exemptions": {
+          "category": "derived",
+          "basis": "Summarises the exclusions from 'coordinating function'.",
+          "derivation_rule": "PARAPHRASE_OF_QUOTED_SECTIONS",
+          "span_ids": [
+            "quoted_span"
+          ]
+        },
+        "citation": {
+          "category": "stated",
+          "basis": "Public law and chapter appear in the text.",
+          "derivation_rule": null,
+          "span_ids": [
+            "s1"
+          ]
+        },
+        "status": {
+          "category": "derived",
+          "basis": "Enacted July 20, 2026 with an operative date after 2026-10-01.",
+          "derivation_rule": "ENACTED_WITH_OPERATIVE_DATE_AFTER_AS_OF",
+          "span_ids": [
+            "s1",
+            "s2"
+          ]
+        },
+        "effective_date": {
+          "category": "derived",
+          "basis": "First day of the twelfth month following July 2026 is 2027-07-01.",
+          "derivation_rule": "FIRST_DAY_OF_NTH_MONTH_FOLLOWING_ENACTMENT_N_12",
+          "span_ids": [
+            "s1",
+            "s2"
+          ]
+        },
+        "overrides": {
+          "category": "unknown",
+          "basis": "A relation was declared but could not be resolved to a rule in the output (see relations_unresolved).",
+          "derivation_rule": null,
+          "span_ids": []
+        },
+        "interaction": {
+          "category": "unknown",
+          "basis": "A relation was declared but could not be resolved to a rule in the output (see relations_unresolved).",
+          "derivation_rule": null,
+          "span_ids": []
+        },
+        "level": {
+          "category": "derived",
+          "basis": "Level follows from the jurisdiction format (a bare state code is state, 'City, ST' is city).",
+          "derivation_rule": "LEVEL_FROM_JURISDICTION_FORMAT",
+          "span_ids": []
+        }
+      },
+      "supporting_spans": [
+        {
+          "id": "s1",
+          "text": "P.L. 2026, CHAPTER 43, approved July 20, 2026",
+          "supports": [
+            "effective_date",
+            "status"
+          ],
+          "verified": true
+        },
+        {
+          "id": "s2",
+          "text": "9. This act shall take effect on the first day of the twelfth month next following the date of enactment.",
+          "supports": [
+            "effective_date",
+            "status"
+          ],
+          "verified": true
+        },
+        {
+          "id": "s3",
+          "text": "A municipality shall be prohibited from enacting an ordinance that conflicts with this act. This subsection shall not be construed to prohibit the enactment of ordinances explicitly authorized or required by any other law.",
+          "supports": [
+            "conflict_note"
+          ],
+          "verified": true
+        },
+        {
+          "id": "s4",
+          "text": "An Act concerning residential rental property pricing and supplementing P.L.1970, c.73",
+          "supports": [
+            "rental_housing_applicability",
+            "citation"
+          ],
+          "verified": true
+        }
+      ],
+      "source_kind": "primary_legal_text",
+      "instrument_type": "statute",
+      "retrieved_at": "2026-10-01 22:56 UTC",
+      "relations_declared": [
+        {
+          "interaction": "preempts_pending",
+          "target_jurisdiction": "Hoboken, NJ",
+          "target_category": "algorithmic_rent_setting",
+          "category": "inferred",
+          "basis": "Section 6.b bars municipal ordinances that conflict with the act; whether any existing ordinance conflicts is not stated.",
+          "span_ids": [
+            "s3"
+          ]
+        },
+        {
+          "interaction": "preempts_pending",
+          "target_jurisdiction": "Jersey City, NJ",
+          "target_category": "algorithmic_rent_setting",
+          "category": "inferred",
+          "basis": "Section 6.b bars municipal ordinances that conflict with the act; whether any existing ordinance conflicts is not stated.",
+          "span_ids": [
+            "s3"
+          ]
+        }
+      ],
+      "relations_unresolved": [
+        {
+          "interaction": "preempts_pending",
+          "target_jurisdiction": "Hoboken, NJ",
+          "target_category": "algorithmic_rent_setting",
+          "category": "inferred",
+          "basis": "Section 6.b bars municipal ordinances that conflict with the act; whether any existing ordinance conflicts is not stated.",
+          "span_ids": [
+            "s3"
+          ],
+          "reason": "no_matching_rule_in_output"
+        },
+        {
+          "interaction": "preempts_pending",
+          "target_jurisdiction": "Jersey City, NJ",
+          "target_category": "algorithmic_rent_setting",
+          "category": "inferred",
+          "basis": "Section 6.b bars municipal ordinances that conflict with the act; whether any existing ordinance conflicts is not stated.",
+          "span_ids": [
+            "s3"
+          ],
+          "reason": "no_matching_rule_in_output"
+        }
+      ],
+      "external_unverified_claims": [],
+      "provenance": {
+        "doc_id": "D069",
+        "text_file": "corpus/text/D069.txt",
+        "text_file_sha256_local": "1fdbfb48743a46429c3f47dbd8d08c665739202361661e1a2f19b94bb0ec43a6",
+        "manifest_hash_scope": "unknown",
+        "manifest_sha256_reported_unverified": "eb4d4e4797616e5bc1d641db418d4e6cfc3064e1cef925725f83c77472a154f0",
+        "prompt_version": "extract-v1",
+        "prompt_sha256": "af4a85a1530cf4e41e4750933797ad82b5d901d85e42d442127a0b12a45de31a",
+        "transport": "echo",
+        "model": "echo-fixture",
+        "as_of": "2026-10-01",
+        "candidate_index": 0
+      },
+      "provenance_grade": "source_text",
+      "quoted_span_kind": "source_text"
+    },
+    {
+      "team_rule_id": "SD-ALG-01",
+      "jurisdiction": "San Diego, CA",
+      "level": "city",
+      "category": "algorithmic_rent_setting",
+      "status": "pending",
+      "title": "San Diego proposed ordinance: automated rent price-fixing prohibition (SDMC div. 11)",
+      "requirement": "As proposed, it would be unlawful to sell or license an algorithmic device to a landlord, and unlawful for a landlord to use one to set rental rates or occupancy levels for residential rental property. The document is a proposal; final passage is not shown.",
+      "key_value": "Civil penalties up to $1,000 per violation in a tenant action",
+      "coverage_conditions": {
+        "predicates": [
+          {
+            "fact": "jurisdiction",
+            "op": "eq",
+            "value": "San Diego, CA"
+          }
+        ],
+        "needs_fact": [
+          "definitions incorporated by reference from SDMC sec. 98.0702 (landlord, lease, residential rental property, tenant), not reproduced in this document"
+        ],
+        "note": "Coverage boundaries cannot be verified from this document because the key definitions are incorporated, not reproduced."
+      },
+      "exemptions": "Algorithmic device excludes aggregated historical reports and affordable-housing limit tools.",
+      "overrides": [],
+      "interaction": null,
+      "effective_date": null,
+      "citation": "Proposed SDMC secs. 98.1101-98.1104 (draft reference O-2025-107)",
+      "source_doc_id": "D076",
+      "source_url": "https://sandiego.gov/sites/default/files/2025-04/automated-rent-price-fixing-prohibition-ordinance-materials.pdf",
+      "quoted_span": "(b) It is unlawful for a landlord to use an algorithmic device to set rental rates or occupancy levels for residential rental property.",
+      "confidence": 0.6,
+      "conflict_flag": true,
+      "conflict_note": "Final passage is unsupported by the document: DATE OF FINAL PASSAGE is blank, the ordinance number is blank, the clerk certification is an unfilled template, the mayoral approved and vetoed dates are blank, and the staff report says the councilmember 'proposes' the ban. Definitions of landlord, lease, residential rental property and tenant are incorporated from SDMC sec. 98.0702 but not reproduced, so coverage boundaries cannot be verified from this document.",
+      "status_establishable": true,
+      "status_basis": "derived",
+      "epistemics": {
+        "rental_housing_applicability": {
+          "category": "stated",
+          "basis": "The ordinance concerns landlords and residential rental property.",
+          "derivation_rule": null,
+          "span_ids": [
+            "quoted_span"
+          ]
+        },
+        "jurisdiction": {
+          "category": "stated",
+          "basis": "San Diego Municipal Code.",
+          "derivation_rule": null,
+          "span_ids": [
+            "s5"
+          ]
+        },
+        "category": {
+          "category": "stated",
+          "basis": "Automated rent price-fixing prohibition.",
+          "derivation_rule": null,
+          "span_ids": [
+            "quoted_span"
+          ]
+        },
+        "title": {
+          "category": "derived",
+          "basis": "Composed from the staff report subject.",
+          "derivation_rule": "TITLE_FROM_CAPTION_AND_SECTION",
+          "span_ids": [
+            "s2"
+          ]
+        },
+        "requirement": {
+          "category": "derived",
+          "basis": "Paraphrase of 98.1103.",
+          "derivation_rule": "PARAPHRASE_OF_QUOTED_SECTIONS",
+          "span_ids": [
+            "quoted_span"
+          ]
+        },
+        "key_value": {
+          "category": "derived",
+          "basis": "Summarises 98.1104.",
+          "derivation_rule": "PARAPHRASE_OF_QUOTED_SECTIONS",
+          "span_ids": [
+            "quoted_span"
+          ]
+        },
+        "coverage_conditions": {
+          "category": "stated",
+          "basis": "Definitions are incorporated by reference from SDMC 98.0702.",
+          "derivation_rule": null,
+          "span_ids": [
+            "s5"
+          ]
+        },
+        "exemptions": {
+          "category": "derived",
+          "basis": "Summarises the algorithmic device exclusions.",
+          "derivation_rule": "PARAPHRASE_OF_QUOTED_SECTIONS",
+          "span_ids": [
+            "quoted_span"
+          ]
+        },
+        "citation": {
+          "category": "stated",
+          "basis": "The footer carries a draft reference.",
+          "derivation_rule": null,
+          "span_ids": [
+            "s5"
+          ]
+        },
+        "status": {
+          "category": "derived",
+          "basis": "Proposal stage: the staff report proposes it, the final passage date and ordinance number are blank, the adoption certificate is unfilled.",
+          "derivation_rule": "STATUS_PENDING_IF_PROPOSED_AND_NOT_ENACTED",
+          "span_ids": [
+            "s1",
+            "s2",
+            "s3"
+          ]
+        },
+        "effective_date": {
+          "category": "unknown",
+          "basis": "Section 3 runs from final passage, which is blank, so no date follows.",
+          "derivation_rule": null,
+          "span_ids": []
+        },
+        "overrides": {
+          "category": "unknown",
+          "basis": "No precedence relationship was extracted from this document; cross-document precedence is not established by single-document extraction.",
+          "derivation_rule": null,
+          "span_ids": []
+        },
+        "interaction": {
+          "category": "unknown",
+          "basis": "No precedence relationship was extracted from this document; cross-document precedence is not established by single-document extraction.",
+          "derivation_rule": null,
+          "span_ids": []
+        },
+        "level": {
+          "category": "derived",
+          "basis": "Level follows from the jurisdiction format (a bare state code is state, 'City, ST' is city).",
+          "derivation_rule": "LEVEL_FROM_JURISDICTION_FORMAT",
+          "span_ids": []
+        }
+      },
+      "supporting_spans": [
+        {
+          "id": "s1",
+          "text": "DATE OF FINAL PASSAGE __________________",
+          "supports": [
+            "status"
+          ],
+          "verified": true
+        },
+        {
+          "id": "s2",
+          "text": "Councilmember Sean Elo-Rivera proposes to protect San Diegans from automated rent price-fixing",
+          "supports": [
+            "status"
+          ],
+          "verified": true
+        },
+        {
+          "id": "s3",
+          "text": "I certify that the Council of the City of San Diego adopted this Ordinance at a meeting held on",
+          "supports": [
+            "status"
+          ],
+          "verified": true
+        },
+        {
+          "id": "s4",
+          "text": "Section 3. This Ordinance will take effect and be in force on the thirtieth day from and after its final passage.",
+          "supports": [
+            "effective_date"
+          ],
+          "verified": true
+        },
+        {
+          "id": "s5",
+          "text": "Landlord has the same meaning as in San Diego Municipal Code section 98.0702, as may be amended.",
+          "supports": [
+            "coverage_conditions"
+          ],
+          "verified": true
+        }
+      ],
+      "source_kind": "primary_legal_text",
+      "instrument_type": "ordinance",
+      "retrieved_at": "2026-10-01 22:37 UTC",
+      "relations_declared": [],
+      "relations_unresolved": [],
+      "external_unverified_claims": [],
+      "provenance": {
+        "doc_id": "D076",
+        "text_file": "corpus/text/D076.txt",
+        "text_file_sha256_local": "31b29a40becda1c218d4f64aedcb56a44241857b0f5d8b451c7b20b5737edc1e",
+        "manifest_hash_scope": "unknown",
+        "manifest_sha256_reported_unverified": "199151161d82324eee612bc44556f1a727e26a0efa0c4a6ad61a0ee5772bb244",
+        "prompt_version": "extract-v1",
+        "prompt_sha256": "af4a85a1530cf4e41e4750933797ad82b5d901d85e42d442127a0b12a45de31a",
+        "transport": "echo",
+        "model": "echo-fixture",
+        "as_of": "2026-10-01",
+        "candidate_index": 0
+      },
+      "provenance_grade": "source_text",
+      "quoted_span_kind": "source_text"
+    },
+    {
+      "team_rule_id": "SF-ALG-01",
+      "jurisdiction": "San Francisco, CA",
+      "level": "city",
+      "category": "algorithmic_rent_setting",
+      "status": "in_force",
+      "title": "San Francisco Rent Ordinance sec. 37.10C: algorithmic devices [official summary, not the legal text]",
+      "requirement": "Per an official summary, not the legal text: The sale or use of algorithmic devices to set rents or manage occupancy levels for residential units in San Francisco is prohibited, and a tenant or the City Attorney may bring a civil action.",
+      "key_value": null,
+      "coverage_conditions": {
+        "predicates": [
+          {
+            "fact": "jurisdiction",
+            "op": "eq",
+            "value": "San Francisco, CA"
+          }
+        ],
+        "needs_fact": [],
+        "note": "Residential units in San Francisco, per the summary; coverage limits are not given."
+      },
+      "exemptions": null,
+      "overrides": [],
+      "interaction": null,
+      "effective_date": "2024-10-14",
+      "citation": "San Francisco Rent Ordinance sec. 37.10C (cited from: official summary, not the legal text; the legal text itself was not available)",
+      "source_doc_id": "D081",
+      "source_url": "https://www.sf.gov/news/new-law-prohibits-algorithmic-devices-used-set-rents-san-francisco",
+      "quoted_span": "The law prohibits the sale or use of such algorithmic devices and allows a tenant or the City Attorney to bring a civil action if they believe an entity is in violation of the law.",
+      "confidence": 0.5,
+      "conflict_flag": false,
+      "conflict_note": "This is a Rent Board news item, not the ordinance text. The ordinance number, adoption date, penalties, exemptions and coverage limits are absent, and the definition of 'algorithmic device' is a paraphrase.",
+      "status_establishable": true,
+      "status_basis": "derived",
+      "epistemics": {
+        "rental_housing_applicability": {
+          "category": "stated",
+          "basis": "The page is about the Rent Ordinance and tenants.",
+          "derivation_rule": null,
+          "span_ids": [
+            "quoted_span"
+          ]
+        },
+        "jurisdiction": {
+          "category": "stated",
+          "basis": "San Francisco Rent Board item.",
+          "derivation_rule": null,
+          "span_ids": [
+            "s1"
+          ]
+        },
+        "category": {
+          "category": "stated",
+          "basis": "Algorithmic devices used to set rents.",
+          "derivation_rule": null,
+          "span_ids": [
+            "quoted_span"
+          ]
+        },
+        "title": {
+          "category": "derived",
+          "basis": "Composed from the section number.",
+          "derivation_rule": "TITLE_FROM_CAPTION_AND_SECTION",
+          "span_ids": [
+            "s1"
+          ]
+        },
+        "requirement": {
+          "category": "derived",
+          "basis": "Paraphrase of the summary.",
+          "derivation_rule": "PARAPHRASE_OF_QUOTED_SECTIONS",
+          "span_ids": [
+            "quoted_span"
+          ]
+        },
+        "key_value": {
+          "category": "unknown",
+          "basis": "No number given.",
+          "derivation_rule": null,
+          "span_ids": []
+        },
+        "coverage_conditions": {
+          "category": "inferred",
+          "basis": "The summary says residential units in San Francisco; limits are not given.",
+          "derivation_rule": null,
+          "span_ids": [
+            "quoted_span"
+          ]
+        },
+        "exemptions": {
+          "category": "unknown",
+          "basis": "The summary gives no exemptions.",
+          "derivation_rule": null,
+          "span_ids": []
+        },
+        "citation": {
+          "category": "stated",
+          "basis": "Section 37.10C of the Rent Ordinance is named.",
+          "derivation_rule": null,
+          "span_ids": [
+            "s1"
+          ]
+        },
+        "status": {
+          "category": "derived",
+          "basis": "Stated effective date October 14, 2024 is before the as-of date.",
+          "derivation_rule": "ENACTED_WITH_OPERATIVE_DATE_BEFORE_AS_OF",
+          "span_ids": [
+            "s1"
+          ]
+        },
+        "effective_date": {
+          "category": "stated",
+          "basis": "The page says the law went into effect on October 14, 2024.",
+          "derivation_rule": null,
+          "span_ids": [
+            "s1"
+          ]
+        },
+        "overrides": {
+          "category": "unknown",
+          "basis": "No precedence relationship was extracted from this document; cross-document precedence is not established by single-document extraction.",
+          "derivation_rule": null,
+          "span_ids": []
+        },
+        "interaction": {
+          "category": "unknown",
+          "basis": "No precedence relationship was extracted from this document; cross-document precedence is not established by single-document extraction.",
+          "derivation_rule": null,
+          "span_ids": []
+        },
+        "level": {
+          "category": "derived",
+          "basis": "Level follows from the jurisdiction format (a bare state code is state, 'City, ST' is city).",
+          "derivation_rule": "LEVEL_FROM_JURISDICTION_FORMAT",
+          "span_ids": []
+        }
+      },
+      "supporting_spans": [
+        {
+          "id": "s1",
+          "text": "Legislation adding Section 37.10C to the Rent Ordinance went into effect on October 14, 2024.",
+          "supports": [
+            "effective_date",
+            "status",
+            "citation"
+          ],
+          "verified": true
+        }
+      ],
+      "source_kind": "official_summary",
+      "instrument_type": "ordinance",
+      "retrieved_at": "2026-10-01 22:37 UTC",
+      "relations_declared": [],
+      "relations_unresolved": [],
+      "external_unverified_claims": [],
+      "provenance": {
+        "doc_id": "D081",
+        "text_file": "corpus/text/D081.txt",
+        "text_file_sha256_local": "e3437f99eae3882641b5052fd7006f2a0304abd2033e1b721a8c32324be2afab",
+        "manifest_hash_scope": "unknown",
+        "manifest_sha256_reported_unverified": "c77c6ddad9b2a6c7dda9a5f0c37660eac4c2e4765f677e81dccd517555aad7c1",
+        "prompt_version": "extract-v1",
+        "prompt_sha256": "af4a85a1530cf4e41e4750933797ad82b5d901d85e42d442127a0b12a45de31a",
+        "transport": "echo",
+        "model": "echo-fixture",
+        "as_of": "2026-10-01",
+        "candidate_index": 0
+      },
+      "provenance_grade": "source_text",
+      "quoted_span_kind": "source_text"
+    }
+  ]
+}
