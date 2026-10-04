@@ -7,324 +7,440 @@
 <meta name="description" content="Which housing rules apply at this address, on this date. Every answer traces to exact source text, and every gap is named." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2311151A'/%3E%3Cpath d='M7 19.5 16 10l9 9.5' fill='none' stroke='%23C08A3E' stroke-width='2.6'/%3E%3Cpath d='M11 20v4h10v-4' fill='none' stroke='%23F6F7F8' stroke-width='2.2'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231F5BFF'/%3E%3Cpath d='M7 19.5 16 10l9 9.5' fill='none' stroke='%23FFD60A' stroke-width='3'/%3E%3Cpath d='M11 20v4h10v-4' fill='none' stroke='%23fff' stroke-width='2.4'/%3E%3C/svg%3E" />
 <style>
 :root{
-  --bg:#F6F7F8; --ink:#11151A; --panel:#FFFFFF; --line:#DDDAD1; --line2:#E6E4DF;
-  --muted:#6B6A65; --body:#3D3C38; --navy:#1B3A5C; --navy-d:#11253B; --navy-wash:#EDF1F5;
-  --ochre:#8A5A17; --ochre-l:#C08A3E; --ochre-d:#6B4410; --ochre-dd:#3D2A08;
-  --cream:#FDF6E8; --cream-line:#C9A96A; --cream-line2:#E3D3AE;
-  --lav:#5B4B8A; --lav-wash:#F1EEF8;
-  --dark:#11151A; --dark2:#1C2128; --dark-ink:#F6F7F8; --dark-mute:#9A9892;
-  --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --bg:#FFFFFF; --bg2:#F7F7F3; --ink:#0B0B12; --body:#2A2A35; --muted:#6B6B78; --line:#E6E6E0; --line2:#EFEFEA;
+  --yellow:#FFD60A; --yellow-d:#8A6B00; --yellow-wash:#FFF7CC;
+  --red:#FF3B3B; --red-d:#9A1414; --red-wash:#FFE5E5;
+  --blue:#1F5BFF; --blue-d:#0E34A8; --blue-wash:#E6EDFF;
+  --violet:#7B2CFF; --violet-d:#4A0FB0; --violet-wash:#F0E6FF;
+  --cyan:#00B8D9; --cyan-d:#00687A; --cyan-wash:#DDF7FC;
+  --slate:#5C6B8A; --slate-wash:#EDF0F6;
+  --dark:#0B0B12; --dark2:#16161F; --dark-ink:#F7F7F3; --dark-mute:#9A9AA8;
+  --display:'Syne',system-ui,sans-serif;
   --sans:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
 }
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 html,body{margin:0;padding:0}
-body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 button,input,select{font:inherit;color:inherit}
 button{cursor:pointer}
-a{color:var(--navy)}a:hover{color:var(--navy-d)}
-:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
-.drawer :focus-visible{outline:2px solid var(--ochre)}
+a{color:var(--blue)}a:hover{color:var(--blue-d)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
 .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.display{font-family:var(--display);font-weight:800;letter-spacing:-.035em;line-height:.95}
+.mark{position:relative;z-index:0;white-space:nowrap}
+.mark::after{content:"";position:absolute;left:-.04em;right:-.04em;bottom:.02em;height:.34em;background:var(--yellow);z-index:-1;border-radius:.05em;transform:rotate(-.6deg)}
 
-/* shell */
-.app{min-height:100vh;display:flex;flex-direction:column}
+/* ---------- blobs ---------- */
+.blobs{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;will-change:transform;animation:drift 26s ease-in-out infinite alternate}
+.blob.y{background:var(--yellow)} .blob.r{background:var(--red)} .blob.b{background:var(--blue)} .blob.v{background:var(--violet)} .blob.c{background:var(--cyan)}
+@keyframes drift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(6vw,-4vh) scale(1.12)}100%{transform:translate(-4vw,5vh) scale(.94)}}
 
-/* top bar */
-.topbar{background:var(--dark);color:var(--dark-ink);padding:13px 32px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
-.wordmark{display:flex;align-items:baseline;gap:14px;min-width:0}
-.wordmark strong{font-size:16px;font-weight:600;letter-spacing:-.01em;white-space:nowrap}
-.wordmark .stat{font-family:var(--mono);font-size:10.5px;color:var(--dark-mute);letter-spacing:.08em}
-.topnav{display:flex;gap:4px;align-items:center}
-.topnav button{background:transparent;border:1px solid transparent;color:var(--dark-mute);font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;padding:6px 11px}
-.topnav button:hover{color:var(--dark-ink);border-color:#3A3A38}
-.topnav button[aria-current="true"]{background:var(--dark-ink);color:var(--dark);border-color:var(--dark-ink)}
-.provenance{font-family:var(--mono);font-size:10px;color:var(--ochre-l);letter-spacing:.07em;text-align:right;line-height:1.65;max-width:460px}
+/* ---------- top nav ---------- */
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.brand .dot{width:30px;height:30px;border-radius:9px;background:var(--blue);display:grid;place-items:center}
+.brand strong{font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:-.02em}
+.topnav{display:flex;gap:6px}
+.topnav button{background:transparent;border:2px solid transparent;border-radius:999px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:8px 16px;color:var(--body)}
+.topnav button:hover{border-color:var(--ink)}
+.topnav button[aria-current="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.provenance{font-family:var(--mono);font-size:11px;letter-spacing:.06em;line-height:1.6;text-align:right;color:var(--muted);max-width:480px}
+.provenance b{color:var(--violet-d);font-weight:600}
 
-/* query bar */
-.querybar{background:var(--panel);border-bottom:1px solid var(--line);padding:16px 32px;display:flex;gap:20px;align-items:flex-end;flex-wrap:wrap}
-.field{display:flex;flex-direction:column;gap:6px;min-width:0}
-.field label{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
-.combo{position:relative;width:min(460px,46vw)}
-.combo input{width:100%;font-size:15px;padding:10px 12px;border:1px solid #B4B2AC;background:var(--panel)}
-.combo input:focus{border-color:var(--navy)}
-.suggest{position:absolute;z-index:40;top:calc(100% + 4px);left:0;right:0;background:var(--panel);border:1px solid var(--line);box-shadow:0 14px 34px rgba(17,21,26,.14);max-height:320px;overflow:auto}
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:88vh;display:flex;flex-direction:column;justify-content:center;padding:80px 40px 70px;overflow:hidden}
+.hero > :not(.blobs){position:relative;z-index:1}
+.hero .eyebrow{margin-bottom:22px}
+.hero h1{margin:0;font-size:clamp(46px,6.5vw,96px);max-width:none}
+.hero h1 .line2{display:block;color:var(--blue)}
+.hero p.lede{font-size:clamp(19px,1.9vw,25px);line-height:1.4;max-width:40ch;margin:28px 0 0;color:var(--body);font-weight:500}
+.hero-cta{display:flex;gap:14px;align-items:center;margin-top:30px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:16px 28px;font-weight:700;font-size:17px;border:3px solid var(--ink);background:var(--ink);color:#fff;text-decoration:none;transition:transform .15s ease,box-shadow .15s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(11,11,18,.18);color:#fff}
+.btn.ghost{background:#fff;color:var(--ink)}
+.btn.ghost:hover{color:var(--ink)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:54px}
+.stat{background:#fff;border:3px solid var(--ink);border-radius:22px;padding:26px 26px 22px;position:relative;overflow:hidden;box-shadow:8px 8px 0 var(--ink)}
+.stat .n{font-family:var(--display);font-weight:800;font-size:clamp(56px,6vw,84px);letter-spacing:-.04em;line-height:1}
+.stat .l{font-size:15px;color:var(--body);margin-top:8px;font-weight:600}
+.stat .s{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.stat.y{box-shadow:8px 8px 0 var(--yellow)} .stat.b{box-shadow:8px 8px 0 var(--blue)} .stat.v{box-shadow:8px 8px 0 var(--violet)} .stat.r{box-shadow:8px 8px 0 var(--red)}
+
+/* ---------- three pillars ---------- */
+.pillars{position:relative;padding:90px 40px;background:var(--bg2);overflow:hidden}
+.pillars > :not(.blobs){position:relative;z-index:1}
+.pillars h2{margin:0 0 40px;font-size:clamp(40px,5.2vw,72px);max-width:18ch}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+.pillar{background:#fff;border-radius:26px;padding:34px 32px 30px;border:3px solid var(--ink);position:relative;overflow:hidden;min-height:300px;display:flex;flex-direction:column}
+.pillar .num{font-family:var(--display);font-weight:800;font-size:76px;line-height:1;letter-spacing:-.04em;margin-bottom:14px}
+.pillar h3{margin:0 0 12px;font-size:28px;font-family:var(--display);font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.pillar p{margin:0;font-size:16.5px;line-height:1.55;color:var(--body)}
+.pillar .swatch{position:absolute;right:-50px;bottom:-60px;width:220px;height:220px;border-radius:50%;filter:blur(28px);opacity:.55}
+.pillar.b .num{color:var(--blue)} .pillar.b .swatch{background:var(--blue)}
+.pillar.y .num{color:var(--yellow-d)} .pillar.y .swatch{background:var(--yellow)}
+.pillar.v .num{color:var(--violet)} .pillar.v .swatch{background:var(--violet)}
+
+/* ---------- tool ---------- */
+.tool{position:relative;padding:90px 40px 60px}
+.tool-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:34px}
+.tool-head h2{margin:0;font-size:clamp(44px,6vw,88px)}
+.tool-head p{margin:0;max-width:40ch;font-size:18px;color:var(--body)}
+.querybar{background:#fff;border:3px solid var(--ink);border-radius:24px;padding:26px 28px;display:flex;gap:22px;align-items:flex-end;flex-wrap:wrap;box-shadow:10px 10px 0 var(--yellow)}
+.field{display:flex;flex-direction:column;gap:9px;min-width:0}
+.field label{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;font-weight:600}
+.combo{position:relative;width:min(560px,56vw)}
+.combo input{width:100%;font-size:20px;padding:16px 18px;border:3px solid var(--ink);border-radius:14px;background:#fff;font-weight:500}
+.combo input:focus{border-color:var(--blue);outline:none;box-shadow:0 0 0 4px var(--blue-wash)}
+.suggest{position:absolute;z-index:40;top:calc(100% + 8px);left:0;right:0;background:#fff;border:3px solid var(--ink);border-radius:16px;box-shadow:0 20px 50px rgba(11,11,18,.18);max-height:380px;overflow:auto}
 .suggest[hidden]{display:none}
 .suggest li{list-style:none}
-.suggest button{display:flex;width:100%;justify-content:space-between;gap:14px;background:none;border:0;border-bottom:1px solid var(--line2);padding:9px 12px;text-align:left;font-size:13px}
-.suggest button:hover,.suggest button[aria-selected="true"]{background:var(--navy-wash)}
-.suggest .sid{font-family:var(--mono);font-size:11px;color:var(--muted);flex:none}
-.seg{display:flex;border:1px solid #B4B2AC}
-.seg button{font-family:var(--mono);font-size:13px;padding:10px 16px;border:0;background:var(--panel);color:#55534E}
-.seg button[aria-checked="true"]{background:var(--dark);color:#fff}
-.lookup{background:var(--navy);color:#fff;border:0;padding:11px 24px;font-size:14px;font-weight:500}
-.lookup:hover{background:var(--navy-d)}
-.hint{margin-left:auto;text-align:right;font-size:11px;color:var(--muted);line-height:1.5;max-width:230px}
+.suggest button{display:flex;width:100%;justify-content:space-between;gap:14px;background:none;border:0;border-bottom:1px solid var(--line2);padding:13px 16px;text-align:left;font-size:16px}
+.suggest button:hover,.suggest button[aria-selected="true"]{background:var(--blue-wash)}
+.suggest .sid{font-family:var(--mono);font-size:12px;color:var(--muted);flex:none}
+.seg{display:flex;border:3px solid var(--ink);border-radius:14px;overflow:hidden}
+.seg button{font-family:var(--mono);font-size:17px;font-weight:600;padding:16px 22px;border:0;background:#fff;color:var(--body)}
+.seg button[aria-checked="true"]{background:var(--ink);color:#fff}
+.lookup{background:var(--blue);color:#fff;border:3px solid var(--blue);border-radius:14px;padding:16px 30px;font-size:19px;font-weight:700;transition:transform .15s ease}
+.lookup:hover{transform:translateY(-2px);background:var(--blue-d);border-color:var(--blue-d)}
+.hint{margin-left:auto;text-align:right;font-size:14px;color:var(--muted);line-height:1.5;max-width:260px}
 
-/* body */
-.body{display:flex;flex:1;min-height:0;align-items:stretch}
-.rail{width:320px;flex:none;background:var(--panel);border-right:1px solid var(--line);padding:22px 24px;display:flex;flex-direction:column;gap:22px}
-.rail section{display:flex;flex-direction:column;gap:10px}
+.body{display:grid;grid-template-columns:380px 1fr;gap:28px;margin-top:34px;align-items:start}
+.rail{background:#fff;border:3px solid var(--ink);border-radius:24px;padding:28px 26px;display:flex;flex-direction:column;gap:30px;position:sticky;top:90px}
+.rail section{display:flex;flex-direction:column;gap:12px}
 .kv{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
-.kv .k{font-size:12px;color:var(--muted)}
-.kv .v{font-family:var(--mono);font-size:13px;text-align:right}
-.kv.legal .k{color:var(--navy);font-weight:500}
-.kv.legal .v{font-family:var(--sans);font-size:14px;font-weight:600}
-.dashrow{padding-bottom:8px;border-bottom:1px dashed var(--line)}
-.note-navy{background:var(--navy-wash);border-left:3px solid var(--navy);padding:9px 11px;font-size:11px;line-height:1.55;color:var(--navy)}
-.note-ochre{font-size:11px;line-height:1.5;color:var(--ochre)}
-.stackrow{background:var(--bg);border:1px solid var(--line);padding:9px 11px;display:flex;justify-content:space-between;align-items:center}
-.stackrow .sl{font-size:12px;font-weight:500}
-.stackrow .sv{font-family:var(--mono);font-size:11px;color:var(--muted)}
-.missing{font-family:var(--mono);background:var(--cream);color:var(--ochre-d);border:1px dashed var(--cream-line);padding:1px 6px;font-size:11px}
-.railbtn{width:100%;background:var(--panel);border:1px solid #B4B2AC;padding:9px;font-size:12px;color:var(--body)}
-.railbtn:hover{border-color:var(--navy);color:var(--navy)}
+.kv .k{font-size:15px;color:var(--muted);font-weight:500}
+.kv .v{font-family:var(--mono);font-size:17px;text-align:right;font-weight:600}
+.dashrow{padding-bottom:10px;border-bottom:2px dashed var(--line)}
+.legal-big{margin-top:6px}
+.legal-big .k{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);font-weight:600}
+.legal-big .v{font-family:var(--display);font-weight:800;font-size:40px;letter-spacing:-.03em;line-height:1;margin-top:6px;color:var(--ink)}
+.legal-big .v.unres{color:var(--violet);font-size:28px}
+.note-blue{background:var(--blue-wash);border-left:5px solid var(--blue);border-radius:0 12px 12px 0;padding:12px 14px;font-size:14px;line-height:1.5;color:var(--blue-d);font-weight:500}
+.note-violet{background:var(--violet-wash);border-left:5px solid var(--violet);border-radius:0 12px 12px 0;padding:12px 14px;font-size:14px;line-height:1.5;color:var(--violet-d);font-weight:500}
+.note-y{font-size:13.5px;line-height:1.5;color:var(--yellow-d);font-weight:500}
+.stackrow{background:var(--bg2);border:2px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center}
+.stackrow .sl{font-size:15px;font-weight:700}
+.stackrow .sv{font-family:var(--mono);font-size:13px;color:var(--muted);font-weight:600}
+.missing{font-family:var(--mono);background:var(--yellow);color:var(--ink);border-radius:8px;padding:3px 9px;font-size:12px;font-weight:600;letter-spacing:.02em}
+.railbtn{width:100%;background:#fff;border:3px solid var(--ink);border-radius:12px;padding:12px;font-size:15px;font-weight:700}
+.railbtn:hover{background:var(--ink);color:#fff}
 
-/* results */
-.results{flex:1;min-width:0;padding:24px 32px 40px;display:flex;flex-direction:column;gap:16px}
+.results{min-width:0;display:flex;flex-direction:column;gap:20px}
 .rhead{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
-.rhead h1{margin:0;font-size:26px;font-weight:600;letter-spacing:-.03em;line-height:1.15}
-.rhead .sub{font-size:12.5px;color:var(--muted);margin-top:5px}
-.countline{font-family:var(--mono);font-size:11px;color:var(--muted);text-align:right;line-height:1.7;flex:none}
-.tally{display:inline-flex;align-items:center;gap:5px;margin-left:10px}
-.tally i{width:8px;height:8px;display:inline-block}
-.t-applies{background:var(--navy)}.t-unknown{background:var(--ochre-l)}.t-ind{background:var(--ochre-dd)}
-.t-timed{background:transparent;border:1.5px solid var(--navy)}.t-sup{background:var(--lav)}
+.rhead h1{margin:0;font-size:clamp(40px,4.6vw,64px)}
+.rhead .sub{font-size:15px;color:var(--muted);margin-top:8px;font-family:var(--mono)}
+.countline{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;max-width:480px}
+.tally{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:13px;font-weight:600;padding:7px 12px;border-radius:999px;background:var(--bg2);border:2px solid var(--line)}
+.tally i{width:12px;height:12px;border-radius:50%;display:inline-block}
+.t-applies{background:var(--blue)}.t-unknown{background:var(--yellow)}.t-indeterminate{background:var(--violet)}.t-timed{background:var(--cyan)}.t-superseded{background:var(--slate)}
+.cmp{font-family:var(--mono);font-size:13px;color:var(--muted);width:100%;text-align:right}
 
-.diffbanner{background:#FFF4E2;border:1px solid var(--ochre-l);border-left:4px solid var(--ochre-l);padding:13px 16px;display:flex;align-items:center;gap:13px;font-size:13px;line-height:1.5;color:#5E4010}
+.diffbanner{background:var(--yellow-wash);border:3px solid var(--yellow);border-radius:18px;padding:18px 22px;display:flex;align-items:center;gap:16px;font-size:16px;line-height:1.5;color:var(--yellow-d)}
+.diffbanner strong{color:var(--ink)}
 
-.card{background:var(--panel);border:1px solid var(--line);border-left:5px solid var(--navy);padding:20px 22px;display:flex;flex-direction:column;gap:12px;transition:box-shadow .15s ease,transform .15s ease}
-.card:hover{box-shadow:0 6px 22px rgba(17,21,26,.07)}
-.card.unknown{background:var(--cream);border-color:var(--cream-line);border-left-color:var(--ochre)}
-.card.indeterminate{background:var(--cream);border-color:var(--cream-line);border-left:5px double var(--ochre)}
-.card.timed{border-left:5px dashed var(--navy)}
-.card.superseded{border-left-color:var(--lav);background:var(--lav-wash)}
-.card.changed{box-shadow:inset 4px 0 0 var(--ochre-l)}
-.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
-.card-id{font-family:var(--mono);font-size:11px;color:var(--muted);text-align:right;flex:none;line-height:1.6}
-.card.unknown .card-id,.card.indeterminate .card-id{color:var(--ochre)}
-.card h2{margin:0;font-size:17px;font-weight:600;letter-spacing:-.01em;line-height:1.3}
-.card.unknown h2,.card.indeterminate h2{color:var(--ochre-dd)}
-.chip{display:inline-flex;align-items:center;gap:7px;align-self:flex-start;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;padding:4px 9px}
-.chip.applies{background:var(--navy);color:#fff}
-.chip.unknown{background:#fff;color:var(--ochre-d);border:1.5px dashed var(--ochre)}
-.chip.indeterminate{background:var(--ochre-dd);color:var(--cream)}
-.chip.timed{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
-.chip.superseded{background:#fff;color:var(--lav);border:1.5px solid var(--lav)}
-.requirement{font-size:13.5px;line-height:1.6;color:var(--body)}
-.card.unknown .requirement,.card.indeterminate .requirement{color:#5A4410}
-.why{background:var(--bg);border:1px solid var(--line2);border-left:3px solid var(--navy);padding:11px 13px;font-size:12px;line-height:1.55;color:var(--body)}
-.morebtn{display:block;margin-top:7px;background:none;border:0;padding:0;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);text-decoration:underline;text-underline-offset:3px}
-.card.unknown .morebtn,.card.indeterminate .morebtn{color:var(--ochre-d)}
-.gapbox{background:#fff;border:1px solid var(--cream-line2);padding:13px 15px;display:flex;flex-direction:column;gap:8px}
-.gapline{font-size:12.5px;line-height:1.55;color:var(--ochre-d)}
-.gapfield{display:flex;gap:10px;font-size:12px;color:var(--ochre-d);align-items:flex-start}
-.gapfield .gk{font-family:var(--mono);color:var(--ochre);width:84px;flex:none;font-size:10.5px;letter-spacing:.06em;padding-top:2px}
-.cardfoot{display:flex;gap:9px;align-items:center;flex-wrap:wrap;border-top:1px dashed var(--line);padding-top:11px;font-size:11.5px;color:var(--muted)}
-.card.unknown .cardfoot,.card.indeterminate .cardfoot{border-top-color:var(--cream-line)}
-.epi{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;padding:3px 7px}
-.epi.stated{background:var(--navy);color:#fff}
-.epi.derived{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
-.epi.summary{background:var(--cream);color:var(--ochre-d);border:1px dashed var(--cream-line)}
-.evlink{margin-left:auto;font-size:12px;font-weight:500;background:none;border:0;padding:4px 2px;text-decoration:underline;text-underline-offset:3px}
-.card.unknown .evlink,.card.indeterminate .evlink{color:var(--ochre-d)}
-.conflict{display:flex;gap:9px;align-items:flex-start;background:#FFF4E2;border:1px solid var(--cream-line);padding:9px 11px;font-size:11.5px;line-height:1.5;color:#5E4010}
+.card{background:#fff;border:3px solid var(--ink);border-radius:24px;padding:28px 30px;display:flex;flex-direction:column;gap:16px;position:relative;transition:transform .18s ease,box-shadow .18s ease;box-shadow:8px 8px 0 var(--line)}
+.card:hover{transform:translateY(-3px);box-shadow:12px 12px 0 var(--line)}
+.card.applies{box-shadow:8px 8px 0 var(--blue)} .card.applies:hover{box-shadow:12px 12px 0 var(--blue)}
+.card.unknown{box-shadow:8px 8px 0 var(--yellow)} .card.unknown:hover{box-shadow:12px 12px 0 var(--yellow)}
+.card.indeterminate{box-shadow:8px 8px 0 var(--violet)} .card.indeterminate:hover{box-shadow:12px 12px 0 var(--violet)}
+.card.timed{box-shadow:8px 8px 0 var(--cyan)} .card.timed:hover{box-shadow:12px 12px 0 var(--cyan)}
+.card.superseded{box-shadow:8px 8px 0 var(--slate)}
+.card.changed::before{content:"CHANGED";position:absolute;top:-14px;right:26px;background:var(--yellow);color:var(--ink);font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;padding:5px 12px;border-radius:999px;border:3px solid var(--ink)}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
+.card-id{font-family:var(--mono);font-size:13px;color:var(--muted);text-align:right;flex:none;line-height:1.6;max-width:300px;font-weight:600}
+.card h2{margin:0;font-family:var(--display);font-weight:800;font-size:28px;letter-spacing:-.025em;line-height:1.1}
+.chip{display:inline-flex;align-items:center;gap:9px;align-self:flex-start;font-family:var(--mono);font-size:14px;font-weight:700;letter-spacing:.12em;padding:9px 16px;border-radius:999px;border:3px solid var(--ink)}
+.chip.applies{background:var(--blue);color:#fff;border-color:var(--blue)}
+.chip.unknown{background:var(--yellow);color:var(--ink);border-color:var(--ink)}
+.chip.indeterminate{background:var(--violet);color:#fff;border-color:var(--violet)}
+.chip.timed{background:var(--cyan);color:var(--ink);border-color:var(--cyan)}
+.chip.superseded{background:var(--slate);color:#fff;border-color:var(--slate)}
+.requirement{font-size:18px;line-height:1.55;color:var(--body)}
+.why{background:var(--bg2);border:2px solid var(--line);border-radius:14px;padding:14px 18px;font-size:15px;line-height:1.55;color:var(--body)}
+.why strong{color:var(--ink)}
+.morebtn{display:block;margin-top:8px;background:none;border:0;padding:0;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--blue);text-decoration:underline;text-underline-offset:4px}
+.gapbox{border-radius:16px;padding:18px 20px;display:flex;flex-direction:column;gap:10px;border:3px solid}
+.card.unknown .gapbox{background:var(--yellow-wash);border-color:var(--yellow)}
+.card.indeterminate .gapbox{background:var(--violet-wash);border-color:var(--violet)}
+.gapline{margin:0;font-size:17px;line-height:1.5;font-weight:500}
+.card.unknown .gapline{color:var(--yellow-d)} .card.indeterminate .gapline{color:var(--violet-d)}
+.gapline strong{color:var(--ink);font-weight:700}
+.gapfield{display:flex;gap:12px;font-size:15px;align-items:flex-start;line-height:1.5}
+.gapfield .gk{font-family:var(--mono);font-size:12px;letter-spacing:.1em;font-weight:700;width:118px;flex:none;padding-top:3px}
+.card.unknown .gapfield{color:var(--yellow-d)} .card.indeterminate .gapfield{color:var(--violet-d)}
+.conflict{display:flex;gap:12px;align-items:flex-start;background:var(--red-wash);border:3px solid var(--red);border-radius:14px;padding:13px 16px;font-size:14.5px;line-height:1.5;color:var(--red-d)}
+.conflict .ck{font-family:var(--mono);font-size:11px;letter-spacing:.12em;font-weight:700;flex:none;padding-top:3px;background:var(--red);color:#fff;border-radius:6px;padding:4px 8px}
+.cardfoot{display:flex;gap:12px;align-items:center;flex-wrap:wrap;border-top:2px dashed var(--line);padding-top:14px;font-size:14px;color:var(--muted);font-weight:500}
+.epi{font-family:var(--mono);font-size:11px;letter-spacing:.12em;font-weight:700;padding:5px 10px;border-radius:8px;border:2px solid var(--ink)}
+.epi.stated{background:var(--ink);color:#fff}
+.epi.derived{background:#fff;color:var(--ink)}
+.epi.summary{background:var(--yellow);color:var(--ink)}
+.evlink{margin-left:auto;font-size:16px;font-weight:700;background:none;border:0;padding:6px 2px;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:3px;color:var(--ink)}
+.evlink:hover{color:var(--blue)}
 .strike{text-decoration:line-through;color:var(--muted)}
+.was{font-size:14px;color:var(--muted);font-family:var(--mono)}
 
-.empty{background:var(--panel);border:1px solid var(--line);border-left:5px solid var(--muted);padding:22px}
-.empty h2{margin:0 0 8px;font-size:17px;font-weight:600}
-.empty p{margin:0 0 6px;font-size:13px;color:var(--body);line-height:1.6}
-.ruledout{margin-top:12px;border-top:1px dashed var(--line);padding-top:12px}
-.ruledout li{font-size:12px;color:var(--body);margin-bottom:6px;line-height:1.5}
+.empty{background:#fff;border:3px solid var(--ink);border-radius:24px;padding:30px;box-shadow:8px 8px 0 var(--line)}
+.empty h2{margin:0 0 10px;font-family:var(--display);font-size:28px;font-weight:800}
+.empty p{margin:0 0 8px;font-size:16px;color:var(--body);line-height:1.6}
+.ruledout{margin:14px 0 0;padding:14px 0 0 20px;border-top:2px dashed var(--line)}
+.ruledout li{font-size:15px;color:var(--body);margin-bottom:8px;line-height:1.5}
 
-.indbar{background:var(--panel);border:1px solid var(--line);border-left:5px solid var(--ochre);padding:18px 22px;display:flex;gap:16px;align-items:flex-start}
-.indbar h3{margin:0 0 5px;font-size:14px;font-weight:600;color:var(--ochre-dd)}
-.indbar p{margin:0;font-size:12.5px;line-height:1.55;color:#5A4410}
+.indbar{background:var(--violet-wash);border:3px solid var(--violet);border-radius:20px;padding:22px 26px;display:flex;gap:18px;align-items:flex-start}
+.indbar h3{margin:0 0 6px;font-family:var(--display);font-size:22px;font-weight:800;color:var(--violet-d)}
+.indbar p{margin:0;font-size:15px;line-height:1.55;color:var(--violet-d)}
 
-/* footer */
-.footbar{background:var(--panel);border-top:1px solid var(--line);padding:11px 32px;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:11.5px;color:var(--muted);flex-wrap:wrap}
-.footbar strong{color:var(--ink);font-weight:600}
+.footbar{border-top:3px solid var(--ink);margin-top:40px;padding:18px 0 0;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:14px;color:var(--muted);flex-wrap:wrap}
+.footbar strong{color:var(--ink);font-weight:700}
 .footbar .mono{font-family:var(--mono)}
 
-/* drawer */
-.scrim{position:fixed;inset:0;background:rgba(17,21,26,.44);opacity:0;pointer-events:none;transition:opacity .18s ease;z-index:60}
+/* ---------- drawer ---------- */
+.scrim{position:fixed;inset:0;background:rgba(11,11,18,.55);opacity:0;pointer-events:none;transition:opacity .2s ease;z-index:60}
 .scrim.open{opacity:1;pointer-events:auto}
-.drawer{position:fixed;top:0;right:0;bottom:0;width:min(720px,94vw);background:var(--panel);border-left:1px solid var(--line);box-shadow:-18px 0 50px rgba(17,21,26,.18);transform:translateX(100%);transition:transform .22s cubic-bezier(.22,.61,.36,1);z-index:61;display:flex;flex-direction:column}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(820px,95vw);background:#fff;border-left:3px solid var(--ink);box-shadow:-24px 0 60px rgba(11,11,18,.25);transform:translateX(100%);transition:transform .26s cubic-bezier(.22,.61,.36,1);z-index:61;display:flex;flex-direction:column}
 .drawer.open{transform:translateX(0)}
-.drawer-head{background:var(--dark);color:var(--dark-ink);padding:18px 24px;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex:none}
-.drawer-head h2{margin:0;font-size:17px;font-weight:600;letter-spacing:-.01em}
-.drawer-head .dmeta{font-family:var(--mono);font-size:10.5px;color:var(--dark-mute);letter-spacing:.06em;margin-top:6px;line-height:1.7}
-.xbtn{background:transparent;border:1px solid #3A3A38;color:var(--dark-ink);width:32px;height:32px;flex:none;font-size:15px;line-height:1}
-.xbtn:hover{background:#2A2F36}
-.drawer-body{overflow:auto;padding:22px 24px;display:flex;flex-direction:column;gap:18px}
-.pane{border:1px solid var(--line);background:var(--panel)}
-.pane-h{background:var(--bg);border-bottom:1px solid var(--line);padding:9px 13px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;display:flex;justify-content:space-between;gap:12px}
-.pane-b{padding:14px 16px;font-size:12.5px;line-height:1.65}
-.srctext{font-family:var(--mono);font-size:11.5px;line-height:1.85;white-space:pre-wrap;word-break:break-word;max-height:330px;overflow:auto;background:#FCFCFB;color:#2A2E33}
-.hl{background:#FBE7BE;border-bottom:2px solid var(--ochre);padding:1px 0;color:var(--ochre-dd);font-weight:500}
-.hatch{background-image:repeating-linear-gradient(135deg,#FDF6E8 0 7px,#F6EAD2 7px 14px);border:1px dashed var(--cream-line)}
-.nomatch{background:var(--cream);border:1px solid var(--cream-line);padding:12px 14px;font-size:12.5px;color:var(--ochre-d);line-height:1.6}
-.derive{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.derive .pane-b{font-size:12px}
-.kvlist{display:flex;flex-direction:column;gap:6px;font-size:11.5px}
-.kvlist div{display:flex;gap:10px}
-.kvlist .kk{font-family:var(--mono);color:var(--muted);min-width:116px;flex:none;font-size:10.5px;letter-spacing:.05em;padding-top:2px}
-.integrity{background:var(--bg);border:1px solid var(--line2);padding:11px 13px;font-family:var(--mono);font-size:10.5px;line-height:1.75;color:var(--muted);word-break:break-all}
+.drawer-head{background:var(--dark);color:var(--dark-ink);padding:26px 30px;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex:none}
+.drawer-head h2{margin:0;font-family:var(--display);font-size:26px;font-weight:800;letter-spacing:-.02em;line-height:1.15}
+.drawer-head .dmeta{font-family:var(--mono);font-size:12px;color:var(--dark-mute);letter-spacing:.06em;margin-top:10px;line-height:1.7}
+.drawer-head .dmeta a{color:var(--yellow)}
+.xbtn{background:transparent;border:3px solid #3A3A48;color:var(--dark-ink);width:42px;height:42px;border-radius:12px;flex:none;font-size:20px;line-height:1}
+.xbtn:hover{background:#2A2A38}
+.drawer-body{overflow:auto;padding:26px 30px;display:flex;flex-direction:column;gap:20px}
+.pane{border:3px solid var(--ink);border-radius:16px;background:#fff;overflow:hidden}
+.pane-h{background:var(--bg2);border-bottom:2px solid var(--line);padding:11px 16px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;font-weight:700;display:flex;justify-content:space-between;gap:12px}
+.pane-b{padding:16px 18px;font-size:15px;line-height:1.65}
+.srctext{font-family:var(--mono);font-size:13px;line-height:1.85;white-space:pre-wrap;word-break:break-word;max-height:360px;overflow:auto;background:#FCFCFA;color:#24242E}
+.hl{background:var(--yellow);border-bottom:3px solid var(--ink);padding:2px 0;color:var(--ink);font-weight:600}
+.hatch{background-image:repeating-linear-gradient(135deg,#FFF7CC 0 8px,#FFEFA3 8px 16px)}
+.nomatch{background:var(--violet-wash);border:3px solid var(--violet);border-radius:12px;padding:14px 16px;font-size:14.5px;color:var(--violet-d);line-height:1.6}
+.derive{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kvlist{display:flex;flex-direction:column;gap:8px;font-size:14px}
+.kvlist div{display:flex;gap:12px}
+.kvlist .kk{font-family:var(--mono);color:var(--muted);min-width:130px;flex:none;font-size:12px;letter-spacing:.06em;padding-top:2px;font-weight:600}
+.bigout{font-family:var(--display);font-size:34px;font-weight:800;color:var(--blue);letter-spacing:-.03em;margin-top:10px}
+.integrity{background:var(--bg2);border:2px solid var(--line);border-radius:12px;padding:13px 16px;font-family:var(--mono);font-size:12px;line-height:1.75;color:var(--muted);word-break:break-all}
 
-/* evidence debt */
-.debt{background:var(--dark);color:var(--dark-ink);flex:1;padding:40px 48px;display:flex;flex-direction:column;gap:26px}
-.debt-head{border-bottom:2px solid var(--ochre-l);padding-bottom:18px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
-.debt-head h1{margin:0;font-size:40px;font-weight:600;letter-spacing:-.03em}
-.debt-head .lede{max-width:430px;font-size:13px;color:var(--dark-mute);line-height:1.6;text-align:right}
-.debt-thesis{font-size:22px;line-height:1.4;font-weight:500;max-width:860px}
-.debt-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:26px;align-items:start}
-.ledger{background:var(--bg);color:var(--ink);padding:22px 24px}
-.ledger h3{margin:0;font-size:15px;font-weight:600}
-.ledger-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:12px}
-.ledger-row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:11px 0;border-bottom:1px dashed var(--line2);text-align:left;width:100%;background:none;border-left:0;border-right:0;border-top:0}
-.ledger-row:hover{background:var(--navy-wash)}
-.ledger-row .lj{font-size:13px;font-weight:600}
-.ledger-row .lf{font-size:11px;color:var(--muted);margin-top:2px}
-.ledger-row .ln{font-family:var(--mono);font-size:18px;font-weight:600;color:var(--ochre);text-align:right}
-.ledger-row .lnl{font-size:10px;color:var(--muted)}
-.debt-note{background:var(--dark2);border-left:3px solid var(--ochre-l);padding:16px 18px;font-size:13px;line-height:1.6;color:#C9C7C1}
-.debt-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
-.debt-card{background:var(--dark2);border-top:3px solid var(--ochre-l);padding:17px 19px}
-.debt-card h4{margin:0 0 7px;font-size:14px;font-weight:600}
-.debt-card p{margin:0;font-size:12px;line-height:1.55;color:#C9C7C1}
-.debt-limits{background:var(--bg);color:var(--ink);padding:20px 22px}
-.debt-limits h4{margin:0 0 11px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--ochre);text-transform:uppercase}
-.debt-limits li{font-size:12px;line-height:1.55;color:var(--body);margin-bottom:8px}
+/* ---------- evidence debt ---------- */
+.debt{position:relative;background:var(--dark);color:var(--dark-ink);padding:100px 40px 90px;overflow:hidden}
+.debt > :not(.blobs){position:relative;z-index:1}
+.debt .blob{opacity:.5}
+.debt-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;border-bottom:3px solid var(--yellow);padding-bottom:28px}
+.debt-head .eyebrow{color:var(--yellow)}
+.debt-head h2{margin:10px 0 0;font-size:clamp(60px,9vw,128px);color:#fff}
+.debt-head .lede{max-width:46ch;font-size:19px;color:var(--dark-mute);line-height:1.55;text-align:right}
+.debt-thesis{font-family:var(--display);font-weight:800;font-size:clamp(30px,3.6vw,52px);line-height:1.1;letter-spacing:-.03em;max-width:24ch;margin:50px 0 0}
+.debt-thesis em{font-style:normal;color:var(--yellow)}
+.debt-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:28px;align-items:start;margin-top:50px}
+.ledger{background:#fff;color:var(--ink);border-radius:24px;padding:30px 30px 24px;border:3px solid var(--yellow);box-shadow:10px 10px 0 var(--yellow)}
+.ledger h3{margin:0;font-family:var(--display);font-size:26px;font-weight:800}
+.ledger-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:3px solid var(--ink);padding-bottom:14px;margin-bottom:8px;flex-wrap:wrap}
+.ledger-row{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:16px 10px;border-bottom:2px dashed var(--line);text-align:left;width:100%;background:none;border-left:0;border-right:0;border-top:0;border-radius:10px}
+.ledger-row:hover{background:var(--yellow-wash)}
+.ledger-row .lj{font-family:var(--display);font-size:22px;font-weight:800;letter-spacing:-.02em}
+.ledger-row .lf{font-size:13.5px;color:var(--muted);margin-top:4px;font-family:var(--mono)}
+.ledger-row .ln{font-family:var(--display);font-size:44px;font-weight:800;letter-spacing:-.04em;line-height:1;text-align:right}
+.ledger-row.ind .ln{color:var(--violet)} .ledger-row.unk .ln{color:var(--yellow-d)}
+.ledger-row .lnl{font-size:11px;color:var(--muted);font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase;margin-top:4px}
+.debt-note{background:var(--dark2);border-left:6px solid var(--yellow);border-radius:0 18px 18px 0;padding:22px 24px;font-size:17px;line-height:1.6;color:#D6D6E0}
+.debt-note strong{color:#fff;font-family:var(--display);font-size:22px;display:block;margin-bottom:8px}
+.debt-note em{font-style:normal;color:var(--yellow)}
+.debt-limits{background:#fff;color:var(--ink);border-radius:18px;padding:24px 26px;border:3px solid var(--red)}
+.debt-limits h4{margin:0 0 12px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--red-d);text-transform:uppercase;font-weight:700}
+.debt-limits li{font-size:15px;line-height:1.55;color:var(--body);margin-bottom:10px}
+.debt-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:40px}
+.debt-card{background:var(--dark2);border-radius:20px;padding:24px 24px 22px;border-top:6px solid var(--yellow)}
+.debt-card:nth-child(2){border-top-color:var(--blue)} .debt-card:nth-child(3){border-top-color:var(--violet)} .debt-card:nth-child(4){border-top-color:var(--red)}
+.debt-card h4{margin:0 0 10px;font-family:var(--display);font-size:22px;font-weight:800;color:#fff}
+.debt-card p{margin:0;font-size:15px;line-height:1.55;color:#C9C9D4}
 
-.view[hidden]{display:none}
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,.61,.36,1)}
+.reveal.in{opacity:1;transform:none}
 
-@media (max-width:1180px){
-  .rail{width:272px}
-  .results{padding:20px}
+@media (max-width:1100px){
+  .body{grid-template-columns:1fr}
+  .rail{position:static}
   .derive{grid-template-columns:1fr}
   .debt-grid{grid-template-columns:1fr}
 }
-@media (max-width:900px){
-  .body{flex-direction:column}
-  .rail{width:auto;border-right:0;border-bottom:1px solid var(--line)}
-  .topbar,.querybar,.footbar{padding-left:16px;padding-right:16px}
-  .results{padding:16px}
+@media (max-width:760px){
+  .nav,.hero,.pillars,.tool,.debt{padding-left:18px;padding-right:18px}
+  .hero{min-height:auto;padding-top:56px}
   .combo{width:100%}
   .hint{display:none}
   .provenance{text-align:left;max-width:none}
-  .debt{padding:26px 16px}
-  .debt-head h1{font-size:28px}
+  .querybar{box-shadow:6px 6px 0 var(--yellow)}
+  .card{padding:22px 20px}
   .debt-head .lede{text-align:left}
 }
 @media (prefers-reduced-motion:reduce){
-  *{transition:none!important;animation:none!important}
+  *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
 }
 </style>
 </head>
 <body>
-<div class="app">
 
-  <header class="topbar">
-    <div class="wordmark">
-      <strong>Rental Housing Law Navigator</strong>
-      <span class="stat" id="corpusStat"></span>
-    </div>
-    <nav class="topnav" aria-label="Views">
-      <button type="button" id="navLookup" aria-current="true">Lookup</button>
-      <button type="button" id="navDebt">Evidence Debt</button>
-    </nav>
-    <div class="provenance" id="provenance"></div>
-  </header>
+<header class="nav">
+  <a class="brand" href="#top" aria-label="Rental Housing Law Navigator, back to top">
+    <span class="dot" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 32 32" fill="none"><path d="M7 19.5 16 10l9 9.5" stroke="#FFD60A" stroke-width="3.5"/><path d="M11 20v4h10v-4" stroke="#fff" stroke-width="3"/></svg></span>
+    <strong>Rental Housing Law Navigator</strong>
+  </a>
+  <nav class="topnav" aria-label="Sections">
+    <button type="button" id="navLookup" aria-current="true">Lookup</button>
+    <button type="button" id="navDebt">Evidence Debt</button>
+  </nav>
+  <div class="provenance" id="provenance"></div>
+</header>
 
-  <!-- ===================== LOOKUP VIEW ===================== -->
-  <div class="view" id="viewLookup" style="display:flex;flex-direction:column;flex:1">
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="top" aria-labelledby="heroTitle">
+  <div class="blobs" aria-hidden="true">
+    <div class="blob b" style="width:46vw;height:46vw;left:-16vw;top:-20vw"></div>
+    <div class="blob y" style="width:48vw;height:48vw;right:-14vw;top:-14vw;animation-delay:-9s"></div>
+    <div class="blob v" style="width:40vw;height:40vw;right:6vw;bottom:-22vw;animation-delay:-17s"></div>
+    <div class="blob r" style="width:24vw;height:24vw;left:34vw;bottom:-12vw;animation-delay:-5s;opacity:.35"></div>
+  </div>
+  <div class="eyebrow">RealPage × Hack-Nation · Challenge 2 · Rental housing law, by address and by date</div>
+  <h1 id="heroTitle" class="display">It tells you what it<br><span class="mark">cannot</span> tell you.<br><span class="line2">And exactly why.</span></h1>
+  <p class="lede">Every other system here will tell you what the law says. This one also names the fact the public record is missing, and shows you the exact sentence of law it read.</p>
+  <div class="hero-cta">
+    <a class="btn" href="#tool">Look up an address ↓</a>
+    <a class="btn ghost" href="#debt">See the Evidence Debt</a>
+  </div>
+  <div class="stats" id="stats"></div>
+</section>
 
-    <div class="querybar">
-      <div class="field">
-        <label for="addr">Address</label>
-        <div class="combo">
-          <input id="addr" type="text" autocomplete="off" role="combobox" aria-expanded="false"
-                 aria-controls="suggest" aria-autocomplete="list" placeholder="Search 500 sample addresses" />
-          <ul class="suggest" id="suggest" role="listbox" aria-label="Address suggestions" hidden></ul>
-        </div>
-      </div>
-      <div class="field">
-        <label id="asofLabel">As of date</label>
-        <div class="seg" role="radiogroup" aria-labelledby="asofLabel">
-          <button type="button" role="radio" id="dateA" aria-checked="true"></button>
-          <button type="button" role="radio" id="dateB" aria-checked="false"></button>
-        </div>
-      </div>
-      <button type="button" class="lookup" id="lookupBtn">Look up</button>
-      <p class="hint">Move the date and every card re-renders. One engine, one query, two moments in time.</p>
-    </div>
+<!-- ===================== PILLARS ===================== -->
+<section class="pillars" aria-labelledby="pillarsTitle">
+  <div class="blobs" aria-hidden="true">
+    <div class="blob c" style="width:30vw;height:30vw;right:-8vw;top:-10vw;opacity:.4"></div>
+  </div>
+  <h2 id="pillarsTitle" class="display reveal">A model reads. Code decides. Nothing ships unsourced.</h2>
+  <div class="pgrid">
+    <article class="pillar b reveal">
+      <div class="num">01</div>
+      <h3>Extract, then decide</h3>
+      <p>A model turns source legal text into structured rules: plain-language requirement on top, machine-readable coverage test underneath. From there on, deterministic code evaluates every address. A language model never decides whether a rule applies to a building.</p>
+      <div class="swatch"></div>
+    </article>
+    <article class="pillar y reveal" style="transition-delay:.1s">
+      <div class="num">02</div>
+      <h3>Unknown, at full weight</h3>
+      <p>When the public record lacks the one fact a rule turns on, the answer is unknown and it says which fact. Same size card, same provenance chain, no greyed-out apology. Specific uncertainty reads as rigor. Vague uncertainty reads as failure.</p>
+      <div class="swatch"></div>
+    </article>
+    <article class="pillar v reveal" style="transition-delay:.2s">
+      <div class="num">03</div>
+      <h3>Every claim to the exact text</h3>
+      <p>Each rule carries a quoted span that is located by exact match inside the source document at render time. If the sentence is not there, the rule does not ship. Two readers extracted blind; their disagreements were published, not reconciled quietly.</p>
+      <div class="swatch"></div>
+    </article>
+  </div>
+</section>
 
-    <div class="body">
-      <aside class="rail" aria-label="Address detail">
-        <section>
-          <h2 class="eyebrow">Jurisdiction</h2>
-          <div id="jurisBlock"></div>
-        </section>
-        <section>
-          <h2 class="eyebrow">Rule stack</h2>
-          <div id="stackBlock" style="display:flex;flex-direction:column;gap:7px"></div>
-        </section>
-        <section>
-          <h2 class="eyebrow">Building facts</h2>
-          <div id="factsBlock" style="display:flex;flex-direction:column;gap:7px"></div>
-          <p class="note-ochre" id="factsNote" hidden>A missing fact here is why a rule reads unknown. The two are linked on screen, so the cause is visible.</p>
-        </section>
-        <section style="margin-top:auto;border-top:1px solid var(--line);padding-top:14px">
-          <button type="button" class="railbtn" id="ruledOutBtn" aria-expanded="false">Show ruled-out rules</button>
-        </section>
-      </aside>
-
-      <section class="results" aria-live="polite" aria-label="Rule results">
-        <div class="rhead">
-          <div>
-            <h1 id="addrHead">Select an address</h1>
-            <div class="sub" id="addrSub"></div>
-          </div>
-          <div class="countline" id="countLine"></div>
-        </div>
-        <div id="cards" style="display:flex;flex-direction:column;gap:16px"></div>
-      </section>
-    </div>
-
-    <footer class="footbar">
-      <span><strong>Not legal advice.</strong> A prototype over a fixed corpus of public law. The law may have changed since each document was retrieved.</span>
-      <span class="mono" id="footMeta"></span>
-    </footer>
+<!-- ===================== TOOL ===================== -->
+<section class="tool" id="tool" aria-labelledby="toolTitle">
+  <div class="tool-head reveal">
+    <h2 id="toolTitle" class="display">One address.<br>One date.<br>One honest answer.</h2>
+    <p>Pick any of the 500 sample addresses. Move the date and every card re-renders. One engine, one query, two moments in time.</p>
   </div>
 
-  <!-- ===================== EVIDENCE DEBT VIEW ===================== -->
-  <div class="view debt" id="viewDebt" hidden>
-    <div class="debt-head">
+  <div class="querybar reveal">
+    <div class="field">
+      <label for="addr">Address</label>
+      <div class="combo">
+        <input id="addr" type="text" autocomplete="off" role="combobox" aria-expanded="false"
+               aria-controls="suggest" aria-autocomplete="list" placeholder="Search 500 sample addresses" />
+        <ul class="suggest" id="suggest" role="listbox" aria-label="Address suggestions" hidden></ul>
+      </div>
+    </div>
+    <div class="field">
+      <label id="asofLabel">As of date</label>
+      <div class="seg" role="radiogroup" aria-labelledby="asofLabel">
+        <button type="button" role="radio" id="dateA" aria-checked="true"></button>
+        <button type="button" role="radio" id="dateB" aria-checked="false"></button>
+      </div>
+    </div>
+    <button type="button" class="lookup" id="lookupBtn">Look up</button>
+    <p class="hint">Keyboard works everywhere: Tab to a source link, Enter to open the evidence, Escape to close.</p>
+  </div>
+
+  <div class="body" id="viewLookup">
+    <aside class="rail" aria-label="Address detail">
+      <section>
+        <h3 class="eyebrow">Jurisdiction</h3>
+        <div id="jurisBlock"></div>
+      </section>
+      <section>
+        <h3 class="eyebrow">Rule stack</h3>
+        <div id="stackBlock" style="display:flex;flex-direction:column;gap:8px"></div>
+      </section>
+      <section>
+        <h3 class="eyebrow">Building facts</h3>
+        <div id="factsBlock" style="display:flex;flex-direction:column;gap:9px"></div>
+        <p class="note-y" id="factsNote" hidden>A missing fact here is why a rule reads unknown. The two are linked on screen, so the cause is visible.</p>
+      </section>
+      <section style="margin-top:auto;border-top:2px dashed var(--line);padding-top:18px">
+        <button type="button" class="railbtn" id="ruledOutBtn" aria-expanded="false">Show ruled-out rules</button>
+      </section>
+    </aside>
+
+    <div class="results" aria-live="polite" aria-label="Rule results">
+      <div class="rhead">
+        <div>
+          <h1 id="addrHead" class="display">Select an address</h1>
+          <div class="sub" id="addrSub"></div>
+        </div>
+        <div class="countline" id="countLine"></div>
+      </div>
+      <div id="cards" style="display:flex;flex-direction:column;gap:22px"></div>
+    </div>
+  </div>
+
+  <footer class="footbar">
+    <span><strong>Not legal advice.</strong> A prototype over a fixed corpus of public law. The law may have changed since each document was retrieved.</span>
+    <span class="mono" id="footMeta"></span>
+  </footer>
+</section>
+
+<!-- ===================== EVIDENCE DEBT ===================== -->
+<section class="debt" id="debt" aria-labelledby="debtTitle">
+  <div class="blobs" aria-hidden="true">
+    <div class="blob v" style="width:46vw;height:46vw;left:-12vw;top:-10vw"></div>
+    <div class="blob b" style="width:36vw;height:36vw;right:-8vw;bottom:-14vw;animation-delay:-12s"></div>
+  </div>
+  <div id="viewDebt">
+    <div class="debt-head reveal">
       <div>
-        <div class="eyebrow" style="color:var(--ochre-l)">The by-product worth keeping</div>
-        <h1>Evidence Debt</h1>
+        <div class="eyebrow">The by-product worth keeping</div>
+        <h2 id="debtTitle" class="display">Evidence Debt</h2>
       </div>
       <p class="lede">The unknowns are not what the system failed to answer. They are a sourced map of where the public record cannot support an answer at all.</p>
     </div>
-    <p class="debt-thesis">An unanswerable question is a finding about the record, not a failure of the reader.</p>
+    <p class="debt-thesis reveal">An unanswerable question is a <em>finding about the record</em>, not a failure of the reader.</p>
     <div class="debt-grid">
-      <div class="ledger">
+      <div class="ledger reveal">
         <div class="ledger-head">
           <h3>Evidence Debt Ledger</h3>
           <span class="eyebrow" id="ledgerScope"></span>
         </div>
         <div id="ledgerRows"></div>
-        <p style="font-size:11px;color:var(--muted);margin:14px 0 0;line-height:1.55">Counts are a client-side grouping of the engine's own unknown and indeterminate results over the evaluated address set. Nothing is computed separately, estimated, or extrapolated past that set.</p>
+        <p style="font-size:13px;color:var(--muted);margin:16px 0 0;line-height:1.55;font-family:var(--mono)">Counts are a client-side grouping of the engine's own unknown and indeterminate results over the evaluated address set. Nothing is computed separately, estimated, or extrapolated past that set.</p>
       </div>
-      <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;flex-direction:column;gap:18px" class="reveal" style="transition-delay:.1s">
         <div class="debt-note" id="debtSplit"></div>
         <div class="debt-limits">
           <h4>What this does not claim</h4>
-          <ul style="margin:0;padding-left:18px">
+          <ul style="margin:0;padding-left:20px">
             <li>Not that the data is wrong. The published record does not contain the field, which is a different and narrower claim.</li>
             <li>Not a generalisation past the sample. The ledger describes this evaluated set on one retrieval date.</li>
             <li>Not that any jurisdiction is negligent. Assessor schemas differ for ordinary historical reasons.</li>
@@ -333,13 +449,13 @@ a{color:var(--navy)}a:hover{color:var(--navy-d)}
       </div>
     </div>
     <div class="debt-cards">
-      <div class="debt-card"><h4>Housing agencies</h4><p>Which single field, published once, would make the most buildings automatically adjudicable. That is a budget line, not a research project.</p></div>
-      <div class="debt-card"><h4>Tenant advocates</h4><p>Which cases turn on a fact no public record holds, before intake, so scarce legal hours go where the record can support a claim.</p></div>
-      <div class="debt-card"><h4>Housing providers</h4><p>Where obligations are genuinely ambiguous rather than merely unread, which is the difference between a compliance question and a legal one.</p></div>
-      <div class="debt-card"><h4>Anyone deploying AI on law</h4><p>Before you can trust a model's legal answer you need to know which answers the record cannot support. That measurement is the product.</p></div>
+      <div class="debt-card reveal"><h4>Housing agencies</h4><p>Which single field, published once, would make the most buildings automatically adjudicable. That is a budget line, not a research project.</p></div>
+      <div class="debt-card reveal" style="transition-delay:.08s"><h4>Tenant advocates</h4><p>Which cases turn on a fact no public record holds, before intake, so scarce legal hours go where the record can support a claim.</p></div>
+      <div class="debt-card reveal" style="transition-delay:.16s"><h4>Housing providers</h4><p>Where obligations are genuinely ambiguous rather than merely unread, which is the difference between a compliance question and a legal one.</p></div>
+      <div class="debt-card reveal" style="transition-delay:.24s"><h4>Anyone deploying AI on law</h4><p>Before you can trust a model's legal answer you need to know which answers the record cannot support. That measurement is the product.</p></div>
     </div>
   </div>
-</div>
+</section>
 
 <div class="scrim" id="scrim"></div>
 <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" tabindex="-1" hidden>
@@ -364,19 +480,14 @@ const el = (t, cls, txt) => { const n = document.createElement(t); if (cls) n.cl
 const S = i => (i == null ? null : DATA.strings[i]);
 const normWs = s => (s || '').replace(/\s+/g, ' ').trim();
 const esc = s => (s == null ? '' : String(s));
-const longDate = iso => {
-  if (!iso) return '';
-  const [y, m, d] = iso.split('-').map(Number);
-  return new Date(Date.UTC(y, m - 1, d)).toLocaleDateString('en-US',
-    { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
-};
+const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const ICON = {
-  applies: '<svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6.3 L4.8 9 L10 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg>',
-  unknown: '<svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 2.2 V7" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/><circle cx="6" cy="9.4" r="0.9" fill="currentColor"/></svg>',
-  indeterminate: '<svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M1.6 4.2 H10.4 M1.6 7.8 H10.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>',
-  timed: '<svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="6" r="4.3" stroke="currentColor" stroke-width="1.5"/><path d="M6 3.6 V6 L7.8 7.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg>',
-  superseded: '<svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.4 9.6 L9.6 2.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/><circle cx="6" cy="6" r="4.4" stroke="currentColor" stroke-width="1.4"/></svg>'
+  applies: '<svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6.3 L4.8 9 L10 3" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></svg>',
+  unknown: '<svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 2.2 V7" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/><circle cx="6" cy="9.6" r="1.1" fill="currentColor"/></svg>',
+  indeterminate: '<svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M1.6 4.2 H10.4 M1.6 7.8 H10.4" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>',
+  timed: '<svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="6" r="4.3" stroke="currentColor" stroke-width="1.8"/><path d="M6 3.6 V6 L7.8 7.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg>',
+  superseded: '<svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.4 9.6 L9.6 2.4" stroke="currentColor" stroke-width="2" stroke-linecap="square"/><circle cx="6" cy="6" r="4.4" stroke="currentColor" stroke-width="1.6"/></svg>'
 };
 
 /* Visual class per result. "indeterminate" is a legal-record gap and is kept
@@ -392,55 +503,60 @@ function kindOf(entry) {
     default: return 'applies';
   }
 }
-const LABEL = {
-  applies: 'APPLIES', unknown: 'UNKNOWN', indeterminate: 'INDETERMINATE',
-  superseded: 'SUPERSEDED', not_yet_effective: 'NOT YET EFFECTIVE', pending: 'PENDING'
-};
+const LABEL = { applies: 'APPLIES', unknown: 'UNKNOWN', indeterminate: 'INDETERMINATE',
+  superseded: 'SUPERSEDED', not_yet_effective: 'NOT YET EFFECTIVE', pending: 'PENDING' };
 function labelOf(entry) {
   if (entry.rs === 'indeterminate') return LABEL.indeterminate;
   return LABEL[entry.s] || String(entry.s || '').toUpperCase();
 }
 
 /* ---------- state ---------- */
-let current = null;      // address id
-let which = 'a';         // as-of selector
-let showRuledOut = false;
-let lastFocus = null;
-
+let current = null, which = 'a', showRuledOut = false, lastFocus = null;
 const ids = Object.keys(DATA.addresses).sort();
+const addrLine = a => a ? `${a.street}, ${a.postal_city} ${a.state || ''} ${a.zip || ''}`.replace(/\s+/g, ' ').trim() : '';
 
 /* ---------- boot ---------- */
 function boot() {
   const m = DATA.meta;
   const states = new Set(), cities = new Set();
+  let resolved = 0;
   ids.forEach(i => {
     const a = DATA.addresses[i];
     if (a.state) states.add(a.state);
-    if (a.legal_city) cities.add(a.legal_city);
+    if (a.legal_city) { cities.add(a.legal_city); resolved++; }
   });
-  $('#corpusStat').textContent =
-    `${m.address_count} ADDRESSES · ${states.size} STATES · ${cities.size} RESOLVED CITIES · ${m.rule_count} RULES`;
 
-  // Provenance line. This states plainly what the page is standing on.
-  const lines = [];
-  lines.push(m.is_real_extraction
-    ? 'RULES FROM A LIVE MODEL EXTRACTION RUN'
-    : 'RULES FROM REPLAYED EXTRACTION FIXTURES, NOT A LIVE MODEL RUN');
-  lines.push(m.jurisdictions_live
-    ? 'JURISDICTIONS RESOLVED LIVE BY THE CENSUS GEOCODER'
-    : 'JURISDICTIONS NOT RESOLVED: LEGAL CITY UNAVAILABLE');
-  $('#provenance').innerHTML = lines.join('<br>');
+  // Provenance. States plainly what the page stands on.
+  $('#provenance').innerHTML =
+    (m.is_real_extraction ? 'Rules from a <b>live model extraction</b>' : 'Rules replayed from <b>extraction fixtures</b>, not a live model run') +
+    '<br>' +
+    (m.jurisdictions_live ? 'Jurisdictions resolved <b>live by the Census geocoder</b>' : 'Jurisdictions <b>not resolved</b>');
+
+  // Hero stats. Every number is a count over the engine's own output.
+  const stats = [
+    { n: m.address_count, l: 'sample addresses', s: 'evaluated, every one', c: 'b' },
+    { n: resolved, l: 'resolved to a legal city', s: m.jurisdictions_live ? 'live Census geocoder' : 'not resolved', c: 'y' },
+    { n: m.rule_count, l: 'rules, spans verified', s: 'exact match in the corpus', c: 'v' },
+    { n: m.address_count - resolved, l: 'left unresolved', s: 'reported, never guessed', c: 'r' }
+  ];
+  const host = $('#stats');
+  stats.forEach((st, i) => {
+    const d = el('div', 'stat ' + st.c + ' reveal');
+    d.style.transitionDelay = (i * 0.08) + 's';
+    const n = el('div', 'n', reduced ? String(st.n) : '0');
+    n.dataset.target = st.n;
+    d.append(n, el('div', 'l', st.l), el('div', 's', st.s));
+    host.append(d);
+  });
 
   $('#dateA').textContent = m.as_of_a;
   $('#dateB').textContent = m.as_of_b;
-  $('#footMeta').textContent = `as of ${m.as_of_a} · built ${m.built} · manifest hash scope ${m.manifest_hash_scope}`;
 
-  // Open on an address that actually shows something worth seeing: prefer one
-  // carrying both an applies and an uncertain result.
   current = pickOpeningAddress();
   $('#addr').value = addrLine(DATA.addresses[current]);
   render();
   buildLedger();
+  observeReveals();
 }
 
 function pickOpeningAddress() {
@@ -452,117 +568,102 @@ function pickOpeningAddress() {
     let score = kinds.size * 10 + entries.length;
     if (kinds.has('unknown') || kinds.has('indeterminate')) score += 25;
     if (kinds.has('applies')) score += 15;
-    if (DATA.addresses[id].legal_city &&
-        DATA.addresses[id].legal_city.split(',')[0] !== DATA.addresses[id].postal_city) score += 20;
+    const a = DATA.addresses[id];
+    if (a.legal_city && a.legal_city.split(',')[0] !== a.postal_city) score += 20;
     if (score > bestScore) { bestScore = score; best = id; }
   }
   return best;
 }
 
-const addrLine = a => a ? `${a.street}, ${a.postal_city} ${a.state || ''} ${a.zip || ''}`.replace(/\s+/g, ' ').trim() : '';
+/* ---------- reveal + count-up ---------- */
+function observeReveals() {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('in');
+      const n = e.target.querySelector('.n[data-target]');
+      if (n && !reduced && !n.dataset.done) { n.dataset.done = '1'; countUp(n, +n.dataset.target); }
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.18 });
+  document.querySelectorAll('.reveal').forEach(x => io.observe(x));
+}
+function countUp(node, target) {
+  const t0 = performance.now(), dur = 1100;
+  const tick = now => {
+    const p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+    node.textContent = Math.round(target * e);
+    if (p < 1) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
 
 /* ---------- render ---------- */
 function render() {
   const a = DATA.addresses[current];
   const entries = (DATA.lookups[which][current] || []).slice();
   const other = DATA.lookups[which === 'a' ? 'b' : 'a'][current] || [];
-
   renderRail(a, entries);
   renderHead(a, entries);
   renderCards(a, entries, other);
-
   const asOf = which === 'a' ? DATA.meta.as_of_a : DATA.meta.as_of_b;
-  $('#footMeta').textContent =
-    `as of ${asOf} · built ${DATA.meta.built} · manifest hash scope ${DATA.meta.manifest_hash_scope}`;
+  $('#footMeta').textContent = `as of ${asOf} · built ${DATA.meta.built} · manifest hash scope ${DATA.meta.manifest_hash_scope}`;
 }
 
 function renderRail(a, entries) {
-  // Jurisdiction
   const j = $('#jurisBlock');
   j.innerHTML = '';
   const row1 = el('div', 'kv dashrow');
   row1.append(el('span', 'k', 'Mailing city'), el('span', 'v', a.postal_city || 'not supplied'));
   j.append(row1);
 
-  const row2 = el('div', 'kv legal');
-  row2.append(el('span', 'k', 'Legal city'),
-    el('span', 'v', a.legal_city || 'not resolved'));
-  j.append(row2);
+  const big = el('div', 'legal-big');
+  big.append(el('div', 'k', 'Legal city'));
+  big.append(el('div', 'v' + (a.legal_city ? '' : ' unres'), a.legal_city || 'not resolved'));
+  j.append(big);
 
   // Evidence-conditioned prose: each sentence renders only if its predicate holds.
   const sentences = [];
-  if (a.legal_city && (a.method || DATA.meta.jurisdictions_live)) {
-    sentences.push('Resolved by Census geocoder to the incorporated place.');
-  }
+  if (a.legal_city && (a.method || DATA.meta.jurisdictions_live)) sentences.push('Resolved by Census geocoder to the incorporated place.');
   if (a.legal_city && a.postal_city &&
       a.legal_city.split(',')[0].trim().toLowerCase() !== a.postal_city.trim().toLowerCase()) {
     sentences.push('The mailing city is not the governing jurisdiction.');
   }
-  if (sentences.length) {
-    j.append(el('div', 'note-navy', sentences.join(' ')));
-  } else if (!a.legal_city) {
-    const n = el('div', 'note-navy');
-    n.style.borderLeftColor = 'var(--ochre)';
-    n.style.background = 'var(--cream)';
-    n.style.color = 'var(--ochre-d)';
-    n.textContent = 'This address was not resolved to an incorporated place, so no jurisdiction-specific rule can be evaluated. The mailing city is not used as a fallback.';
-    j.append(n);
-  }
+  if (sentences.length) j.append(el('div', 'note-blue', sentences.join(' ')));
+  else if (!a.legal_city) j.append(el('div', 'note-violet', 'This address was not resolved to an incorporated place, so no jurisdiction-specific rule can be evaluated. The mailing city is not used as a fallback.'));
   if (a.flags && a.flags.length) {
     const f = el('div');
-    f.style.cssText = 'font-family:var(--mono);font-size:10px;color:var(--muted);line-height:1.6';
+    f.style.cssText = 'font-family:var(--mono);font-size:11px;color:var(--muted);line-height:1.6;margin-top:6px';
     f.textContent = 'flags: ' + a.flags.join(', ');
     j.append(f);
   }
 
-  // Rule stack
   const stack = $('#stackBlock');
   stack.innerHTML = '';
   const byLevel = {};
-  entries.forEach(e => {
-    const rule = DATA.rules[e.r] || {};
-    const lvl = rule.level || 'other';
-    byLevel[lvl] = (byLevel[lvl] || 0) + 1;
+  entries.forEach(e => { const lvl = (DATA.rules[e.r] || {}).level || 'other'; byLevel[lvl] = (byLevel[lvl] || 0) + 1; });
+  const present = ['city', 'county', 'state', 'other'].filter(l => byLevel[l]);
+  if (!present.length) stack.append(el('div', 'stackrow', 'No rule reaches this address'));
+  else present.forEach(l => {
+    const r = el('div', 'stackrow');
+    r.append(el('span', 'sl', l[0].toUpperCase() + l.slice(1)), el('span', 'sv', `${byLevel[l]} rule${byLevel[l] === 1 ? '' : 's'}`));
+    stack.append(r);
   });
-  const order = ['city', 'county', 'state', 'other'];
-  const present = order.filter(l => byLevel[l]);
-  if (!present.length) {
-    stack.append(el('div', 'stackrow', 'No rule reaches this address'));
-  } else {
-    present.forEach(l => {
-      const r = el('div', 'stackrow');
-      r.append(el('span', 'sl', l[0].toUpperCase() + l.slice(1)),
-               el('span', 'sv', `${byLevel[l]} rule${byLevel[l] === 1 ? '' : 's'}`));
-      stack.append(r);
-    });
-  }
 
-  // Building facts
   const facts = $('#factsBlock');
   facts.innerHTML = '';
   let anyMissing = false;
   [['Year built', a.year_built], ['Units', a.units]].forEach(([k, v]) => {
     const r = el('div', 'kv');
     r.append(el('span', 'k', k));
-    if (v === null || v === undefined || v === '') {
-      anyMissing = true;
-      r.append(el('span', 'missing', 'not in record'));
-    } else {
-      r.append(el('span', 'v', String(v)));
-    }
+    if (v === null || v === undefined || v === '') { anyMissing = true; r.append(el('span', 'missing', 'not in record')); }
+    else r.append(el('span', 'v', String(v)));
     facts.append(r);
   });
-  // Facts the supplied data can never carry, named explicitly where a rule needs
-  // one. Only identifier-shaped names belong in this list; the engine also emits
-  // longer prose conditions, and those are shown on the card that needs them
-  // rather than pretending to be a column in the assessor record.
   const needed = new Set();
   entries.forEach(e => {
     const h = DATA.hoist[e.h] || {};
-    (h.needs_fact || []).forEach(f => {
-      const name = String(f).split(':')[0].trim();
-      if (/^[a-z0-9_]+$/.test(name)) needed.add(name);
-    });
+    (h.needs_fact || []).forEach(f => { const name = String(f).split(':')[0].trim(); if (/^[a-z0-9_]+$/.test(name)) needed.add(name); });
   });
   needed.forEach(f => {
     if (f === 'year_built' || f === 'units') return;
@@ -577,49 +678,44 @@ function renderRail(a, entries) {
 function renderHead(a, entries) {
   $('#addrHead').textContent = a.legal_city || a.postal_city || a.id;
   $('#addrSub').textContent = `${addrLine(a)}  ·  ${a.id}`;
-
   const tally = {};
   entries.forEach(e => { const k = kindOf(e); tally[k] = (tally[k] || 0) + 1; });
-  const parts = [];
-  const cls = { applies: 't-applies', unknown: 't-unknown', indeterminate: 't-ind', timed: 't-timed', superseded: 't-sup' };
-  ['applies', 'unknown', 'indeterminate', 'timed', 'superseded'].forEach(k => {
-    if (tally[k]) parts.push(`<span class="tally"><i class="${cls[k]}"></i>${tally[k]} ${k}</span>`);
+  const host = $('#countLine');
+  host.innerHTML = '';
+  if (which === 'b') host.append(el('div', 'cmp', `compared against ${DATA.meta.as_of_a}`));
+  const order = ['applies', 'unknown', 'indeterminate', 'timed', 'superseded'];
+  let any = false;
+  order.forEach(k => {
+    if (!tally[k]) return;
+    any = true;
+    const t = el('span', 'tally');
+    t.innerHTML = `<i class="t-${k}"></i>${tally[k]} ${k}`;
+    host.append(t);
   });
-  const head = which === 'a'
-    ? (parts.join('') || 'no rule reaches this address')
-    : `compared against ${DATA.meta.as_of_a}` + (parts.length ? '<br>' + parts.join('') : '');
-  $('#countLine').innerHTML = head;
+  if (!any && which === 'a') host.append(el('span', 'tally', 'no rule reaches this address'));
 }
 
 function renderCards(a, entries, other) {
   const host = $('#cards');
   host.innerHTML = '';
-
   if (which === 'b') {
     const b = el('div', 'diffbanner');
-    b.innerHTML = `<svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true" style="flex:none"><path d="M2 6 H8.4 M6.2 3.4 L9 6 L6.2 8.6" stroke="#7A5312" stroke-width="1.5" stroke-linecap="square"/></svg>
-      <div><strong>Comparing against ${DATA.meta.as_of_a}.</strong> A card whose result changed carries an ochre stripe and shows its prior state struck through. The engine and the rules are identical; only the as-of date moved.</div>`;
+    b.innerHTML = `<svg width="22" height="22" viewBox="0 0 12 12" fill="none" aria-hidden="true" style="flex:none"><path d="M2 6 H8.4 M6.2 3.4 L9 6 L6.2 8.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg>
+      <div><strong>Comparing against ${DATA.meta.as_of_a}.</strong> A card whose result changed is tagged and shows its prior state struck through. The engine and the rules are identical; only the as-of date moved.</div>`;
     host.append(b);
   }
-
-  if (!entries.length) {
-    host.append(emptyCard(a));
-    return;
-  }
+  if (!entries.length) { host.append(emptyCard(a)); return; }
 
   const priorByRule = {};
   other.forEach(e => { priorByRule[e.r] = e; });
-
   const rank = { indeterminate: 0, unknown: 1, applies: 2, timed: 3, superseded: 4 };
   entries.sort((x, y) => (rank[kindOf(x)] ?? 9) - (rank[kindOf(y)] ?? 9));
-
   entries.forEach(e => host.append(card(e, priorByRule[e.r], a)));
 
-  // Indeterminate summary bar, only when some rule in view is indeterminate.
   const indCount = entries.filter(e => e.rs === 'indeterminate').length;
   if (indCount) {
     const bar = el('div', 'indbar');
-    bar.innerHTML = `<svg width="16" height="16" viewBox="0 0 12 12" fill="none" aria-hidden="true" style="flex:none;margin-top:2px"><path d="M2 4.3 H10 M2 7.7 H10" stroke="#6B4410" stroke-width="1.6" stroke-linecap="square"/></svg>
+    bar.innerHTML = `<svg width="26" height="26" viewBox="0 0 12 12" fill="none" aria-hidden="true" style="flex:none;margin-top:2px;color:var(--violet)"><path d="M2 4.3 H10 M2 7.7 H10" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
       <div><h3>${indCount} rule${indCount === 1 ? '' : 's'} here could not be established as operative</h3>
       <p>We hold the adopted text, but no source in the approved corpus establishes an operative date or status. Listed in full rather than silently dropped, and never counted as applying.</p></div>`;
     host.append(bar);
@@ -629,17 +725,15 @@ function renderCards(a, entries, other) {
 function emptyCard(a) {
   const n = el('div', 'empty');
   const tested = DATA.meta.rule_count;
-  const where = a.legal_city || 'an unresolved location';
   n.append(el('h2', null, 'No rule in the corpus reaches this address'));
   const p1 = el('p');
   p1.textContent = a.legal_city
-    ? `${tested} extracted rules were tested against ${where}. None of them covers it, so nothing is reported rather than something approximate.`
+    ? `${tested} extracted rules were tested against ${a.legal_city}. None of them covers it, so nothing is reported rather than something approximate.`
     : 'This address was not resolved to an incorporated place. Evaluation stops here: the mailing city is never used as a substitute for the legal jurisdiction.';
   n.append(p1);
-
   if (a.legal_city) {
     const btn = el('button', 'railbtn', showRuledOut ? 'Hide ruled-out rules' : `Show the ${tested} rules that were ruled out`);
-    btn.style.cssText = 'width:auto;margin-top:6px';
+    btn.style.cssText = 'width:auto;margin-top:8px';
     btn.setAttribute('aria-expanded', String(showRuledOut));
     btn.onclick = () => { showRuledOut = !showRuledOut; render(); };
     n.append(btn);
@@ -647,8 +741,7 @@ function emptyCard(a) {
       const list = el('ul', 'ruledout');
       Object.values(DATA.rules).forEach(r => {
         const li = el('li');
-        li.innerHTML = `<strong>${esc(r.team_rule_id)}</strong> ${esc(r.title)}<br>
-          <span style="color:var(--muted)">scoped to ${esc(r.jurisdiction)}, which is not this address's legal jurisdiction</span>`;
+        li.innerHTML = `<strong>${esc(r.team_rule_id)}</strong> ${esc(r.title)}<br><span style="color:var(--muted)">scoped to ${esc(r.jurisdiction)}, which is not this address's legal jurisdiction</span>`;
         list.append(li);
       });
       n.append(list);
@@ -665,19 +758,15 @@ function card(e, prior, addr) {
   const changed = prior && (prior.s !== e.s || prior.rs !== e.rs);
   if (changed) n.classList.add('changed');
 
-  // header
   const top = el('div', 'card-top');
   const left = el('div');
-  left.style.cssText = 'display:flex;flex-direction:column;gap:8px;min-width:0';
+  left.style.cssText = 'display:flex;flex-direction:column;gap:12px;min-width:0';
   const chip = el('span', 'chip ' + kind);
   chip.innerHTML = (ICON[kind] || '') + '<span>' + labelOf(e) + '</span>';
-  left.append(chip);
-  const title = el('h2', null, rule.title || e.r);
-  left.append(title);
+  left.append(chip, el('h2', null, rule.title || e.r));
   if (changed) {
-    const was = el('div');
-    was.style.cssText = 'font-size:11.5px;color:var(--muted)';
-    was.innerHTML = `at ${DATA.meta.as_of_a}: <span class="strike">${labelOf(prior)}</span> &rarr; <strong style="color:var(--ochre-d)">${labelOf(e)}</strong>`;
+    const was = el('div', 'was');
+    was.innerHTML = `at ${DATA.meta.as_of_a}: <span class="strike">${labelOf(prior)}</span> &rarr; <strong style="color:var(--ink)">${labelOf(e)}</strong>`;
     left.append(was);
   }
   top.append(left);
@@ -688,9 +777,8 @@ function card(e, prior, addr) {
 
   if (rule.requirement) n.append(el('div', 'requirement', rule.requirement));
 
-  // Why line, straight from the engine. The engine's explanation is exhaustive
-  // by design, so the deciding sentence leads and the rest is one click away.
-  // Nothing is summarised or reworded: the full text is always reachable.
+  // Why line, straight from the engine. The deciding sentence leads; the full
+  // text is one click away and never reworded.
   const full = S(e.x) || '';
   const cut = full.indexOf('. ');
   const lead = (cut > 40 && cut < full.length - 2) ? full.slice(0, cut + 1) : full;
@@ -711,12 +799,11 @@ function card(e, prior, addr) {
   }
   n.append(why);
 
-  // the gap box. Which sentence appears is gated on the engine's own fields.
+  // The gap box. Which sentence appears is gated on the engine's own fields.
   const needs = h.needs_fact || [];
   if (kind === 'unknown' || kind === 'indeterminate') {
     const box = el('div', 'gapbox');
     if (kind === 'unknown' && e.es !== 'not_established') {
-      // (a) operative status established AND (b) gap is a building/address fact
       const line = el('p', 'gapline');
       line.innerHTML = '<strong>This rule is in force.</strong> Whether it covers this building turns on a fact the public record does not contain.';
       box.append(line);
@@ -741,27 +828,20 @@ function card(e, prior, addr) {
 
   if (e.c) {
     const c = el('div', 'conflict');
-    c.innerHTML = `<span style="font-family:var(--mono);font-size:10px;letter-spacing:.06em;flex:none;padding-top:1px">CONFLICT</span>
-      <span>${esc(rule.conflict_note || 'Flagged for human review. The engine never resolves a conflict silently.')}</span>`;
+    c.innerHTML = `<span class="ck">CONFLICT</span><span>${esc(rule.conflict_note || 'Flagged for human review. The engine never resolves a conflict silently.')}</span>`;
     n.append(c);
   }
 
-  // footer: epistemic chips, dates, evidence link
   const foot = el('div', 'cardfoot');
   const span = DATA.spans[e.r] || {};
-  if (span.ok) {
-    foot.append(epi(span.summary_sourced ? 'summary' : 'stated',
-      span.summary_sourced ? 'SUMMARY SOURCED' : 'STATED'));
-  }
+  if (span.ok) foot.append(el('span', 'epi ' + (span.summary_sourced ? 'summary' : 'stated'), span.summary_sourced ? 'SUMMARY SOURCED' : 'STATED'));
   const dd = h.date_derivation;
-  if (dd && dd.derived) foot.append(epi('derived', 'DERIVED'));
-
+  if (dd && dd.derived) foot.append(el('span', 'epi derived', 'DERIVED'));
   const bits = [];
   if (rule.effective_date) bits.push('effective ' + rule.effective_date);
   const man = DATA.manifest[h.source_doc_id || rule.source_doc_id] || {};
   if (man.retrieved_at) bits.push('retrieved ' + man.retrieved_at);
   if (bits.length) foot.append(el('span', null, bits.join(' · ')));
-
   const link = el('button', 'evlink', dd && dd.derived ? 'See the derivation →' : 'See exact source text →');
   link.onclick = () => openDrawer(e);
   foot.append(link);
@@ -769,15 +849,12 @@ function card(e, prior, addr) {
   return n;
 }
 
-function epi(cls, text) { return el('span', 'epi ' + cls, text); }
-
 /* ---------- evidence drawer ---------- */
 function openDrawer(e) {
   const rule = DATA.rules[e.r] || {};
   const h = DATA.hoist[e.h] || {};
   const docId = h.source_doc_id || rule.source_doc_id;
   const doc = DATA.docs[docId] || {};
-  const span = DATA.spans[e.r] || {};
   const man = DATA.manifest[docId] || {};
 
   lastFocus = document.activeElement;
@@ -785,56 +862,45 @@ function openDrawer(e) {
   $('#drawerMeta').innerHTML =
     `${esc(rule.team_rule_id || e.r)} · ${esc(docId || 'no source document')}` +
     (man.retrieved_at ? ` · RETRIEVED ${esc(man.retrieved_at)}` : '') +
-    (h.source_url || rule.source_url
-      ? `<br><a href="${esc(h.source_url || rule.source_url)}" style="color:#C08A3E" target="_blank" rel="noopener">${esc(h.source_url || rule.source_url)}</a>`
-      : '');
+    (h.source_url || rule.source_url ? `<br><a href="${esc(h.source_url || rule.source_url)}" target="_blank" rel="noopener">${esc(h.source_url || rule.source_url)}</a>` : '');
 
   const body = $('#drawerBody');
   body.innerHTML = '';
 
-  // 1. the span, located in the document at render time
   const p1 = el('div', 'pane');
   const ph = el('div', 'pane-h');
   ph.append(el('span', null, 'Source text, span located by exact match'));
   p1.append(ph);
-
   if (!doc.text) {
     const nb = el('div', 'pane-b');
-    nb.append(Object.assign(el('div', 'nomatch'), {
-      textContent: `The source document ${docId || ''} is not present in the distributed corpus, so the span cannot be shown in place. Nothing nearby is substituted for it.`
-    }));
+    nb.append(Object.assign(el('div', 'nomatch'), { textContent: `The source document ${docId || ''} is not present in the distributed corpus, so the span cannot be shown in place. Nothing nearby is substituted for it.` }));
     p1.append(nb);
   } else {
     const hay = normWs(doc.text), needle = normWs(rule.quoted_span);
     const at = needle ? hay.indexOf(needle) : -1;
     if (at < 0) {
       const nb = el('div', 'pane-b');
-      nb.append(Object.assign(el('div', 'nomatch'), {
-        textContent: `The quoted text could not be located in ${docId} after whitespace normalisation. The drawer says so rather than showing a nearby paragraph as if it matched.`
-      }));
+      nb.append(Object.assign(el('div', 'nomatch'), { textContent: `The quoted text could not be located in ${docId} after whitespace normalisation. The drawer says so rather than showing a nearby paragraph as if it matched.` }));
       p1.append(nb);
     } else {
       const pad = 420;
       const from = Math.max(0, at - pad), to = Math.min(hay.length, at + needle.length + pad);
-      const pre = (from > 0 ? '… ' : '') + hay.slice(from, at);
-      const post = hay.slice(at + needle.length, to) + (to < hay.length ? ' …' : '');
       const box = el('div', 'pane-b srctext' + (doc.summary_sourced ? ' hatch' : ''));
-      box.append(document.createTextNode(pre));
+      box.append(document.createTextNode((from > 0 ? '… ' : '') + hay.slice(from, at)));
       box.append(Object.assign(el('mark', 'hl'), { textContent: hay.slice(at, at + needle.length) }));
-      box.append(document.createTextNode(post));
+      box.append(document.createTextNode(hay.slice(at + needle.length, to) + (to < hay.length ? ' …' : '')));
       p1.append(box);
       ph.append(el('span', null, `char ${at} of ${hay.length}`));
     }
     if (doc.summary_sourced) {
       const warn = el('div', 'pane-b');
-      warn.style.cssText = 'border-top:1px solid var(--line);background:var(--cream);color:var(--ochre-d);font-size:12px';
+      warn.style.cssText = 'border-top:2px solid var(--line);background:var(--yellow-wash);color:var(--yellow-d);font-size:14px;font-weight:500';
       warn.textContent = 'This document is a fetch-tool summary, not the source legal text. The highlighted text is therefore a paraphrase, and is never presented as a quotation of the law. Confidence on any claim resting on it is correspondingly lower.';
       p1.append(warn);
     }
   }
   body.append(p1);
 
-  // 2. derivation: what was read, and what rule was applied to it
   const dd = h.date_derivation;
   if (dd) {
     const wrap = el('div', 'derive');
@@ -847,54 +913,33 @@ function openDrawer(e) {
       rb.append(r);
     });
     read.append(rb);
-
     const applied = el('div', 'pane');
     applied.append(Object.assign(el('div', 'pane-h'), { textContent: 'APPLIED: the rule of construction' }));
     const ab = el('div', 'pane-b');
-    ab.append(Object.assign(el('div'), {
-      style: 'font-family:var(--mono);font-size:11px;color:var(--navy);margin-bottom:8px',
-      textContent: dd.rule_id || ''
-    }));
-    ab.append(Object.assign(el('p'), { style: 'margin:0 0 10px', textContent: dd.reason || '' }));
-    if (dd.output) {
-      const o = el('div');
-      o.style.cssText = 'font-size:15px;font-weight:600;color:var(--navy)';
-      o.textContent = '→ ' + dd.output;
-      ab.append(o);
-    }
-    if (dd.caveat) {
-      const c = el('div', 'nomatch');
-      c.style.marginTop = '10px';
-      c.textContent = dd.caveat;
-      ab.append(c);
-    }
+    ab.append(Object.assign(el('div'), { style: 'font-family:var(--mono);font-size:12px;color:var(--blue);margin-bottom:10px;font-weight:600', textContent: dd.rule_id || '' }));
+    ab.append(Object.assign(el('p'), { style: 'margin:0', textContent: dd.reason || '' }));
+    if (dd.output) ab.append(el('div', 'bigout', '→ ' + dd.output));
+    if (dd.caveat) { const c = el('div', 'nomatch'); c.style.marginTop = '12px'; c.textContent = dd.caveat; ab.append(c); }
     applied.append(ab);
     wrap.append(read, applied);
     body.append(wrap);
   }
 
-  // 3. the engine's own account of this result
   const p3 = el('div', 'pane');
   p3.append(Object.assign(el('div', 'pane-h'), { textContent: 'Engine result for this address' }));
   const b3 = el('div', 'pane-b kvlist');
   [['result', e.s], ['result state', e.rs || e.s], ['evidence status', e.es || 'established'],
    ['temporal', e.tr || 'not applicable'], ['conflict flag', e.c ? 'true' : 'false'],
-   ['status basis', (h.evidence_basis || {}).status_basis],
-   ['provenance grade', (h.evidence_basis || {}).provenance_grade],
-   ['source kind', (h.evidence_basis || {}).source_kind]
-  ].forEach(([k, v]) => {
+   ['status basis', (h.evidence_basis || {}).status_basis], ['provenance grade', (h.evidence_basis || {}).provenance_grade],
+   ['source kind', (h.evidence_basis || {}).source_kind]].forEach(([k, v]) => {
     if (v == null) return;
-    const r = el('div');
-    r.append(el('span', 'kk', k), el('span', null, String(v)));
-    b3.append(r);
+    const r = el('div'); r.append(el('span', 'kk', k), el('span', null, String(v))); b3.append(r);
   });
   p3.append(b3);
   body.append(p3);
 
-  // 4. integrity, stated at exactly the strength we can support
   const integ = el('div', 'integrity');
-  integ.innerHTML =
-    (doc.sha256 ? `local text sha256 ${esc(doc.sha256)}<br>` : '') +
+  integ.innerHTML = (doc.sha256 ? `local text sha256 ${esc(doc.sha256)}<br>` : '') +
     `manifest hash scope: ${esc(DATA.meta.manifest_hash_scope)}. The manifest hash does not validate this text, so no integrity claim is made beyond the locally recorded hash above.`;
   body.append(integ);
 
@@ -906,15 +951,13 @@ function openDrawer(e) {
   });
   document.addEventListener('keydown', trap, true);
 }
-
 function closeDrawer() {
   $('#drawer').classList.remove('open');
   $('#scrim').classList.remove('open');
   document.removeEventListener('keydown', trap, true);
-  setTimeout(() => { $('#drawer').hidden = true; }, 220);
+  setTimeout(() => { $('#drawer').hidden = true; }, 260);
   if (lastFocus) lastFocus.focus();
 }
-
 function trap(ev) {
   if (ev.key === 'Escape') { ev.preventDefault(); closeDrawer(); return; }
   if (ev.key !== 'Tab') return;
@@ -927,7 +970,6 @@ function trap(ev) {
 
 /* ---------- evidence debt ledger ---------- */
 function buildLedger() {
-  // Client-side grouping over the evaluated set. No separate computation.
   const unknownGroups = new Map(), indGroups = new Map();
   let evaluated = 0;
   ids.forEach(id => {
@@ -939,20 +981,14 @@ function buildLedger() {
       const h = DATA.hoist[e.h] || {};
       const rid = (DATA.rules[e.r] && DATA.rules[e.r].team_rule_id) || e.r;
       if (e.rs === 'indeterminate') {
-        // Grouped by (place, rule): two indeterminate rules in one city are two
-        // distinct findings, so the row has to name which rule it is about.
         const key = city + '||' + rid;
-        if (!indGroups.has(key)) {
-          indGroups.set(key, { city, rule: rid, gap: 'operative status not establishable for ' + rid, set: new Set() });
-        }
+        if (!indGroups.has(key)) indGroups.set(key, { city, rule: rid, gap: 'operative status not establishable for ' + rid, set: new Set() });
         indGroups.get(key).set.add(id);
       } else if (e.s === 'unknown') {
         const named = (h.needs_fact || []).map(f => String(f).split(':')[0].trim()).filter(Boolean);
         const fact = named.length ? named[0] : (S(e.w) ? String(S(e.w)).split(';')[0] : 'a fact the record does not name');
         const key = city + '||' + rid + '||' + fact;
-        if (!unknownGroups.has(key)) {
-          unknownGroups.set(key, { city, rule: rid, gap: fact + ' (' + rid + ')', set: new Set() });
-        }
+        if (!unknownGroups.has(key)) unknownGroups.set(key, { city, rule: rid, gap: fact + ' (' + rid + ')', set: new Set() });
         unknownGroups.get(key).set.add(id);
       }
     });
@@ -961,50 +997,33 @@ function buildLedger() {
   const host = $('#ledgerRows');
   host.innerHTML = '';
   const rows = [
-    ...[...unknownGroups.values()].map(g => ({ ...g, kind: 'buildings blocked' })),
-    ...[...indGroups.values()].map(g => ({ ...g, kind: 'addresses with an indeterminate rule' }))
+    ...[...unknownGroups.values()].map(g => ({ ...g, kind: 'buildings blocked', cls: 'unk' })),
+    ...[...indGroups.values()].map(g => ({ ...g, kind: 'addresses, indeterminate rule', cls: 'ind' }))
   ].sort((x, y) => y.set.size - x.set.size);
-
-  if (!rows.length) {
-    host.append(Object.assign(el('p'), {
-      style: 'font-size:13px;color:var(--muted);margin:0',
-      textContent: 'No unknown or indeterminate result in the evaluated set, so the ledger is empty. That is a result, not a blank.'
-    }));
-  }
+  if (!rows.length) host.append(Object.assign(el('p'), { style: 'font-size:15px;color:var(--muted);margin:0', textContent: 'No unknown or indeterminate result in the evaluated set, so the ledger is empty. That is a result, not a blank.' }));
   rows.forEach(g => {
-    const r = el('button', 'ledger-row');
+    const r = el('button', 'ledger-row ' + g.cls);
     const l = el('div');
-    l.append(Object.assign(el('div', 'lj'), {
-      textContent: g.city === 'unresolved' ? 'Address not resolved to an incorporated place' : g.city
-    }), Object.assign(el('div', 'lf'), { textContent: 'blocked by: ' + g.gap }));
+    l.append(Object.assign(el('div', 'lj'), { textContent: g.city === 'unresolved' ? 'Address not resolved to a place' : g.city }),
+             Object.assign(el('div', 'lf'), { textContent: 'blocked by: ' + g.gap }));
     const rr = el('div');
-    rr.append(Object.assign(el('div', 'ln'), { textContent: g.set.size }),
-              Object.assign(el('div', 'lnl'), { textContent: g.kind }));
+    rr.append(Object.assign(el('div', 'ln'), { textContent: g.set.size }), Object.assign(el('div', 'lnl'), { textContent: g.kind }));
     r.append(l, rr);
-    r.onclick = () => {
-      current = [...g.set][0];
-      $('#addr').value = addrLine(DATA.addresses[current]);
-      showView('lookup');
-      render();
-    };
+    r.onclick = () => { current = [...g.set][0]; $('#addr').value = addrLine(DATA.addresses[current]); showView('lookup'); render(); };
     host.append(r);
   });
-
   $('#ledgerScope').textContent = `${evaluated} of ${DATA.meta.address_count} addresses reached by a rule`;
-
   const unknownTotal = [...unknownGroups.values()].reduce((s, g) => s + g.set.size, 0);
   const indTotal = [...indGroups.values()].reduce((s, g) => s + g.set.size, 0);
-  $('#debtSplit').innerHTML =
-    `<strong>Two different kinds of silence.</strong><br>
-     ${unknownTotal} address-rule pairs are unknown because a <em>building</em> fact is absent from the public record.
-     ${indTotal} are indeterminate because the <em>legal</em> record itself does not establish that the rule is operative.
+  $('#debtSplit').innerHTML = `<strong>Two different kinds of silence.</strong>
+     <em>${unknownTotal}</em> address-rule pairs are unknown because a building fact is absent from the public record.
+     <em>${indTotal}</em> are indeterminate because the legal record itself does not establish that the rule is operative.
      Collapsing the two would hide which one a city could actually fix.`;
 }
 
 /* ---------- address combobox ---------- */
 const input = $('#addr'), sugg = $('#suggest');
 let hi = -1, matches = [];
-
 function search(q) {
   q = q.trim().toLowerCase();
   if (!q) return [];
@@ -1016,37 +1035,26 @@ function search(q) {
   }
   return out;
 }
-
 function showSuggest() {
   sugg.innerHTML = '';
   if (!matches.length) { sugg.hidden = true; input.setAttribute('aria-expanded', 'false'); return; }
   matches.forEach((a, i) => {
-    const li = el('li');
-    const b = el('button');
-    b.type = 'button';
-    b.setAttribute('role', 'option');
-    b.setAttribute('aria-selected', String(i === hi));
+    const li = el('li'), b = el('button');
+    b.type = 'button'; b.setAttribute('role', 'option'); b.setAttribute('aria-selected', String(i === hi));
     const n = (DATA.lookups.a[a.id] || []).length;
     b.innerHTML = `<span>${esc(addrLine(a))}</span><span class="sid">${esc(a.id)} · ${n} rule${n === 1 ? '' : 's'}</span>`;
     b.onclick = () => choose(a.id);
-    li.append(b);
-    sugg.append(li);
+    li.append(b); sugg.append(li);
   });
-  sugg.hidden = false;
-  input.setAttribute('aria-expanded', 'true');
+  sugg.hidden = false; input.setAttribute('aria-expanded', 'true');
 }
-
 function choose(id) {
-  current = id;
-  showRuledOut = false;
+  current = id; showRuledOut = false;
   input.value = addrLine(DATA.addresses[id]);
-  sugg.hidden = true;
-  input.setAttribute('aria-expanded', 'false');
-  hi = -1;
+  sugg.hidden = true; input.setAttribute('aria-expanded', 'false'); hi = -1;
   render();
   $('#live').textContent = `Showing ${addrLine(DATA.addresses[id])}`;
 }
-
 input.addEventListener('input', () => { matches = search(input.value); hi = -1; showSuggest(); });
 input.addEventListener('keydown', ev => {
   if (sugg.hidden) return;
@@ -1055,14 +1063,8 @@ input.addEventListener('keydown', ev => {
   else if (ev.key === 'Enter' && hi >= 0) { ev.preventDefault(); choose(matches[hi].id); }
   else if (ev.key === 'Escape') { sugg.hidden = true; input.setAttribute('aria-expanded', 'false'); }
 });
-document.addEventListener('click', ev => {
-  if (!ev.target.closest('.combo')) { sugg.hidden = true; input.setAttribute('aria-expanded', 'false'); }
-});
-
-$('#lookupBtn').onclick = () => {
-  matches = search(input.value);
-  if (matches.length) choose(matches[0].id);
-};
+document.addEventListener('click', ev => { if (!ev.target.closest('.combo')) { sugg.hidden = true; input.setAttribute('aria-expanded', 'false'); } });
+$('#lookupBtn').onclick = () => { matches = search(input.value); if (matches.length) choose(matches[0].id); };
 
 /* ---------- as-of radio group ---------- */
 function setWhich(w) {
@@ -1076,14 +1078,9 @@ $('#dateA').onclick = () => setWhich('a');
 $('#dateB').onclick = () => setWhich('b');
 [['#dateA', 'b'], ['#dateB', 'a']].forEach(([sel, other]) => {
   $(sel).addEventListener('keydown', ev => {
-    if (['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'].includes(ev.key)) {
-      ev.preventDefault();
-      setWhich(other);
-      $(other === 'a' ? '#dateA' : '#dateB').focus();
-    }
+    if (['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'].includes(ev.key)) { ev.preventDefault(); setWhich(other); $(other === 'a' ? '#dateA' : '#dateB').focus(); }
   });
 });
-
 $('#ruledOutBtn').onclick = () => {
   showRuledOut = !showRuledOut;
   $('#ruledOutBtn').setAttribute('aria-expanded', String(showRuledOut));
@@ -1091,13 +1088,11 @@ $('#ruledOutBtn').onclick = () => {
   render();
 };
 
-/* ---------- views ---------- */
+/* ---------- sections ---------- */
 function showView(v) {
-  $('#viewLookup').hidden = v !== 'lookup';
-  $('#viewLookup').style.display = v === 'lookup' ? 'flex' : 'none';
-  $('#viewDebt').hidden = v !== 'debt';
   $('#navLookup').setAttribute('aria-current', String(v === 'lookup'));
   $('#navDebt').setAttribute('aria-current', String(v === 'debt'));
+  document.getElementById(v === 'lookup' ? 'tool' : 'debt').scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
 }
 $('#navLookup').onclick = () => showView('lookup');
 $('#navDebt').onclick = () => showView('debt');
