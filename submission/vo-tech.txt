@@ -1,0 +1,6 @@
+0|Python, standard library throughout. A model reads the corpus and emits structured rules. The geocoder resolves each address to its incorporated place. Then deterministic code decides coverage, never a model.
+13|Every quoted span must exact match its source document, or the record is dropped. We check at extraction, at build, and in the browser.
+22|We never collapse the two kinds of silence. Unknown means a building fact is missing. Indeterminate means the legal record cannot establish the rule is operative.
+32|The hard bug: the geocoder wrote legal city, the engine read jurisdiction. Every address read unresolved. Only real data exposed it. Fixed, with the suite green.
+42|The demo rules replay recorded fixtures, not a live model run, and the header says so. A system against overclaiming cannot overclaim about itself.
+52|Refusing to guess turned out to be the product.

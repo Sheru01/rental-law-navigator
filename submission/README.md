@@ -15,5 +15,32 @@ official form AND projects.hack-nation.ai.
 
 Live product: <https://navigator.mdsrana.com>
 
-What only you can do: record the two videos (I cannot speak), upload them,
-and fill the form. Everything else in this folder is ready as is.
+Both videos are captioned and uploadable silent. To add narration, see
+"Voiceover" below.
+
+## Voiceover (optional)
+
+Both videos work silent, because the captions carry the message. Three ways
+to add a voice, best first:
+
+1. **Your own voice.** Open the MP4, record over it with QuickTime Player
+   (New Screen Recording, microphone on) or Loom, reading the timed lines in
+   `02-demo-video.md` and `03-tech-video.md`. Best result for a judged demo.
+2. **Synthesized, on your Mac.** `make-voiceover.sh` speaks each line with
+   the macOS `say` command and places it at the exact second its section
+   starts, so narration stays locked to the captions:
+
+   ```sh
+   cd submission
+   ./make-voiceover.sh tech-video.mp4 vo-tech.txt tech-video-vo.mp4
+   ./make-voiceover.sh demo-video.mp4 vo-demo.txt demo-video-vo.mp4
+   ```
+
+   Needs macOS and ffmpeg (`brew install ffmpeg`). Pick a nicer voice with
+   `say -v '?' | grep en_US`, then pass it: `... tech-video-vo.mp4 "Ava (Premium)"`.
+   The script refuses to write anything if a line would overrun its section,
+   and tells you which line and what rate to try.
+3. **Leave them silent.** The guide asks for captions *or* voiceover, and the
+   captions are burned in.
+
+What only you can do: upload the videos and fill the form.
