@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Change tracking</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    body { margin: 0; }
+    a { color: #1B3A5C; } a:hover { color: #11253B; }
+  </style>
+</helmet>
+
+<div style="width: 1440px; height: 900px; box-sizing: border-box; background: #F6F7F8; color: #11151A; font-family: 'IBM Plex Sans', system-ui, sans-serif; padding: 48px 60px; display: flex; flex-direction: column; gap: 22px">
+
+  <div style="display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid #11151A; padding-bottom: 15px">
+    <div>
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #6B6A65; margin-bottom: 7px">Change tracking</div>
+      <h1 style="margin: 0; font-size: 36px; font-weight: 600; letter-spacing: -0.02em">A diff between two dates, not a second product</h1>
+    </div>
+    <div style="text-align: right; font-size: 12px; color: #6B6A65; line-height: 1.5; max-width: 400px">
+      Presentation only. The underlying generic diff primitive is Codex's.<br>No test answer is encoded here.
+    </div>
+  </div>
+
+  <div style="background: #FFFFFF; border: 1px solid #DDDAD1; padding: 22px 26px; display: flex; align-items: center; gap: 26px">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: #6B6A65; flex-shrink: 0">THE CONTROL</div>
+    <div style="display: flex; align-items: center; gap: 14px; flex-grow: 1">
+      <div style="background: #EDF1F5; border: 1px solid #1B3A5C; padding: 9px 16px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #1B3A5C">as of [date A]</div>
+      <div style="flex-grow: 1; height: 2px; background: linear-gradient(to right, #1B3A5C, #C08A3E); position: relative"></div>
+      <div style="background: #11151A; color: #FFFFFF; padding: 9px 16px; font-family: 'IBM Plex Mono', monospace; font-size: 13px">as of [date B]</div>
+    </div>
+    <div style="font-size: 12px; color: #3D3C38; line-height: 1.5; max-width: 320px; flex-shrink: 0">One parameter moves. Every card re-renders. There is no separate change-tracking screen to navigate to, because there is no separate engine.</div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
+
+    <div style="background: #FFFFFF; border: 1px solid #DDDAD1; border-left: 4px solid #1B3A5C; padding: 18px 20px; display: flex; flex-direction: column; gap: 9px">
+      <div style="display: flex; align-items: center; gap: 9px">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 15px; color: #1B3A5C; font-weight: 500">+</span>
+        <span style="font-size: 15px; font-weight: 600">Rule added</span>
+      </div>
+      <div style="font-size: 12.5px; line-height: 1.55; color: #3D3C38">Present at the later date, absent at the earlier one. The card slides in with a left rule and a one-line reason.</div>
+      <div style="background: #F6F7F8; border: 1px solid #E6E4DF; padding: 9px 11px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #3D3C38; line-height: 1.5">[rule_id]<br><span style="color: #1B3A5C">+ now in the result set</span></div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #DDDAD1; border-left: 4px solid #55534E; padding: 18px 20px; display: flex; flex-direction: column; gap: 9px">
+      <div style="display: flex; align-items: center; gap: 9px">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 15px; color: #55534E; font-weight: 500">&minus;</span>
+        <span style="font-size: 15px; font-weight: 600">Rule removed</span>
+      </div>
+      <div style="font-size: 12.5px; line-height: 1.55; color: #3D3C38">Dropped out between the dates. Rendered struck through and dimmed, but still present, so a disappearance is never silent.</div>
+      <div style="background: #F6F7F8; border: 1px solid #E6E4DF; padding: 9px 11px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6B6A65; line-height: 1.5; text-decoration: line-through">[rule_id]</div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #DDDAD1; border-left: 4px solid #C08A3E; padding: 18px 20px; display: flex; flex-direction: column; gap: 9px">
+      <div style="display: flex; align-items: center; gap: 9px">
+        <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6 H8.4 M6.2 3.4 L9 6 L6.2 8.6" stroke="#C08A3E" stroke-width="1.6" stroke-linecap="square"/></svg>
+        <span style="font-size: 15px; font-weight: 600">Status changed</span>
+      </div>
+      <div style="font-size: 12.5px; line-height: 1.55; color: #3D3C38">Same rule, different result. The most common and most persuasive diff. Old value struck, new value bold, on one line.</div>
+      <div style="background: #FFF4E2; border: 1px solid #E3CFA6; padding: 9px 11px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; line-height: 1.5"><span style="color: #6B6A65; text-decoration: line-through">[prior state]</span> <span style="color: #C08A3E">&rarr;</span> <span style="color: #11151A; font-weight: 500">[new state]</span></div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #DDDAD1; border-left: 4px solid #C08A3E; padding: 18px 20px; display: flex; flex-direction: column; gap: 9px">
+      <div style="display: flex; align-items: center; gap: 9px">
+        <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="6" r="4.3" stroke="#C08A3E" stroke-width="1.5"/><path d="M6 3.6 V6 L7.8 7.1" stroke="#C08A3E" stroke-width="1.5" stroke-linecap="square"/></svg>
+        <span style="font-size: 15px; font-weight: 600">Effective date changed</span>
+      </div>
+      <div style="font-size: 12.5px; line-height: 1.55; color: #3D3C38">The date itself moved, usually because a better source was found. The provenance tag moves with it, so a date that went from inferred to stated shows that upgrade.</div>
+      <div style="background: #FFF4E2; border: 1px solid #E3CFA6; padding: 9px 11px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; line-height: 1.5"><span style="color: #6B6A65">eff [old]</span> <span style="color: #C08A3E">&rarr;</span> <span style="color: #11151A; font-weight: 500">eff [new]</span></div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #DDDAD1; border-left: 4px solid #C08A3E; padding: 18px 20px; display: flex; flex-direction: column; gap: 9px">
+      <div style="display: flex; align-items: center; gap: 9px">
+        <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true"><rect x="2" y="2" width="8" height="8" stroke="#C08A3E" stroke-width="1.5"/><path d="M2 6 H10" stroke="#C08A3E" stroke-width="1.5"/></svg>
+        <span style="font-size: 15px; font-weight: 600">Coverage changed</span>
+      </div>
+      <div style="font-size: 12.5px; line-height: 1.55; color: #3D3C38">The rule still applies, but to a different set of buildings. Shown as a count delta plus the predicate that moved.</div>
+      <div style="background: #FFF4E2; border: 1px solid #E3CFA6; padding: 9px 11px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; line-height: 1.5">[n] &rarr; [n] addresses<br><span style="color: #8A5A17">predicate: [what changed]</span></div>
+    </div>
+
+    <div style="background: #FDF6E8; border: 1px solid #C9A96A; border-left: 4px solid #8A5A17; padding: 18px 20px; display: flex; flex-direction: column; gap: 9px">
+      <div style="display: flex; align-items: center; gap: 9px">
+        <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 2.2 V7" stroke="#6B4410" stroke-width="1.8" stroke-linecap="square"/><circle cx="6" cy="9.4" r="0.9" fill="#6B4410"/></svg>
+        <span style="font-size: 15px; font-weight: 600; color: #3D2A08">Evidence insufficient</span>
+      </div>
+      <div style="font-size: 12.5px; line-height: 1.55; color: #5A4410">The diff itself could not be computed, because one side rests on a source we do not hold. <strong style="font-weight: 600">This is the rung that must never render as an empty set.</strong></div>
+      <div style="background: #FFFFFF; border: 1px solid #E3D3AE; padding: 9px 11px; font-size: 11px; line-height: 1.5; color: #6B4410">"No change" and "could not determine" are different findings and are drawn differently. An empty result always states which of the two it is.</div>
+    </div>
+
+  </div>
+
+  <div style="display: grid; grid-template-columns: 1.3fr 1fr; gap: 20px; flex-grow: 1">
+
+    <div style="background: #FFFFFF; border: 1px solid #DDDAD1; padding: 22px 24px; display: flex; flex-direction: column; gap: 13px">
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: #6B6A65">PER-TEST SUMMARY BLOCK, ONE PER CHANGE CASE</div>
+      <div style="border: 1px solid #DDDAD1; border-left: 4px solid #1B3A5C; padding: 15px 17px; display: flex; flex-direction: column; gap: 10px">
+        <div style="display: flex; justify-content: space-between; align-items: baseline">
+          <span style="font-size: 15px; font-weight: 600">[test_id] &middot; [test title]</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6B6A65">[type]</span>
+        </div>
+        <div style="display: flex; gap: 22px; font-size: 12px">
+          <div><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #6B6A65">AFFECTED</div><div style="font-size: 19px; font-weight: 600">[n]</div></div>
+          <div style="border-left: 1px solid #DDDAD1; padding-left: 22px"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #6B6A65">CONFLICT FLAGGED</div><div style="font-size: 19px; font-weight: 600">[n]</div></div>
+          <div style="border-left: 1px solid #DDDAD1; padding-left: 22px"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #8A5A17">INDETERMINATE</div><div style="font-size: 19px; font-weight: 600; color: #8A5A17">[n]</div></div>
+        </div>
+        <div style="background: #F6F7F8; border: 1px solid #E6E4DF; padding: 11px 13px; font-size: 12px; line-height: 1.6; color: #3D3C38"><strong style="font-weight: 600">Notes.</strong> Written as prose for a human reader, not a debug string. States what the system concluded, what it could not determine and why, and which source documents back it. This field is judged, so it is designed, not dumped.</div>
+      </div>
+      <div style="font-size: 12px; line-height: 1.6; color: #3D3C38">An affected count of zero is displayed with its reason attached: either the change genuinely reaches no address in the sample, or the evidence to decide was missing. Those two zeros look different on screen and read differently out loud.</div>
+    </div>
+
+    <div style="background: #11151A; color: #F6F7F8; padding: 22px 24px; display: flex; flex-direction: column; gap: 12px">
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: #C08A3E">INTEGRATION REQUIREMENTS, UNRESOLVED</div>
+      <div style="font-size: 13px; line-height: 1.6; color: #C9C7C1">This board is drawn against an interface that is not frozen. Three things must be reconciled once Codex commits, and each is a presentation dependency, not a request to change his design.</div>
+      <div style="display: flex; flex-direction: column; gap: 9px">
+        <div style="display: flex; gap: 11px; align-items: baseline"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #C08A3E; flex-shrink: 0">A1</span><span style="font-size: 12.5px; line-height: 1.5">The six diff kinds above are my taxonomy. If the primitive emits a different or smaller set, the cards collapse to match it rather than inventing categories it does not produce.</span></div>
+        <div style="display: flex; gap: 11px; align-items: baseline"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #C08A3E; flex-shrink: 0">A2</span><span style="font-size: 12.5px; line-height: 1.5">"Evidence insufficient" needs to be distinguishable from an empty affected set in the data. If both arrive as an empty list, the UI cannot tell them apart and the most important distinction on this board is lost.</span></div>
+        <div style="display: flex; gap: 11px; align-items: baseline"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #C08A3E; flex-shrink: 0">A3</span><span style="font-size: 12.5px; line-height: 1.5">Per-address prior and current state is needed to draw a status change. A test-level affected list alone supports the counts but not the struck-through line.</span></div>
+      </div>
+      <div style="margin-top: auto; border-top: 1px solid #3A3A38; padding-top: 12px; font-size: 11.5px; line-height: 1.5; color: #9A9892">None of these blocks the demo. Without them the cards degrade to counts and notes, which is still a complete story.</div>
+    </div>
+
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

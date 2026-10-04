@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Evidence chain</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    body { margin: 0; }
+    a { color: #1B3A5C; } a:hover { color: #11253B; }
+  </style>
+</helmet>
+
+<div style="width: 1040px; height: 1080px; box-sizing: border-box; background: #F6F7F8; color: #11151A; font-family: 'IBM Plex Sans', system-ui, sans-serif; padding: 48px 52px; display: flex; flex-direction: column; gap: 18px">
+
+  <div style="border-bottom: 2px solid #11151A; padding-bottom: 14px">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #6B6A65; margin-bottom: 7px">Evidence chain</div>
+    <h1 style="margin: 0; font-size: 34px; font-weight: 600; letter-spacing: -0.02em">Seven rungs from answer to source</h1>
+    <div style="font-size: 13px; color: #6B6A65; margin-top: 8px; line-height: 1.5">Always rendered as one vertical ladder on one screen. No tabs, no accordions above rung five. A judge should be able to read top to bottom in about eight seconds.</div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 0; flex-grow: 1">
+
+    <div style="display: grid; grid-template-columns: 112px 1fr; gap: 18px; align-items: stretch">
+      <div style="display: flex; flex-direction: column; align-items: flex-end; padding-top: 16px"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: #6B6A65">01 ANSWER</span></div>
+      <div style="border-left: 2px solid #1B3A5C; padding: 14px 0 20px 20px; position: relative">
+        <div style="background: #FFFFFF; border: 1px solid #DDDAD1; border-left: 4px solid #1B3A5C; padding: 16px 18px">
+          <div style="font-size: 22px; font-weight: 600; line-height: 1.3">[the one-sentence answer]</div>
+          <div style="font-size: 12px; color: #6B6A65; margin-top: 7px; font-family: 'IBM Plex Mono', monospace">[STATE CHIP] &middot; as of [date]</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 112px 1fr; gap: 18px">
+      <div style="display: flex; flex-direction: column; align-items: flex-end; padding-top: 4px"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: #6B6A65">02 WHY</span></div>
+      <div style="border-left: 2px solid #1B3A5C; padding: 2px 0 20px 20px">
+        <div style="background: #FFFFFF; border: 1px solid #DDDAD1; padding: 14px 16px; font-size: 13px; line-height: 1.6; color: #3D3C38">
+          The deciding fact, named. Never "based on applicable law". The sentence must contain the field and its value, for example the unit count the test turned on, or the one that was absent from the assessor record.
+        </div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 112px 1fr; gap: 18px">
+      <div style="display: flex; flex-direction: column; align-items: flex-end; padding-top: 4px"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: #6B6A65">03 RULE</span></div>
+      <div style="border-left: 2px solid #1B3A5C; padding: 2px 0 20px 20px">
+        <div style="background: #FFFFFF; border: 1px solid #DDDAD1; padding: 14px 16px; display: flex; flex-direction: column; gap: 9px">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
+            <span style="font-size: 14px; font-weight: 600">[rule.title]</span>
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #1B3A5C">[team_rule_id]</span>
+          </div>
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6B6A65">[citation]</div>
+          <div style="background: #F6F7F8; border: 1px solid #E6E4DF; padding: 9px 11px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; line-height: 1.6; color: #3D3C38">coverage: [predicate] [op] [value]<br>needs_fact: [list, or none]</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 112px 1fr; gap: 18px">
+      <div style="display: flex; flex-direction: column; align-items: flex-end; padding-top: 4px"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: #8A5A17; font-weight: 500">04 EXACT TEXT</span></div>
+      <div style="border-left: 2px solid #8A5A17; padding: 2px 0 20px 20px">
+        <div style="background: #FFFEFA; border: 1px solid #C9A96A; padding: 16px 18px">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: #8A5A17; margin-bottom: 10px">VERBATIM SPAN, MACHINE-VERIFIED AGAINST THE SOURCE FILE</div>
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; line-height: 1.75; color: #11151A; border-left: 3px solid #C9A96A; padding-left: 14px">[the exact sentence from the source document, highlighted in place]</div>
+          <div style="margin-top: 11px; font-size: 11px; color: #8A5A17; display: flex; align-items: center; gap: 7px">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6.3 L4.8 9 L10 3" stroke="#8A5A17" stroke-width="1.8" stroke-linecap="square"/></svg>
+            Substring match confirmed at render time. A span that fails this check never ships.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 112px 1fr; gap: 18px">
+      <div style="display: flex; flex-direction: column; align-items: flex-end; padding-top: 4px"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: #6B6A65">05 SOURCE</span></div>
+      <div style="border-left: 2px solid #1B3A5C; padding: 2px 0 20px 20px">
+        <div style="background: #FFFFFF; border: 1px solid #DDDAD1; padding: 14px 16px; display: flex; flex-direction: column; gap: 7px; font-size: 12px; color: #3D3C38">
+          <div style="display: flex; gap: 10px"><span style="font-family: 'IBM Plex Mono', monospace; color: #6B6A65; width: 86px; flex-shrink: 0">doc</span><span>[doc_id] &middot; [official | code publisher | secondary]</span></div>
+          <div style="display: flex; gap: 10px"><span style="font-family: 'IBM Plex Mono', monospace; color: #6B6A65; width: 86px; flex-shrink: 0">url</span><a href="#source" style="word-break: break-all">[source_url]</a></div>
+          <div style="display: flex; gap: 10px"><span style="font-family: 'IBM Plex Mono', monospace; color: #6B6A65; width: 86px; flex-shrink: 0">retrieved</span><span>[retrieved_at]</span></div>
+          <div style="display: flex; gap: 10px"><span style="font-family: 'IBM Plex Mono', monospace; color: #6B6A65; width: 86px; flex-shrink: 0">integrity</span><span>local text hash recorded; manifest hash scope <strong style="font-weight: 600">unknown</strong>, so no integrity claim is made</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 112px 1fr; gap: 18px">
+      <div style="display: flex; flex-direction: column; align-items: flex-end; padding-top: 4px"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: #8A5A17; font-weight: 500">06 EPISTEMICS</span></div>
+      <div style="border-left: 2px solid #8A5A17; padding: 2px 0 20px 20px">
+        <div style="background: #FFFFFF; border: 1px solid #DDDAD1; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px">
+          <div style="display: flex; align-items: flex-start; gap: 10px">
+            <span style="background: #1B3A5C; color: #FFFFFF; font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; padding: 3px 7px; letter-spacing: 0.08em; flex-shrink: 0; margin-top: 1px">STATED</span>
+            <span style="font-size: 12px; line-height: 1.5; color: #3D3C38">The source text says it, and rung 04 proves it. Filled chip.</span>
+          </div>
+          <div style="display: flex; align-items: flex-start; gap: 10px">
+            <span style="background: #FFFFFF; color: #1B3A5C; border: 1.5px solid #1B3A5C; font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; padding: 2px 6px; letter-spacing: 0.08em; flex-shrink: 0; margin-top: 1px">DERIVED</span>
+            <span style="font-size: 12px; line-height: 1.5; color: #3D3C38">Follows mechanically from stated text plus a named rule. <strong style="font-weight: 600">The chip expands to name that rule.</strong> A derived date never renders as a stated one.</span>
+          </div>
+          <div style="display: flex; align-items: flex-start; gap: 10px">
+            <span style="background: #FDF6E8; color: #6B4410; border: 1.5px dashed #8A5A17; font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; padding: 2px 6px; letter-spacing: 0.08em; flex-shrink: 0; margin-top: 1px">INFERRED</span>
+            <span style="font-size: 12px; line-height: 1.5; color: #3D3C38">Plausible, not established by the source alone. Carries its basis inline.</span>
+          </div>
+          <div style="display: flex; align-items: flex-start; gap: 10px">
+            <span style="background: #F0EFEC; color: #44423D; border: 1.5px dotted #55534E; font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; padding: 2px 6px; letter-spacing: 0.08em; flex-shrink: 0; margin-top: 1px">UNKNOWN</span>
+            <span style="font-size: 12px; line-height: 1.5; color: #3D3C38">The source does not supply it. Renders as an empty slot with the gap named, never as a blank or a dash.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 112px 1fr; gap: 18px">
+      <div style="display: flex; flex-direction: column; align-items: flex-end; padding-top: 4px"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: #6B6A65">07 TIME</span></div>
+      <div style="padding: 2px 0 0 22px">
+        <div style="background: #FFFFFF; border: 1px solid #DDDAD1; padding: 14px 16px; display: flex; gap: 28px; font-size: 12px; color: #3D3C38">
+          <div><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #6B6A65; margin-bottom: 4px">EFFECTIVE</div><div style="font-size: 15px; font-weight: 600">[date or null]</div><div style="font-size: 11px; color: #6B6A65; margin-top: 2px">[stated | derived | not establishable]</div></div>
+          <div style="border-left: 1px solid #DDDAD1; padding-left: 28px"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #6B6A65; margin-bottom: 4px">AS OF</div><div style="font-size: 15px; font-weight: 600">[query date]</div><div style="font-size: 11px; color: #6B6A65; margin-top: 2px">user-controlled, never the clock</div></div>
+          <div style="border-left: 1px solid #DDDAD1; padding-left: 28px"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #6B6A65; margin-bottom: 4px">RETRIEVED</div><div style="font-size: 15px; font-weight: 600">[capture date]</div><div style="font-size: 11px; color: #6B6A65; margin-top: 2px">the law may have moved since</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="background: #11151A; color: #F6F7F8; padding: 18px 22px; display: flex; gap: 22px; align-items: flex-start">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: #C08A3E; flex-shrink: 0; padding-top: 3px">THE TEST</div>
+    <div style="font-size: 13px; line-height: 1.6">If a judge can point at any sentence on the answer screen and reach its verbatim source in one click, the provenance claim is real. If any sentence cannot be reached that way, it should not be on the screen. That is the acceptance criterion for this design, and it is checkable in the demo itself.</div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1040,"height":1080}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

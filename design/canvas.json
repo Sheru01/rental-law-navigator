@@ -1,0 +1,138 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "ChangeTracking.dc.html": {
+      "h": 900,
+      "title": "Change tracking, as-of diff",
+      "w": 1440,
+      "x": 0,
+      "y": 2300
+    },
+    "DemoScreen.dc.html": {
+      "h": 980,
+      "is_interactive": true,
+      "title": "Answer screen (the thing judges see)",
+      "w": 1440,
+      "x": 1520,
+      "y": 0
+    },
+    "EvidenceDebt.dc.html": {
+      "h": 1040,
+      "title": "Evidence Debt: the product under the demo",
+      "w": 1440,
+      "x": 1520,
+      "y": 4320
+    },
+    "EvidenceInteraction.dc.html": {
+      "h": 1040,
+      "title": "Evidence interaction, motion, micro-states",
+      "w": 1440,
+      "x": 0,
+      "y": 4320
+    },
+    "Main.dc.html": {
+      "h": 980,
+      "title": "Judge flow, 8 beats",
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "Provenance.dc.html": {
+      "h": 1080,
+      "title": "Evidence chain",
+      "w": 1040,
+      "x": 1520,
+      "y": 1100
+    },
+    "ResultStates.dc.html": {
+      "h": 1080,
+      "title": "Seven result states",
+      "w": 1440,
+      "x": 0,
+      "y": 1100
+    },
+    "Storyboard.dc.html": {
+      "h": 1700,
+      "title": "Storyboard, scripts, fallback",
+      "w": 1440,
+      "x": 1520,
+      "y": 2300
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-10-04T04:05:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas"
+  },
+  "notes": {
+    "n1": {
+      "kind": "title1",
+      "maxW": 2960,
+      "text": "The flow and the screen",
+      "w": 240,
+      "x": 0,
+      "y": -240
+    },
+    "n2": {
+      "fill": "blue",
+      "text": "Design thesis: a legal answer engine earns trust by how it behaves when the evidence runs out. Every uncertain state here gets the SAME weight, the same provenance chain, and the same visual finish as a confident one. Uncertainty is rendered as a finding, never as a failure.",
+      "w": 760,
+      "x": 0,
+      "y": 860
+    },
+    "n3": {
+      "kind": "title1",
+      "maxW": 2560,
+      "text": "States and evidence",
+      "w": 240,
+      "x": 0,
+      "y": 1960
+    },
+    "n4": {
+      "kind": "title1",
+      "maxW": 2960,
+      "text": "Change tracking and the run of show",
+      "w": 240,
+      "x": 0,
+      "y": 3160
+    },
+    "n5": {
+      "fill": "orange",
+      "text": "All sample values on these boards are either placeholder slots or facts already verified in our own corpus work (Hoboken Ord. B-781, the missing Jersey City text, the AB 325 silence on operative date). No T1 to T5 answer is hard-coded, and no legal conclusion is invented. Every value binds from engine output at runtime, after the Codex commit, the Sonnet audit and validated outputs.",
+      "w": 720,
+      "x": 3060,
+      "y": 2300
+    },
+    "n6": {
+      "kind": "title1",
+      "maxW": 2960,
+      "text": "Interaction detail, and the idea worth keeping",
+      "w": 240,
+      "x": 0,
+      "y": 4100
+    },
+    "n7": {
+      "fill": "orange",
+      "text": "Evidence Debt is the board to protect if anything gets cut. The rest of this canvas makes the demo good; this one is the only part that outlives the hackathon.",
+      "w": 720,
+      "x": 3060,
+      "y": 4320
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "DemoScreen.dc.html",
+    "ResultStates.dc.html",
+    "Provenance.dc.html",
+    "ChangeTracking.dc.html",
+    "Storyboard.dc.html",
+    "EvidenceInteraction.dc.html",
+    "EvidenceDebt.dc.html"
+  ],
+  "pages": [],
+  "title": "Rental Law Navigator: Judge Demo Design"
+}
