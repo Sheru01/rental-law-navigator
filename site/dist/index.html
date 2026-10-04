@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Rental Housing Law Navigator — explore housing rules by address and date." />
+  <title>Rental Housing Law Navigator</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230d1827'/%3E%3Cpath d='M8 15.5 16 8l8 7.5v9H8z' fill='none' stroke='%235be0c5' stroke-width='2.4' stroke-linejoin='round'/%3E%3Cpath d='M13 24v-6h6v6' fill='none' stroke='%235be0c5' stroke-width='2.4'/%3E%3C/svg%3E" />
+  <style>
+    :root { --ink:#edf5f5; --muted:#8da2ad; --bg:#071019; --panel:#0b1723; --panel2:#0d1e2d; --line:#1b3343; --mint:#5be0c5; --blue:#63a6ff; --amber:#f4bd69; --rose:#f17f9b; --lav:#b8a7ff; }
+    * { box-sizing:border-box; }
+    html, body { margin:0; min-height:100%; background:var(--bg); color:var(--ink); font:15px/1.45 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    body { overflow:hidden; }
+    button, input, select { font:inherit; }
+    button { cursor:pointer; }
+    .shell { height:100vh; display:grid; grid-template-rows:72px 1fr 42px; background:radial-gradient(circle at 38% 20%, #102a38 0, transparent 35%), var(--bg); }
+    header { display:flex; align-items:center; justify-content:space-between; padding:0 28px; border-bottom:1px solid var(--line); background:rgba(7,16,25,.82); backdrop-filter:blur(18px); z-index:5; }
+    .brand { display:flex; gap:12px; align-items:center; min-width:280px; }
+    .mark { width:34px; height:34px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(135deg,#153944,#10213a); border:1px solid #2e6470; color:var(--mint); font-size:18px; box-shadow:0 0 24px #1caa9160; }
+    .brand strong { display:block; font-size:16px; letter-spacing:-.02em; }
+    .brand span { display:block; color:var(--muted); font-size:12px; margin-top:1px; }
+    .header-actions { display:flex; align-items:center; gap:12px; }
+    .asof { display:flex; align-items:center; gap:9px; color:var(--muted); font-size:12px; }
+    .asof input { color:var(--ink); background:#0e202c; border:1px solid var(--line); border-radius:8px; padding:7px 9px; color-scheme:dark; }
+    .pill { border:1px solid #2b4555; background:#112331; color:#b9cbd3; border-radius:999px; padding:7px 12px; font-size:12px; }
+    main { min-height:0; display:grid; grid-template-columns:250px minmax(360px,1fr) 360px; }
+    aside, .inspector { min-height:0; background:rgba(8,21,32,.84); }
+    aside { border-right:1px solid var(--line); padding:22px 18px; overflow:auto; }
+    .eyebrow { color:var(--mint); text-transform:uppercase; letter-spacing:.14em; font-size:10px; font-weight:700; }
+    h1,h2,h3,p { margin:0; }
+    aside h2 { margin-top:7px; font-size:18px; letter-spacing:-.03em; }
+    .intro { color:var(--muted); font-size:12px; margin-top:7px; }
+    .control { margin-top:22px; }
+    .control label { display:flex; justify-content:space-between; color:#b7c6cb; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.11em; margin-bottom:8px; }
+    select, .search { width:100%; background:#0c1c29; color:var(--ink); border:1px solid var(--line); border-radius:8px; padding:10px 11px; outline:none; }
+    select:focus, .search:focus { border-color:#3d8d93; box-shadow:0 0 0 3px #3d8d9330; }
+    .category-list { display:grid; gap:5px; }
+    .category { background:transparent; color:#9db0b8; border:1px solid transparent; border-radius:8px; padding:8px 9px; text-align:left; font-size:12px; display:flex; justify-content:space-between; }
+    .category:hover, .category.active { color:var(--ink); background:#102634; border-color:#235061; }
+    .count { color:#6f8993; font-variant-numeric:tabular-nums; }
+    .legend { border-top:1px solid var(--line); margin-top:25px; padding-top:17px; display:grid; gap:9px; }
+    .legend div { display:flex; gap:8px; align-items:center; color:var(--muted); font-size:12px; }
+    .dot { width:8px; height:8px; border-radius:50%; display:inline-block; box-shadow:0 0 12px currentColor; }
+    .applies { color:var(--mint); } .unknown { color:var(--amber); } .superseded { color:var(--lav); } .pending { color:var(--rose); } .notyet { color:var(--blue); }
+    .map-wrap { position:relative; min-width:0; overflow:hidden; background:#0a1a25; }
+    .map { position:absolute; inset:0; background-color:#0a1b27; background-image:linear-gradient(#12314070 1px,transparent 1px),linear-gradient(90deg,#12314070 1px,transparent 1px),linear-gradient(135deg,transparent 49.5%,#174152 50%,transparent 50.5%); background-size:84px 84px,84px 84px,280px 280px; }
+    .map:before { content:""; position:absolute; inset:-20%; background:radial-gradient(ellipse at 23% 20%,#183e4a 0,transparent 28%),radial-gradient(ellipse at 75% 75%,#102b44 0,transparent 27%); opacity:.72; }
+    .map-label { position:absolute; color:#486875; font-size:11px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; }
+    .map-label.sf { top:21%; left:17%; } .map-label.la { bottom:19%; left:31%; } .map-label.nj { top:29%; right:18%; } .map-label.ma { top:14%; right:7%; }
+    .route { position:absolute; left:12%; top:29%; width:74%; height:46%; border:1px solid #266177; border-left-color:transparent; border-bottom-color:#1f5264; border-radius:47% 53% 40% 55%; transform:rotate(-10deg); opacity:.75; }
+    .pin { position:absolute; width:17px; height:17px; border-radius:50%; border:3px solid #d9ffff; box-shadow:0 0 0 4px #5be0c540,0 0 25px currentColor; transform:translate(-50%,-50%); z-index:2; transition:.18s ease; }
+    .pin:hover, .pin.selected { transform:translate(-50%,-50%) scale(1.35); z-index:4; }
+    .pin.selected { border-color:#fff; box-shadow:0 0 0 5px #5be0c560,0 0 30px currentColor; }
+    .pin.ca { color:var(--mint); background:#5be0c5; } .pin.nj { color:var(--blue); background:#63a6ff; } .pin.ma { color:var(--lav); background:#b8a7ff; }
+    .map-toolbar { position:absolute; left:22px; top:20px; right:22px; display:flex; justify-content:space-between; align-items:start; z-index:3; }
+    .map-title { background:#081723dd; border:1px solid #244252; border-radius:10px; padding:10px 13px; box-shadow:0 10px 25px #0003; }
+    .map-title strong { display:block; font-size:13px; } .map-title span { display:block; color:var(--muted); font-size:11px; margin-top:2px; }
+    .map-tools { display:flex; gap:7px; }
+    .icon-btn { width:34px; height:34px; border-radius:9px; border:1px solid #294554; color:#a8c0c6; background:#081723dd; }
+    .map-tools .icon-btn:hover { color:var(--mint); border-color:#3c7d7e; }
+    .map-foot { position:absolute; left:22px; bottom:18px; right:22px; display:flex; justify-content:space-between; color:#66818c; font-size:11px; z-index:3; }
+    .inspector { border-left:1px solid var(--line); overflow:auto; }
+    .inspector-inner { padding:23px 20px; }
+    .selected-kicker { display:flex; align-items:center; justify-content:space-between; }
+    .record-id { color:var(--muted); font-size:12px; font-variant-numeric:tabular-nums; }
+    .address { margin-top:10px; font-size:23px; line-height:1.1; letter-spacing:-.04em; }
+    .jurisdiction { color:var(--muted); margin-top:7px; font-size:13px; }
+    .facts { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:20px; }
+    .fact { background:#0d202d; border:1px solid #1c3745; border-radius:9px; padding:10px; }
+    .fact span { color:#718c97; text-transform:uppercase; letter-spacing:.1em; font-size:9px; display:block; } .fact strong { display:block; margin-top:3px; font-size:13px; }
+    .rules-head { display:flex; justify-content:space-between; align-items:center; margin-top:24px; padding-bottom:10px; border-bottom:1px solid var(--line); }
+    .rules-head h3 { font-size:13px; } .rules-head span { color:var(--muted); font-size:11px; }
+    .rule-card { border-bottom:1px solid #18303d; padding:14px 0; }
+    .rule-top { display:flex; justify-content:space-between; gap:10px; align-items:start; }
+    .rule-top strong { font-size:13px; line-height:1.25; } .status { flex:none; font-size:10px; border-radius:999px; padding:4px 7px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; }
+    .status.applies { background:#16453f; color:#79ebd3; } .status.unknown { background:#4e3b1f; color:#f4c779; } .status.superseded { background:#332c50; color:#c7baff; } .status.pending { background:#522b3d; color:#ffa2ba; } .status.notyet { background:#19395b; color:#8ebcff; }
+    .rule-meta { color:#78909b; font-size:11px; margin-top:5px; } .rule-reason { color:#adbec3; font-size:12px; margin-top:8px; }
+    .citation { display:inline-flex; gap:5px; align-items:center; margin-top:8px; color:#78c7d5; font-size:11px; text-decoration:none; } .citation:hover { color:#b1f7ea; }
+    .disclaimer { border:1px solid #294052; background:#0b1b28; border-radius:9px; padding:12px; color:#839ba4; font-size:11px; margin-top:18px; }
+    footer { border-top:1px solid var(--line); color:#67808a; display:flex; align-items:center; justify-content:space-between; padding:0 28px; font-size:11px; background:#07121b; }
+    footer strong { color:#9bb1b7; font-weight:600; }
+    @media (max-width: 1050px) { main { grid-template-columns:220px minmax(300px,1fr) 330px; } }
+    @media (max-width: 820px) { body { overflow:auto; } .shell { height:auto; min-height:100vh; grid-template-rows:64px auto 42px; } header { padding:0 16px; } .brand { min-width:0; } .asof { display:none; } main { min-height:calc(100vh - 106px); grid-template-columns:1fr; } aside { display:none; } .map-wrap { height:55vh; min-height:430px; } .inspector { border-left:0; border-top:1px solid var(--line); } footer { padding:0 16px; } footer span:first-child { display:none; } }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div class="brand"><div class="mark">⌂</div><div><strong>Rental Housing Law Navigator</strong><span>Evidence-led jurisdiction lookup</span></div></div>
+      <div class="header-actions"><div class="asof"><span>As of</span><input id="asOf" type="date" value="2026-10-01" aria-label="As of date" /></div><span class="pill">Not legal advice</span></div>
+    </header>
+    <main>
+      <aside>
+        <div class="eyebrow">Explore the sample</div><h2>500 addresses</h2><p class="intro">Select a point to inspect the rules supported by the record.</p>
+        <div class="control"><label for="search">Find address <span>⌕</span></label><input class="search" id="search" placeholder="Search ID or jurisdiction" /></div>
+        <div class="control"><label>State</label><select id="state"><option value="all">All states</option><option value="CA">California</option><option value="NJ">New Jersey</option><option value="MA">Massachusetts</option></select></div>
+        <div class="control"><label>Rule category</label><div class="category-list" id="categories"><button class="category active" data-category="all">All categories <span class="count">6</span></button><button class="category" data-category="rent_increase_limits">Rent increase limits <span class="count">1</span></button><button class="category" data-category="just_cause_eviction">Just-cause eviction <span class="count">1</span></button><button class="category" data-category="security_deposits">Security deposits <span class="count">1</span></button><button class="category" data-category="screening_restrictions">Screening restrictions <span class="count">1</span></button><button class="category" data-category="algorithmic_rent_setting">Algorithmic rent setting <span class="count">2</span></button></div></div>
+        <div class="legend"><div><i class="dot applies"></i> Applies</div><div><i class="dot unknown"></i> Unknown / needs facts</div><div><i class="dot superseded"></i> Superseded</div><div><i class="dot notyet"></i> Not yet effective</div></div>
+      </aside>
+      <section class="map-wrap" aria-label="Address map">
+        <div class="map"><div class="route"></div><div class="map-label sf">San Francisco</div><div class="map-label la">Los Angeles</div><div class="map-label nj">New Jersey</div><div class="map-label ma">Massachusetts</div><div id="pins"></div></div>
+        <div class="map-toolbar"><div class="map-title"><strong>Legal jurisdiction map</strong><span id="mapSummary">16 sample records · 3 states</span></div><div class="map-tools"><button class="icon-btn" title="Zoom in" aria-label="Zoom in">+</button><button class="icon-btn" title="Zoom out" aria-label="Zoom out">−</button><button class="icon-btn" title="Recenter" aria-label="Recenter">◎</button></div></div>
+        <div class="map-foot"><span>Incorporated place, not postal city</span><span>Source: Census geocoder · fixture preview</span></div>
+      </section>
+      <section class="inspector"><div class="inspector-inner" id="inspector"></div></section>
+    </main>
+    <footer><span>Source-backed rules · explicit as-of date · uncertainty preserved</span><strong>Rental Housing Law Navigator</strong><span>v0.1 preview</span></footer>
+  </div>
+  <script>
+    const addresses = [
+      {id:'F001',state:'CA',jurisdiction:'San Francisco, CA',year:'1960',units:'40',x:18,y:38,results:['applies','superseded','unknown','applies','notyet','unknown']},
+      {id:'F002',state:'CA',jurisdiction:'San Francisco, CA',year:'1979',units:'10',x:24,y:44,results:['unknown','applies','unknown','applies','notyet','unknown']},
+      {id:'F003',state:'CA',jurisdiction:'San Francisco, CA',year:'—',units:'12',x:28,y:31,results:['unknown','applies','unknown','applies','notyet','unknown']},
+      {id:'F004',state:'CA',jurisdiction:'San Francisco, CA',year:'1990',units:'12',x:20,y:26,results:['applies','applies','applies','applies','notyet','unknown']},
+      {id:'F005',state:'CA',jurisdiction:'Los Angeles, CA',year:'1950',units:'8',x:34,y:75,results:['applies','applies','applies','applies','notyet','unknown']},
+      {id:'F006',state:'CA',jurisdiction:'Los Angeles, CA',year:'1978',units:'8',x:42,y:68,results:['unknown','applies','applies','applies','notyet','unknown']},
+      {id:'F007',state:'CA',jurisdiction:'San Diego, CA',year:'—',units:'—',x:48,y:82,results:['unknown','applies','unknown','applies','notyet','unknown']},
+      {id:'F008',state:'CA',jurisdiction:'Berkeley, CA',year:'—',units:'—',x:27,y:19,results:['unknown','applies','unknown','applies','notyet','unknown']},
+      {id:'F009',state:'CA',jurisdiction:'San Diego, CA',year:'1990',units:'20',x:53,y:87,results:['applies','applies','applies','applies','notyet','unknown']},
+      {id:'F010',state:'NJ',jurisdiction:'Hoboken, NJ',year:'—',units:'—',x:79,y:37,results:['applies','applies','unknown','applies','pending','unknown']},
+      {id:'F011',state:'NJ',jurisdiction:'Jersey City, NJ',year:'1998',units:'—',x:73,y:45,results:['applies','applies','unknown','applies','pending','unknown']},
+      {id:'F012',state:'NJ',jurisdiction:'Newark, NJ',year:'—',units:'—',x:70,y:28,results:['applies','applies','unknown','applies','pending','unknown']},
+      {id:'F013',state:'MA',jurisdiction:'Boston, MA',year:'1920',units:'—',x:88,y:20,results:['applies','applies','unknown','applies','pending','unknown']},
+      {id:'F014',state:'MA',jurisdiction:'Cambridge, MA',year:'1960',units:'6',x:82,y:13,results:['applies','applies','applies','applies','pending','unknown']},
+      {id:'F015',state:'NJ',jurisdiction:'Unresolved',year:'—',units:'—',x:64,y:55,results:['unknown','unknown','unknown','unknown','unknown','unknown']},
+      {id:'F016',state:'—',jurisdiction:'Unresolved',year:'—',units:'—',x:56,y:42,results:['unknown','unknown','unknown','unknown','unknown','unknown']}
+    ];
+    const rules = [
+      {name:'California statewide cap', category:'rent_increase_limits', citation:'Cal. Civ. Code § 1947.12', source:'AB 1482 · statewide baseline', reason:'Statewide rule is present, but local rent control takes precedence here.', href:'#source-ca'},
+      {name:'Just-cause eviction baseline', category:'just_cause_eviction', citation:'Cal. Civ. Code § 1946.2', source:'State statute', reason:'Coverage depends on the tenancy and property facts in the record.', href:'#source-eviction'},
+      {name:'Security deposit limits', category:'security_deposits', citation:'State deposit provisions', source:'State / local record', reason:'Owner type and unit facts are incomplete for this sample.', href:'#source-deposit'},
+      {name:'Screening restrictions', category:'screening_restrictions', citation:'Application screening record', source:'Jurisdiction-specific', reason:'No disqualifying restriction is established in this preview record.', href:'#source-screening'},
+      {name:'AB 325 · pricing algorithm', category:'algorithmic_rent_setting', citation:'Cal. Bus. & Prof. Code § 16729', source:'D022 · Chapter 338', reason:'The corpus establishes the statute, but not rental-housing applicability.', href:'#D022'},
+      {name:'Local algorithm rule', category:'algorithmic_rent_setting', citation:'Local ordinance record', source:'D001 / municipal evidence', reason:'Operative status or local evidence remains unresolved.', href:'#D001'}
+    ];
+    let selected = addresses[0], category = 'all';
+    const statusLabel = {applies:'Applies', unknown:'Unknown', superseded:'Superseded', pending:'Pending', notyet:'Not yet effective'};
+    function visibleAddresses(){ const q=document.querySelector('#search').value.toLowerCase(); const st=document.querySelector('#state').value; return addresses.filter(a=>(st==='all'||a.state===st)&&(!q||`${a.id} ${a.jurisdiction}`.toLowerCase().includes(q))); }
+    function renderPins(){ const host=document.querySelector('#pins'); host.innerHTML=''; const visible=visibleAddresses(); visible.forEach(a=>{const el=document.createElement('button'); el.className=`pin ${a.state.toLowerCase()} ${selected.id===a.id?'selected':''}`; el.style.left=a.x+'%'; el.style.top=a.y+'%'; el.title=`${a.id} · ${a.jurisdiction}`; el.setAttribute('aria-label',`Select ${a.id}, ${a.jurisdiction}`); el.onclick=()=>{selected=a; renderPins(); renderInspector();}; host.appendChild(el);}); document.querySelector('#mapSummary').textContent=`${visible.length} visible records · 3 states`; }
+    function renderInspector(){ const entries=rules.map((r,i)=>({...r,status:selected.results[i]})).filter(r=>category==='all'||r.category===category); document.querySelector('#inspector').innerHTML=`<div class="selected-kicker"><div class="eyebrow">Selected address</div><span class="record-id">${selected.id}</span></div><h1 class="address">${selected.jurisdiction}</h1><p class="jurisdiction">Legal jurisdiction resolved from the incorporated place</p><div class="facts"><div class="fact"><span>State</span><strong>${selected.state}</strong></div><div class="fact"><span>Year built</span><strong>${selected.year}</strong></div><div class="fact"><span>Units</span><strong>${selected.units}</strong></div><div class="fact"><span>Query date</span><strong>${document.querySelector('#asOf').value}</strong></div></div><div class="rules-head"><h3>Rule results</h3><span>${entries.length} shown</span></div>${entries.map(r=>`<article class="rule-card"><div class="rule-top"><strong>${r.name}</strong><span class="status ${r.status}">${statusLabel[r.status]}</span></div><div class="rule-meta">${r.source} · ${r.category.replaceAll('_',' ')}</div><p class="rule-reason">${r.reason}</p><a class="citation" href="${r.href}">↗ ${r.citation}</a></article>`).join('')}<div class="disclaimer"><strong>Read as a navigator, not a legal opinion.</strong><br/>Results are tied to the cited record and the selected date. Missing facts and incomplete legal evidence remain visible as uncertainty.</div>`; }
+    document.querySelector('#search').addEventListener('input',()=>{const v=visibleAddresses(); if(v.length&&!v.includes(selected)) selected=v[0]; renderPins(); renderInspector();}); document.querySelector('#state').addEventListener('change',()=>{const v=visibleAddresses(); if(v.length&&!v.includes(selected)) selected=v[0]; renderPins(); renderInspector();}); document.querySelector('#asOf').addEventListener('change',renderInspector); document.querySelectorAll('.category').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.category').forEach(x=>x.classList.remove('active')); b.classList.add('active'); category=b.dataset.category; renderInspector();})); renderPins(); renderInspector();
+  </script>
+</body>
+</html>
