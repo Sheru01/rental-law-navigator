@@ -1,0 +1,77 @@
+{
+  "result": {
+    "input": {
+      "location": {
+        "x": -117.045,
+        "y": 32.556
+      },
+      "benchmark": {
+        "id": "4",
+        "benchmarkName": "Public_AR_Current"
+      },
+      "vintage": {
+        "id": "4",
+        "vintageName": "Current_Current"
+      }
+    },
+    "geographies": {
+      "States": [
+        {
+          "STATE": "06",
+          "GEOID": "06",
+          "NAME": "California",
+          "STUSAB": "CA",
+          "BASENAME": "California"
+        }
+      ],
+      "Counties": [
+        {
+          "STATE": "06",
+          "COUNTY": "073",
+          "GEOID": "06073",
+          "NAME": "San Diego County",
+          "BASENAME": "San Diego",
+          "FUNCSTAT": "A"
+        }
+      ],
+      "County Subdivisions": [
+        {
+          "STATE": "06",
+          "COUNTY": "073",
+          "COUSUB": "92500",
+          "GEOID": "0607392500",
+          "NAME": "San Diego CCD",
+          "FUNCSTAT": "A"
+        }
+      ],
+      "Incorporated Places": [
+        {
+          "STATE": "06",
+          "PLACE": "66000",
+          "GEOID": "0666000",
+          "NAME": "San Diego city",
+          "LSADC": "25",
+          "FUNCSTAT": "A"
+        }
+      ],
+      "Census Tracts": [
+        {
+          "STATE": "06",
+          "COUNTY": "073",
+          "TRACT": "000100",
+          "GEOID": "06073000100",
+          "NAME": "Census Tract 000100"
+        }
+      ],
+      "2020 Census Blocks": [
+        {
+          "STATE": "06",
+          "COUNTY": "073",
+          "TRACT": "000100",
+          "BLOCK": "1000",
+          "GEOID": "060730001001000"
+        }
+      ]
+    }
+  }
+}

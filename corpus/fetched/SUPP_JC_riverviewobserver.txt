@@ -1,0 +1,10 @@
+SOURCE: https://riverviewobserver.net/jersey-city-council-passes-bold-ordinances-to-ban-algorithmic-rent-price-gouging-and-raise-wages-for-workers-in-tax-abated-buildings/2/
+RETRIEVED: 2026-10-04 02:28 UTC
+
+[SUMMARY, NOT SOURCE TEXT]
+Local news article (page 2 of the article) about the Jersey City council passing the ordinances. Supplementary source with no manifest doc_id. Retrieved via WebFetch (model-mediated). Quote below is a councilmember statement as returned by the extractor, not byte-verified.
+
+"Tonight, Jersey City took a stand against illegal collusion from corporate landlords driving displacement and inequality. We passed first-in-the-state legislation to ban algorithmic rent collusion"
+
+[SUMMARY, NOT SOURCE TEXT]
+Per extractor: article dated May 23, 2025; speaker James Solomon. Ordinance numbers, specific vote date, effective date, verbatim prohibition language and penalties are NOT stated in this article.

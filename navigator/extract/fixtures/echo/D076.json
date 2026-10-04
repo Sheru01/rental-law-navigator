@@ -1,0 +1,174 @@
+{
+ "_fixture_note": "CANNED stand-in for model output, used only by --transport echo. Not a real extraction.",
+ "response": {
+  "document": {
+   "source_kind": "primary_legal_text",
+   "states_legal_requirement": true,
+   "notes": "Staff report and a proposed, unadopted San Diego ordinance."
+  },
+  "rules": [
+   {
+    "jurisdiction": "San Diego, CA",
+    "category": "algorithmic_rent_setting",
+    "instrument_type": "ordinance",
+    "source_kind": "primary_legal_text",
+    "title": "San Diego proposed ordinance: automated rent price-fixing prohibition (SDMC div. 11)",
+    "requirement": "As proposed, it would be unlawful to sell or license an algorithmic device to a landlord, and unlawful for a landlord to use one to set rental rates or occupancy levels for residential rental property. The document is a proposal; final passage is not shown.",
+    "key_value": "Civil penalties up to $1,000 per violation in a tenant action",
+    "coverage_conditions": {
+     "predicates": [
+      {
+       "fact": "jurisdiction",
+       "op": "eq",
+       "value": "San Diego, CA"
+      }
+     ],
+     "needs_fact": [
+      "definitions incorporated by reference from SDMC sec. 98.0702 (landlord, lease, residential rental property, tenant), not reproduced in this document"
+     ],
+     "note": "Coverage boundaries cannot be verified from this document because the key definitions are incorporated, not reproduced."
+    },
+    "exemptions": "Algorithmic device excludes aggregated historical reports and affordable-housing limit tools.",
+    "status": "pending",
+    "status_establishable": true,
+    "status_basis": "derived",
+    "effective_date": null,
+    "citation": "Proposed SDMC secs. 98.1101-98.1104 (draft reference O-2025-107)",
+    "quoted_span": "(b) It is unlawful for a landlord to use an algorithmic device to set rental rates or occupancy levels for residential rental property.",
+    "supporting_spans": [
+     {
+      "id": "s1",
+      "text": "DATE OF FINAL PASSAGE __________________",
+      "supports": [
+       "status"
+      ]
+     },
+     {
+      "id": "s2",
+      "text": "Councilmember Sean Elo-Rivera proposes to protect San Diegans from automated rent price-fixing",
+      "supports": [
+       "status"
+      ]
+     },
+     {
+      "id": "s3",
+      "text": "I certify that the Council of the City of San Diego adopted this Ordinance at a meeting held on",
+      "supports": [
+       "status"
+      ]
+     },
+     {
+      "id": "s4",
+      "text": "Section 3. This Ordinance will take effect and be in force on the thirtieth day from and after its final passage.",
+      "supports": [
+       "effective_date"
+      ]
+     },
+     {
+      "id": "s5",
+      "text": "Landlord has the same meaning as in San Diego Municipal Code section 98.0702, as may be amended.",
+      "supports": [
+       "coverage_conditions"
+      ]
+     }
+    ],
+    "epistemics": {
+     "jurisdiction": {
+      "category": "stated",
+      "basis": "San Diego Municipal Code.",
+      "derivation_rule": null,
+      "span_ids": [
+       "s5"
+      ]
+     },
+     "category": {
+      "category": "stated",
+      "basis": "Automated rent price-fixing prohibition.",
+      "derivation_rule": null,
+      "span_ids": [
+       "quoted_span"
+      ]
+     },
+     "title": {
+      "category": "derived",
+      "basis": "Composed from the staff report subject.",
+      "derivation_rule": "TITLE_FROM_CAPTION_AND_SECTION",
+      "span_ids": [
+       "s2"
+      ]
+     },
+     "requirement": {
+      "category": "derived",
+      "basis": "Paraphrase of 98.1103.",
+      "derivation_rule": "PARAPHRASE_OF_QUOTED_SECTIONS",
+      "span_ids": [
+       "quoted_span"
+      ]
+     },
+     "key_value": {
+      "category": "derived",
+      "basis": "Summarises 98.1104.",
+      "derivation_rule": "PARAPHRASE_OF_QUOTED_SECTIONS",
+      "span_ids": [
+       "quoted_span"
+      ]
+     },
+     "coverage_conditions": {
+      "category": "stated",
+      "basis": "Definitions are incorporated by reference from SDMC 98.0702.",
+      "derivation_rule": null,
+      "span_ids": [
+       "s5"
+      ]
+     },
+     "exemptions": {
+      "category": "derived",
+      "basis": "Summarises the algorithmic device exclusions.",
+      "derivation_rule": "PARAPHRASE_OF_QUOTED_SECTIONS",
+      "span_ids": [
+       "quoted_span"
+      ]
+     },
+     "status": {
+      "category": "derived",
+      "basis": "Proposal stage: the staff report proposes it, the final passage date and ordinance number are blank, the adoption certificate is unfilled.",
+      "derivation_rule": "STATUS_PENDING_IF_PROPOSED_AND_NOT_ENACTED",
+      "span_ids": [
+       "s1",
+       "s2",
+       "s3"
+      ]
+     },
+     "effective_date": {
+      "category": "unknown",
+      "basis": "Section 3 runs from final passage, which is blank, so no date follows.",
+      "derivation_rule": null,
+      "span_ids": [
+       "s4"
+      ]
+     },
+     "citation": {
+      "category": "stated",
+      "basis": "The footer carries a draft reference.",
+      "derivation_rule": null,
+      "span_ids": [
+       "s5"
+      ]
+     },
+     "rental_housing_applicability": {
+      "category": "stated",
+      "basis": "The ordinance concerns landlords and residential rental property.",
+      "derivation_rule": null,
+      "span_ids": [
+       "quoted_span"
+      ]
+     }
+    },
+    "relations": [],
+    "confidence": 0.6,
+    "conflict_flag": true,
+    "conflict_note": "Final passage is unsupported by the document: DATE OF FINAL PASSAGE is blank, the ordinance number is blank, the clerk certification is an unfilled template, the mayoral approved and vetoed dates are blank, and the staff report says the councilmember 'proposes' the ban. Definitions of landlord, lease, residential rental property and tenant are incorporated from SDMC sec. 98.0702 but not reproduced, so coverage boundaries cannot be verified from this document."
+   }
+  ]
+ }
+}

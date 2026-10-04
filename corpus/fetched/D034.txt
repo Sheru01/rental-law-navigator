@@ -1,0 +1,30 @@
+SOURCE: https://ecode360.com/46833413
+RETRIEVED: 2026-10-04 02:27 UTC
+
+[SUMMARY, NOT SOURCE TEXT]
+Hoboken Code Chapter 158 (Rent Increases), Article II algorithmic rent fixing. Retrieved via WebFetch (model-mediated), page fetched twice (the second call asked for character-for-character reproduction). Passages in quotation marks are as returned by the extractor, not byte-verified. Text of the section below is the extractor's reproduction with its own formatting removed.
+
+"Chapter 158 Rent Increases"
+
+"Adopted 7-9-2025 by Ord. No. B-781"
+
+"Algorithmic rent fixing in rental housing market prohibited."
+
+"Landlords who rent any residential dwelling unit"
+
+"in the City of Hoboken are prohibited from price fixing using algorithmic pricing."
+
+"the use of software, algorithms, or data-sharing platforms to collect and analyze nonpublic competitor information from other real estate lessors in order to coordinate, recommend, or implement rental prices, lease terms, or occupancy levels for residential dwelling units among competing real estate lessors."
+
+"prices, supply levels, security deposits, ideal occupancy levels, lease contract termination, renewal dates of residential dwelling units or any other material terms that is less than 365 days old and is not widely and readily available to the public at no cost."
+
+"Alleged violations of this chapter may be brought by the Division of Housing, or any private citizen alleging to be aggrieved, to the Hoboken Municipal Court for adjudication."
+
+"Penalties as prescribed under N.J.S.A. 40:49-5"
+
+"By a fine not exceeding $2,000"
+
+"By a period of community service not exceeding 90 days"
+
+[SUMMARY, NOT SOURCE TEXT]
+Section number per extractor: 158-2 (first call; second call gave the heading without the number). Ordinance B-781 and adoption date 7-9-2025 were returned identically by both calls. EFFECTIVE DATE: not shown on the page. The page does not state when the ordinance takes effect; Morgan Lewis (D037) says "July 2025", which is secondary and unconfirmed. The defined-term quotation is truncated by the extractor at the start (the opening words of the definition were not quoted).

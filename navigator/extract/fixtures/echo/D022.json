@@ -1,0 +1,180 @@
+{
+ "_fixture_note": "CANNED stand-in for model output, used only by --transport echo. Not a real extraction.",
+ "response": {
+  "document": {
+   "source_kind": "primary_legal_text",
+   "states_legal_requirement": true,
+   "notes": "Chaptered text of AB 325 adding Bus. & Prof. Code 16729 and 16756.1."
+  },
+  "rules": [
+   {
+    "jurisdiction": "CA",
+    "category": "algorithmic_rent_setting",
+    "instrument_type": "statute",
+    "source_kind": "primary_legal_text",
+    "title": "California AB 325: common pricing algorithm prohibition (Bus. & Prof. Code 16729)",
+    "requirement": "It is unlawful to use or distribute a common pricing algorithm as part of a contract, combination in the form of a trust, or conspiracy to restrain trade, or to use or distribute one while coercing another person to adopt its recommended price or commercial term. The text never mentions rent, housing, landlords, tenants or leases; applying it to rental housing is an inference, not a statement.",
+    "key_value": null,
+    "coverage_conditions": {
+     "predicates": [],
+     "needs_fact": [
+      "rental_housing_applicability: AB 325 amends the Cartwright Act and its text has no mention of rent, housing, landlord, tenant or lease",
+      "prohibition bites only when used as part of a contract, combination or conspiracy, or with coercion"
+     ],
+     "note": "Scope to rental housing is inferred, not stated; the prohibition is conditional, so it is not a flat ban on every California rental address."
+    },
+    "exemptions": "Section 16729(c): nothing in the section impairs or limits the applicability of antitrust laws.",
+    "status": null,
+    "status_establishable": false,
+    "status_basis": "unknown",
+    "effective_date": null,
+    "citation": "Cal. Bus. & Prof. Code sec. 16729 (added by Stats. 2025, ch. 338 (AB 325))",
+    "quoted_span": "(a) It shall be unlawful for a person to use or distribute a common pricing algorithm as part of a contract, combination in the form of a trust, or conspiracy to restrain trade or commerce in violation of this chapter.",
+    "supporting_spans": [
+     {
+      "id": "s1",
+      "text": "CHAPTER 338 An act to add Sections 16729 and 16756.1 to the Business and Professions Code",
+      "supports": [
+       "citation",
+       "effective_date"
+      ]
+     },
+     {
+      "id": "s2",
+      "text": "Approved by Governor October 06, 2025. Filed with Secretary of State October 06, 2025.",
+      "supports": [
+       "effective_date",
+       "status"
+      ]
+     },
+     {
+      "id": "s3",
+      "text": "10/06/25 - Chaptered",
+      "supports": [
+       "status"
+      ]
+     },
+     {
+      "id": "s4",
+      "text": "(b) It shall be unlawful for a person to use or distribute a common pricing algorithm if the person coerces another person to set or adopt a recommended price or commercial term recommended by the common pricing algorithm",
+      "supports": [
+       "requirement",
+       "coverage_conditions"
+      ]
+     },
+     {
+      "id": "s5",
+      "text": "(c) Nothing in this section shall impair or limit the applicability of antitrust laws.",
+      "supports": [
+       "exemptions"
+      ]
+     },
+     {
+      "id": "s6",
+      "text": "uses competitor data to recommend, align, stabilize, set, or otherwise influence a price or commercial term",
+      "supports": [
+       "rental_housing_applicability"
+      ]
+     },
+     {
+      "id": "s7",
+      "text": "The people of the State of California do enact as follows",
+      "supports": [
+       "jurisdiction"
+      ]
+     }
+    ],
+    "epistemics": {
+     "jurisdiction": {
+      "category": "stated",
+      "basis": "The enacting clause names the State of California.",
+      "derivation_rule": null,
+      "span_ids": [
+       "s7"
+      ]
+     },
+     "category": {
+      "category": "inferred",
+      "basis": "Mapping a general Cartwright Act provision to algorithmic rent setting is a project mapping; the text does not mention rent.",
+      "derivation_rule": null,
+      "span_ids": [
+       "quoted_span"
+      ]
+     },
+     "title": {
+      "category": "derived",
+      "basis": "Composed from the act caption and the added section number.",
+      "derivation_rule": "TITLE_FROM_CAPTION_AND_SECTION",
+      "span_ids": [
+       "s1"
+      ]
+     },
+     "requirement": {
+      "category": "derived",
+      "basis": "Paraphrase of subsections (a) and (b), plus a flagged inference about rental scope.",
+      "derivation_rule": "PARAPHRASE_OF_QUOTED_SECTIONS",
+      "span_ids": [
+       "quoted_span",
+       "s4"
+      ]
+     },
+     "key_value": {
+      "category": "unknown",
+      "basis": "The text states no headline number or formula.",
+      "derivation_rule": null,
+      "span_ids": []
+     },
+     "coverage_conditions": {
+      "category": "inferred",
+      "basis": "Conditions come from (a) and (b); rental scope is not stated.",
+      "derivation_rule": null,
+      "span_ids": [
+       "quoted_span",
+       "s4"
+      ]
+     },
+     "exemptions": {
+      "category": "stated",
+      "basis": "Subsection (c) preserves other antitrust law.",
+      "derivation_rule": null,
+      "span_ids": [
+       "s5"
+      ]
+     },
+     "status": {
+      "category": "unknown",
+      "basis": "The text states approval and filing dates but no operative date, so operative status is not established.",
+      "derivation_rule": null,
+      "span_ids": []
+     },
+     "effective_date": {
+      "category": "unknown",
+      "basis": "The source does not state an operative date; chaptered and approved October 06, 2025 only.",
+      "derivation_rule": null,
+      "span_ids": []
+     },
+     "citation": {
+      "category": "stated",
+      "basis": "Chapter number and added sections appear in the caption.",
+      "derivation_rule": null,
+      "span_ids": [
+       "s1"
+      ]
+     },
+     "rental_housing_applicability": {
+      "category": "inferred",
+      "basis": "The definition reaches any product or service; the text has zero occurrences of rent, housing, landlord, tenant or lease.",
+      "derivation_rule": null,
+      "span_ids": [
+       "s6"
+      ]
+     }
+    },
+    "relations": [],
+    "confidence": 0.6,
+    "conflict_flag": true,
+    "conflict_note": "Source states no operative date: CHAPTER 338, approved by the Governor and filed with the Secretary of State October 06, 2025, version 10/06/25 - Chaptered, but no operative or effective date appears in the text. No default effective-date rule was applied at extraction. Applicability to rental housing is inferred, not stated, and the prohibition applies only under a contract, combination or conspiracy, or with coercion."
+   }
+  ]
+ }
+}

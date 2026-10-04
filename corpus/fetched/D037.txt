@@ -1,0 +1,14 @@
+SOURCE: https://www.morganlewis.com/pubs/2026/08/algorithmic-rent-pricing-litigation-expands-under-new-state-and-local-laws
+RETRIEVED: 2026-10-04 02:28 UTC
+
+[SUMMARY, NOT SOURCE TEXT]
+Law firm article (Morgan Lewis, August 2026). Secondary source. Retrieved via WebFetch (model-mediated). Quoted fragments are as returned by the extractor, not byte-verified. The page was not paywalled.
+
+"Hoboken City Code, ch. 158-2"
+"Prohibits landlords from using software, algorithms or data-sharing platforms to coordinate or recommend rents, lease terms, or occupancy."
+"Jersey City Code § 218-12"
+"Prohibits a landlord's use of algorithmic rent coordination services"
+"includes public and private enforcement; fines up to $2,000 per day"
+
+[SUMMARY, NOT SOURCE TEXT]
+Per extractor: Hoboken effective "July 2025"; Jersey City effective "June 2025" (month only, no day). No adoption dates, ordinance numbers or statutory damages given. The extractor reported that the article does NOT mention the New Jersey FAIR Act or Massachusetts. Note: the Jersey City code citation 218-12 is secondary and is not confirmed by any ordinance text.

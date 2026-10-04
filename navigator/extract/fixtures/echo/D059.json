@@ -1,0 +1,35 @@
+{
+ "_fixture_note": "CANNED stand-in for model output, used only by --transport echo. Not a real extraction.",
+ "response": {
+  "document": {
+   "source_kind": "secondary_commentary",
+   "states_legal_requirement": true,
+   "notes": "WebFetch summary of a news article on the struck ballot question."
+  },
+  "rules": [
+   {
+    "jurisdiction": "MA",
+    "category": "rent_increase_limits",
+    "instrument_type": "ballot_measure",
+    "source_kind": "secondary_commentary",
+    "title": "Massachusetts rent-control ballot question (IP 25-21)",
+    "requirement": "A ballot question that would have limited annual rent increases was struck by the Supreme Judicial Court and cannot go forward.",
+    "key_value": null,
+    "coverage_conditions": null,
+    "exemptions": null,
+    "status": "failed",
+    "status_establishable": true,
+    "status_basis": "inferred",
+    "effective_date": null,
+    "citation": "Initiative Petition 25-21",
+    "quoted_span": "The state's Supreme Judicial Court ruled a ballot question seeking to bring rent control back to Massachusetts cannot go forward this November, because it includes a religious exemption.",
+    "supporting_spans": [],
+    "epistemics": {},
+    "relations": [],
+    "confidence": 0.5,
+    "conflict_flag": true,
+    "conflict_note": "Struck 2026-06-23 per a news summary."
+   }
+  ]
+ }
+}

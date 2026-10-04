@@ -1,0 +1,15 @@
+SOURCE: https://caanet.org/u/2026/06/SJC-13893_Slip_Opinion.pdf
+RETRIEVED: 2026-10-04 02:26 UTC
+
+[SUMMARY, NOT SOURCE TEXT]
+Supplementary primary-source COPY of the SJC slip opinion, hosted by caanet.org (an advocacy organization, NOT an official court host). The official mass.gov copy (https://www.mass.gov/doc/cella-v-attorney-general-sjc-w13893/download) returned 404 via WebFetch. Retrieved via WebFetch (model-mediated). Quoted passages are as returned by the extractor, not byte-verified. Verify against the official SJC site before relying on exact wording.
+
+"ARCANGELO CELLA & others vs. ATTORNEY GENERAL & another"
+"Initiative Petition 25-21"
+"An Initiative Petition to Protect Tenants by Limiting Rent Increases"
+"Initiative Petition 25-21 is not in compliance with the excluded matters section of art. 48"
+"No measure that relates to religion, religious practices or religious institutions...shall be proposed by an initiative petition."
+"operated solely for...religious...purposes"
+
+[SUMMARY, NOT SOURCE TEXT]
+Per extractor: docket SJC-13893; argued May 6, 2026; decided June 23, 2026; opinion by Gaziano, J., with Kafker, J. concurring; the court enjoined the Secretary of the Commonwealth from placing the petition on the November 2026 ballot. The ellipses inside quotations are the extractor's.

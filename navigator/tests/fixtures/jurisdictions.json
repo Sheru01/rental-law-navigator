@@ -1,0 +1,82 @@
+[
+  {
+    "address_id": "F001",
+    "state": "CA",
+    "jurisdiction": "San Francisco, CA"
+  },
+  {
+    "address_id": "F002",
+    "state": "CA",
+    "jurisdiction": "San Francisco, CA"
+  },
+  {
+    "address_id": "F003",
+    "state": "CA",
+    "jurisdiction": "San Francisco, CA"
+  },
+  {
+    "address_id": "F004",
+    "state": "CA",
+    "jurisdiction": "San Francisco, CA"
+  },
+  {
+    "address_id": "F005",
+    "state": "CA",
+    "jurisdiction": "Los Angeles, CA"
+  },
+  {
+    "address_id": "F006",
+    "state": "CA",
+    "jurisdiction": "Los Angeles, CA"
+  },
+  {
+    "address_id": "F007",
+    "state": "CA",
+    "jurisdiction": "San Diego, CA"
+  },
+  {
+    "address_id": "F008",
+    "state": "CA",
+    "jurisdiction": "Berkeley city, CA"
+  },
+  {
+    "address_id": "F009",
+    "state": "CA",
+    "jurisdiction": "Oakland, CA"
+  },
+  {
+    "address_id": "F010",
+    "state": "NJ",
+    "jurisdiction": "Jersey City, NJ"
+  },
+  {
+    "address_id": "F011",
+    "state": "NJ",
+    "jurisdiction": "Hoboken, NJ"
+  },
+  {
+    "address_id": "F012",
+    "state": "NJ",
+    "jurisdiction": "Newark, NJ"
+  },
+  {
+    "address_id": "F013",
+    "state": "MA",
+    "jurisdiction": "Boston, MA"
+  },
+  {
+    "address_id": "F014",
+    "state": "MA",
+    "jurisdiction": "Cambridge, MA"
+  },
+  {
+    "address_id": "F015",
+    "state": "NJ",
+    "jurisdiction": null
+  },
+  {
+    "address_id": "F016",
+    "state": null,
+    "jurisdiction": null
+  }
+]

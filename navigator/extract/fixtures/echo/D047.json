@@ -1,0 +1,136 @@
+{
+ "_fixture_note": "CANNED stand-in for model output, used only by --transport echo. Not a real extraction.",
+ "response": {
+  "document": {
+   "source_kind": "bill_text",
+   "states_legal_requirement": true,
+   "notes": "Bill status page: title and history only."
+  },
+  "rules": [
+   {
+    "jurisdiction": "MA",
+    "category": "algorithmic_rent_setting",
+    "instrument_type": "bill",
+    "source_kind": "bill_text",
+    "title": "S.2983 An Act prohibiting algorithmic rent setting",
+    "requirement": "A pending Massachusetts bill on algorithmic rent setting. The page gives its title and history, not its text.",
+    "key_value": null,
+    "coverage_conditions": {
+     "predicates": [
+      {
+       "fact": "state",
+       "op": "eq",
+       "value": "MA"
+      }
+     ],
+     "needs_fact": [],
+     "note": "If enacted as written; the bill text is not on this page."
+    },
+    "exemptions": null,
+    "status": "pending",
+    "status_establishable": true,
+    "status_basis": "derived",
+    "effective_date": null,
+    "citation": "S.2983",
+    "quoted_span": "An Act prohibiting algorithmic rent setting",
+    "supporting_spans": [
+     {
+      "id": "s1",
+      "text": "Bill reported favorably by committee and referred to the committee on Senate Ways and Means",
+      "supports": [
+       "status"
+      ]
+     }
+    ],
+    "epistemics": {
+     "jurisdiction": {
+      "category": "stated",
+      "basis": "Massachusetts Legislature page.",
+      "derivation_rule": null,
+      "span_ids": [
+       "quoted_span"
+      ]
+     },
+     "category": {
+      "category": "derived",
+      "basis": "The bill title concerns algorithmic rent setting.",
+      "derivation_rule": "CATEGORY_FROM_BILL_TITLE",
+      "span_ids": [
+       "quoted_span"
+      ]
+     },
+     "title": {
+      "category": "stated",
+      "basis": "The title appears on the page.",
+      "derivation_rule": null,
+      "span_ids": [
+       "quoted_span"
+      ]
+     },
+     "requirement": {
+      "category": "inferred",
+      "basis": "Only the title is on the page.",
+      "derivation_rule": null,
+      "span_ids": [
+       "quoted_span"
+      ]
+     },
+     "key_value": {
+      "category": "unknown",
+      "basis": "No text.",
+      "derivation_rule": null,
+      "span_ids": []
+     },
+     "coverage_conditions": {
+      "category": "inferred",
+      "basis": "Statewide if enacted.",
+      "derivation_rule": null,
+      "span_ids": [
+       "quoted_span"
+      ]
+     },
+     "exemptions": {
+      "category": "unknown",
+      "basis": "No text.",
+      "derivation_rule": null,
+      "span_ids": []
+     },
+     "status": {
+      "category": "derived",
+      "basis": "Reported favorably and referred to Ways and Means: not enacted.",
+      "derivation_rule": "STATUS_PENDING_IF_NOT_ENACTED",
+      "span_ids": [
+       "s1"
+      ]
+     },
+     "effective_date": {
+      "category": "unknown",
+      "basis": "No text.",
+      "derivation_rule": null,
+      "span_ids": []
+     },
+     "citation": {
+      "category": "stated",
+      "basis": "Bill designation on the page.",
+      "derivation_rule": null,
+      "span_ids": [
+       "quoted_span"
+      ]
+     },
+     "rental_housing_applicability": {
+      "category": "stated",
+      "basis": "The title concerns rent.",
+      "derivation_rule": null,
+      "span_ids": [
+       "quoted_span"
+      ]
+     }
+    },
+    "relations": [],
+    "confidence": 0.7,
+    "conflict_flag": false,
+    "conflict_note": null
+   }
+  ]
+ }
+}

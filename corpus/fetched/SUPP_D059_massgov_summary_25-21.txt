@@ -1,0 +1,9 @@
+SOURCE: https://www.mass.gov/doc/final-summary-for-25-21-an-initiative-petition-to-protect-tenants-by-limiting-rent-increases/download
+RETRIEVED: 2026-10-04 02:26 UTC
+
+[SUMMARY, NOT SOURCE TEXT]
+Official mass.gov document (AG summary of petition). Retrieved via WebFetch (model-mediated). Quoted passages as returned by extractor, not byte-verified. The extractor reported the petition title is not present in this document.
+
+"SUMMARY OF NO. 25-21"
+
+"This proposed law would limit the annual rent increase for residential units in Massachusetts to the annual increase in the Consumer Price Index for a 12-month period, or 5%, whichever is lower."

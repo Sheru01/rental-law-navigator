@@ -1,0 +1,11 @@
+SOURCE: https://daypitney.com/new-jersey-enacts-fair-act-to-prohibit-algorithmic-rent-setting-practices
+RETRIEVED: 2026-10-04 02:28 UTC
+
+[SUMMARY, NOT SOURCE TEXT]
+Law firm article (Day Pitney), dated July 31, 2026 per extractor. Secondary source; the statute itself is D069. Retrieved via WebFetch (model-mediated). Quoted fragments are as returned by the extractor, not byte-verified.
+
+"collects or processes competitors' nonpublic leasing information to set or recommend rental prices"
+"facilitate agreements or coordinate pricing among competing residential landlords"
+
+[SUMMARY, NOT SOURCE TEXT]
+Per extractor: Forbidding the Algorithmic Inflation of Rent (FAIR) Act, P.L. 2026, c. 43; signed July 20, 2026; effective July 1, 2027; Attorney General complaint portal; preserves New Jersey Antitrust Act remedies. The extractor reported NO preemption language, NO penalty amounts and NO mention of Hoboken or Jersey City in this article. That absence is about the article only; the statute text in D069 (section 6.b) does contain a municipal-conflict clause. See FETCH_REPORT.md.

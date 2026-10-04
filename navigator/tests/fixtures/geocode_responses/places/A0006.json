@@ -1,0 +1,77 @@
+{
+  "result": {
+    "input": {
+      "location": {
+        "x": -71.088,
+        "y": 42.343
+      },
+      "benchmark": {
+        "id": "4",
+        "benchmarkName": "Public_AR_Current"
+      },
+      "vintage": {
+        "id": "4",
+        "vintageName": "Current_Current"
+      }
+    },
+    "geographies": {
+      "States": [
+        {
+          "STATE": "25",
+          "GEOID": "25",
+          "NAME": "Massachusetts",
+          "STUSAB": "MA",
+          "BASENAME": "Massachusetts"
+        }
+      ],
+      "Counties": [
+        {
+          "STATE": "25",
+          "COUNTY": "025",
+          "GEOID": "25025",
+          "NAME": "Suffolk County",
+          "BASENAME": "Suffolk",
+          "FUNCSTAT": "A"
+        }
+      ],
+      "County Subdivisions": [
+        {
+          "STATE": "25",
+          "COUNTY": "025",
+          "COUSUB": "07000",
+          "GEOID": "2502507000",
+          "NAME": "Boston city",
+          "FUNCSTAT": "A"
+        }
+      ],
+      "Incorporated Places": [
+        {
+          "STATE": "25",
+          "PLACE": "07000",
+          "GEOID": "2507000",
+          "NAME": "Boston city",
+          "LSADC": "25",
+          "FUNCSTAT": "A"
+        }
+      ],
+      "Census Tracts": [
+        {
+          "STATE": "25",
+          "COUNTY": "025",
+          "TRACT": "000100",
+          "GEOID": "25025000100",
+          "NAME": "Census Tract 000100"
+        }
+      ],
+      "2020 Census Blocks": [
+        {
+          "STATE": "25",
+          "COUNTY": "025",
+          "TRACT": "000100",
+          "BLOCK": "1000",
+          "GEOID": "250250001001000"
+        }
+      ]
+    }
+  }
+}

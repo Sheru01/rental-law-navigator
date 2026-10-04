@@ -1,0 +1,10 @@
+SOURCE: https://www.mass.gov/info-details/ballot-initiatives-submitted-for-the-2026-biennial-statewide-election-proposed-laws-and-2028-biennial-statewide-election-proposed-constitutional-amendments
+RETRIEVED: 2026-10-04 02:26 UTC
+
+[SUMMARY, NOT SOURCE TEXT]
+Official mass.gov listing of ballot initiatives submitted for the 2026 election. Retrieved via WebFetch (model-mediated). The quoted title is as returned by the extractor, not byte-verified. The listing entry carries no SJC ruling or ballot-placement information (per extractor); proponent contact details on the page are deliberately omitted here.
+
+"An Initiative Petition to Protect Tenants by Limiting Rent Increases"
+
+[SUMMARY, NOT SOURCE TEXT]
+Per extractor: petition number listed as 25-21; status field "Certified: Yes".

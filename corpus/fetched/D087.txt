@@ -1,0 +1,7 @@
+SOURCE: https://www.publicceo.com/2026/02/santa-ana-city-council-continues-to-strengthen-tenant-protections-by-banning-anticompetitive-rent-setting-software/
+RETRIEVED: 2026-10-04 02:28 UTC
+
+[SUMMARY, NOT SOURCE TEXT]
+Press-release style article (PublicCEO, February 2026 per URL). Retrieved via WebFetch (model-mediated); not paywalled. ENTIRE content below is SUMMARY: the extractor labeled a passage "exact language", but it reads as a paraphrase, so it is not safe as a quotable span.
+
+Per extractor: first reading approved Tuesday, February 17 (2026 by URL context); final vote scheduled March 3; prohibits sale, licensing, provision and use of certain algorithmic rent-setting software for residential rentals; remedies stated as injunctive relief, damages or civil penalties up to $1,000 per violation plus attorney's fees; excludes software relying solely on publicly available data, aggregate historical data, or tools used for affordable housing program compliance. ORDINANCE NUMBER, PUBLICATION DATE and EFFECTIVE DATE: not present.

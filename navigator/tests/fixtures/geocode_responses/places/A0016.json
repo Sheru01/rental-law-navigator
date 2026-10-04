@@ -1,0 +1,77 @@
+{
+  "result": {
+    "input": {
+      "location": {
+        "x": -122.4358,
+        "y": 37.7993
+      },
+      "benchmark": {
+        "id": "4",
+        "benchmarkName": "Public_AR_Current"
+      },
+      "vintage": {
+        "id": "4",
+        "vintageName": "Current_Current"
+      }
+    },
+    "geographies": {
+      "States": [
+        {
+          "STATE": "06",
+          "GEOID": "06",
+          "NAME": "California",
+          "STUSAB": "CA",
+          "BASENAME": "California"
+        }
+      ],
+      "Counties": [
+        {
+          "STATE": "06",
+          "COUNTY": "075",
+          "GEOID": "06075",
+          "NAME": "San Francisco County",
+          "BASENAME": "San Francisco",
+          "FUNCSTAT": "A"
+        }
+      ],
+      "County Subdivisions": [
+        {
+          "STATE": "06",
+          "COUNTY": "075",
+          "COUSUB": "92350",
+          "GEOID": "0607592350",
+          "NAME": "San Francisco CCD",
+          "FUNCSTAT": "A"
+        }
+      ],
+      "Incorporated Places": [
+        {
+          "STATE": "06",
+          "PLACE": "67000",
+          "GEOID": "0667000",
+          "NAME": "San Francisco city",
+          "LSADC": "25",
+          "FUNCSTAT": "A"
+        }
+      ],
+      "Census Tracts": [
+        {
+          "STATE": "06",
+          "COUNTY": "075",
+          "TRACT": "000100",
+          "GEOID": "06075000100",
+          "NAME": "Census Tract 000100"
+        }
+      ],
+      "2020 Census Blocks": [
+        {
+          "STATE": "06",
+          "COUNTY": "075",
+          "TRACT": "000100",
+          "BLOCK": "1000",
+          "GEOID": "060750001001000"
+        }
+      ]
+    }
+  }
+}

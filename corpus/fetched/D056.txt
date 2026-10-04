@@ -1,0 +1,8 @@
+SOURCE: https://www.mass.gov/doc/803-cmr-5-criminal-offender-record-information-cori-housing/download
+RETRIEVED: 2026-10-04 02:28 UTC
+
+[SUMMARY, NOT SOURCE TEXT]
+Official mass.gov document, 803 CMR 5.00 (CORI, housing), authority M.G.L. c. 6, ss. 167A and 172 per extractor. Retrieved via WebFetch (model-mediated). ENTIRE content below is treated as SUMMARY: the extractor put quotation marks around some passages, but several read like paraphrase and could not be checked, so none is safe to use as a quotable span. Re-retrieve the regulation text from a source that returns raw text before extracting spans.
+
+Per extractor (unverified paraphrase): market-rate landlords, property managers and agents may request standard access CORI on a housing applicant; public housing authorities and subsidized-housing managers may request required access CORI; CORI is to be requested only as the final step in the application process; a copy of the CORI must be given to the applicant before an adverse housing decision; standard access CORI may not be used to screen other household members or buyers or sellers of real property; CORI is to be used solely to decide whether to rent or lease; retention limit stated as seven years from last residency or decision date, whichever is later.
+Document date per extractor: 6/11/21. No effective date was stated.

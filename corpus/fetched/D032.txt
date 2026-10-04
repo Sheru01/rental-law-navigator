@@ -1,0 +1,10 @@
+SOURCE: https://ecode360.com/15252438
+RETRIEVED: 2026-10-04 02:27 UTC
+
+[SUMMARY, NOT SOURCE TEXT]
+Hoboken Code Chapter 155 (Rent Control), chapter landing page. NOT the algorithmic ordinance. Retrieved via WebFetch (model-mediated). The page shows a table of contents only; no operative text was available. Quoted history is as returned by the extractor, not byte-verified.
+
+"Adopted by the City Council of the City of Hoboken 1-16-1984 by Ord. No. C329."
+
+[SUMMARY, NOT SOURCE TEXT]
+Per extractor: also notes Ord. No. R-422 (added 3-1-2000) repealed entirely 5-17-2000 by Ord. No. R-436. Subject matter covers rent establishment and increase restrictions, surcharges, Rent Leveling and Stabilization Board, registration, vacancy decontrol (including sections 155-31 to 155-34) and a COVID-19 temporary moratorium. Section 155-3 (Establishment of rents) and 155-4 (Controls; increase restrictions) are referenced but their text is not on this page.

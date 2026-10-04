@@ -1,0 +1,16 @@
+SOURCE: https://www.wbur.org/news/2026/06/23/massachusetts-high-court-rent-control-ballot-question-struck
+RETRIEVED: 2026-10-04 02:26 UTC
+
+[SUMMARY, NOT SOURCE TEXT]
+Retrieved via WebFetch (model-mediated extraction; raw page text not available). The passages in quotation marks below are exactly as returned by the extractor and were not byte-verified against the raw page. Headline and date are as reported by the extractor.
+
+Headline (per extractor): "High court derails rent control ballot question, citing mention of religion"
+Date (per extractor): June 23, 2026 (marked Updated)
+
+"The state's Supreme Judicial Court ruled a ballot question seeking to bring rent control back to Massachusetts cannot go forward this November, because it includes a religious exemption."
+
+"relates to religion, religious practices or religious institutions"
+
+[SUMMARY, NOT SOURCE TEXT]
+Holding as paraphrased by extractor: the ballot measure cannot proceed because it includes a religious exemption; the court concluded the petition relates to religion, which the Massachusetts Constitution bars from the initiative ballot; secular exemptions do not override that prohibition.
+NOT PRESENT in this article (per extractor): the initiative petition number; the exact SJC decision date as a stated field (article is dated June 23, 2026 and says the court has ruled); justice names or opinion author.

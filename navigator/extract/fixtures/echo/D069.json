@@ -1,0 +1,187 @@
+{
+ "_fixture_note": "CANNED stand-in for model output, used only by --transport echo. Not a real extraction.",
+ "response": {
+  "document": {
+   "source_kind": "primary_legal_text",
+   "states_legal_requirement": true,
+   "notes": "P.L. 2026, c.43, the FAIR Act."
+  },
+  "rules": [
+   {
+    "jurisdiction": "NJ",
+    "category": "algorithmic_rent_setting",
+    "instrument_type": "statute",
+    "source_kind": "primary_legal_text",
+    "title": "New Jersey FAIR Act (P.L. 2026, c.43)",
+    "requirement": "It is unlawful, and a violation of the New Jersey Antitrust Act, for a coordinator to facilitate agreements among rental property owners that restrict competition, including by performing a coordinating function, and for a rental property owner to pay for a coordinator's services.",
+    "key_value": null,
+    "coverage_conditions": {
+     "predicates": [
+      {
+       "fact": "state",
+       "op": "eq",
+       "value": "NJ"
+      }
+     ],
+     "needs_fact": [],
+     "note": "Rental residential dwelling units in New Jersey; inpatient medical care, licensed long-term care and detention facilities are excluded from the definition."
+    },
+    "exemptions": "Coordinating function excludes research or testing use, free public rent estimates, certain brokerage databases and government affordability controls.",
+    "status": "not_yet_effective",
+    "status_establishable": true,
+    "status_basis": "derived",
+    "effective_date": "2027-07-01",
+    "citation": "P.L. 2026, c.43 (A3497), C.56:9-20 to 56:9-26",
+    "quoted_span": "b. a coordinator to facilitate a tacit or express agreement among rental property owners that restricts competition with respect to residential dwelling units, including by performing a coordinating function;",
+    "supporting_spans": [
+     {
+      "id": "s1",
+      "text": "P.L. 2026, CHAPTER 43, approved July 20, 2026",
+      "supports": [
+       "effective_date",
+       "status"
+      ]
+     },
+     {
+      "id": "s2",
+      "text": "9. This act shall take effect on the first day of the twelfth month next following the date of enactment.",
+      "supports": [
+       "effective_date",
+       "status"
+      ]
+     },
+     {
+      "id": "s3",
+      "text": "A municipality shall be prohibited from enacting an ordinance that conflicts with this act. This subsection shall not be construed to prohibit the enactment of ordinances explicitly authorized or required by any other law.",
+      "supports": [
+       "conflict_note"
+      ]
+     },
+     {
+      "id": "s4",
+      "text": "An Act concerning residential rental property pricing and supplementing P.L.1970, c.73",
+      "supports": [
+       "rental_housing_applicability",
+       "citation"
+      ]
+     }
+    ],
+    "epistemics": {
+     "jurisdiction": {
+      "category": "stated",
+      "basis": "A New Jersey public law.",
+      "derivation_rule": null,
+      "span_ids": [
+       "s1"
+      ]
+     },
+     "category": {
+      "category": "stated",
+      "basis": "The act concerns residential rental property pricing by algorithm.",
+      "derivation_rule": null,
+      "span_ids": [
+       "s4"
+      ]
+     },
+     "title": {
+      "category": "stated",
+      "basis": "The act names itself the FAIR Act.",
+      "derivation_rule": null,
+      "span_ids": [
+       "s1"
+      ]
+     },
+     "requirement": {
+      "category": "derived",
+      "basis": "Paraphrase of section 4.",
+      "derivation_rule": "PARAPHRASE_OF_QUOTED_SECTIONS",
+      "span_ids": [
+       "quoted_span"
+      ]
+     },
+     "key_value": {
+      "category": "unknown",
+      "basis": "No headline number.",
+      "derivation_rule": null,
+      "span_ids": []
+     },
+     "coverage_conditions": {
+      "category": "stated",
+      "basis": "Definitions limit the act to residential dwelling units in the State.",
+      "derivation_rule": null,
+      "span_ids": [
+       "s4"
+      ]
+     },
+     "exemptions": {
+      "category": "derived",
+      "basis": "Summarises the exclusions from 'coordinating function'.",
+      "derivation_rule": "PARAPHRASE_OF_QUOTED_SECTIONS",
+      "span_ids": [
+       "quoted_span"
+      ]
+     },
+     "status": {
+      "category": "derived",
+      "basis": "Enacted July 20, 2026 with an operative date after 2026-10-01.",
+      "derivation_rule": "ENACTED_WITH_OPERATIVE_DATE_AFTER_AS_OF",
+      "span_ids": [
+       "s1",
+       "s2"
+      ]
+     },
+     "effective_date": {
+      "category": "derived",
+      "basis": "First day of the twelfth month following July 2026 is 2027-07-01.",
+      "derivation_rule": "FIRST_DAY_OF_NTH_MONTH_FOLLOWING_ENACTMENT_N_12",
+      "span_ids": [
+       "s1",
+       "s2"
+      ]
+     },
+     "citation": {
+      "category": "stated",
+      "basis": "Public law and chapter appear in the text.",
+      "derivation_rule": null,
+      "span_ids": [
+       "s1"
+      ]
+     },
+     "rental_housing_applicability": {
+      "category": "stated",
+      "basis": "The act concerns residential rental property.",
+      "derivation_rule": null,
+      "span_ids": [
+       "s4"
+      ]
+     }
+    },
+    "relations": [
+     {
+      "interaction": "preempts_pending",
+      "target_jurisdiction": "Hoboken, NJ",
+      "target_category": "algorithmic_rent_setting",
+      "category": "inferred",
+      "basis": "Section 6.b bars municipal ordinances that conflict with the act; whether any existing ordinance conflicts is not stated.",
+      "span_ids": [
+       "s3"
+      ]
+     },
+     {
+      "interaction": "preempts_pending",
+      "target_jurisdiction": "Jersey City, NJ",
+      "target_category": "algorithmic_rent_setting",
+      "category": "inferred",
+      "basis": "Section 6.b bars municipal ordinances that conflict with the act; whether any existing ordinance conflicts is not stated.",
+      "span_ids": [
+       "s3"
+      ]
+     }
+    ],
+    "confidence": 0.85,
+    "conflict_flag": true,
+    "conflict_note": "Section 6.b says a municipality is prohibited from 'enacting' a conflicting ordinance. The word is enacting only: the clause does not say maintain, enforce, void or supersede; the text has no savings clause for existing ordinances and repeals nothing; 'conflicts' is not defined; the act names neither Jersey City nor Hoboken as conflicting (Hoboken appears only in a legislative finding about rent increases). Nothing here shows the clause affects ordinances already enacted. The act has a single effective-date clause, so on its face the clause is not operative on 2026-10-01."
+   }
+  ]
+ }
+}

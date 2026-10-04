@@ -1,0 +1,11 @@
+SOURCE: https://www.mass.gov/doc/25-21-an-initiative-petition-to-protect-tenants-by-limiting-rent-increases/download
+RETRIEVED: 2026-10-04 02:26 UTC
+
+[SUMMARY, NOT SOURCE TEXT]
+Official mass.gov document (petition text; the file name carries the number 25-21 but the extractor reported the document body shows no number). Retrieved via WebFetch (model-mediated). Quoted passages as returned by extractor, not byte-verified.
+
+"INITIATIVE PETITION FOR A LAW - An Initiative Petition to Protect Tenants by Limiting Rent Increases"
+
+"Dwelling units in facilities operated solely for educational, religious, or non-profit purposes."
+
+"[A]nnual rent increase for a covered dwelling unit in the commonwealth, which shall not exceed the annual increase in Consumer Price Index or 5%, whichever is lower, in any 12-month period."

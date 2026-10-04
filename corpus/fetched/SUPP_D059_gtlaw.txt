@@ -1,0 +1,13 @@
+SOURCE: https://www.gtlaw.com/en/insights/2026/6/massachusetts-high-court-takes-rent-control-initiative-off-2026-ballot
+RETRIEVED: 2026-10-04 02:26 UTC
+
+[SUMMARY, NOT SOURCE TEXT]
+Supplementary secondary source for D059 (law firm client alert). No doc_id assigned in the manifest. Retrieved via WebFetch (model-mediated). Quoted fragments are as returned by the extractor, not byte-verified.
+
+"cannot appear on the November 2026 ballot"
+"excluded matter"
+"relates to religion"
+
+[SUMMARY, NOT SOURCE TEXT]
+Per extractor: Case Cella v. Attorney General, SJC W13893 (the opinion itself uses SJC-13893). Decision date June 23, 2026. Initiative Petition No. 25-21. Holding: petition contained an excluded matter under Article 48 because its exemption covered property used for religious purposes.
+NOT PRESENT on the page (per extractor): full opinion text, reporter citation, counsel, vote breakdown.

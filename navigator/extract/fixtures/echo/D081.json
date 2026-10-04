@@ -1,0 +1,140 @@
+{
+ "_fixture_note": "CANNED stand-in for model output, used only by --transport echo. Not a real extraction.",
+ "response": {
+  "document": {
+   "source_kind": "official_summary",
+   "states_legal_requirement": true,
+   "notes": "Rent Board news item about SF Rent Ordinance 37.10C, not the ordinance text."
+  },
+  "rules": [
+   {
+    "jurisdiction": "San Francisco, CA",
+    "category": "algorithmic_rent_setting",
+    "instrument_type": "ordinance",
+    "source_kind": "official_summary",
+    "title": "San Francisco Rent Ordinance sec. 37.10C: algorithmic devices",
+    "requirement": "The sale or use of algorithmic devices to set rents or manage occupancy levels for residential units in San Francisco is prohibited, and a tenant or the City Attorney may bring a civil action.",
+    "key_value": null,
+    "coverage_conditions": {
+     "predicates": [
+      {
+       "fact": "jurisdiction",
+       "op": "eq",
+       "value": "San Francisco, CA"
+      }
+     ],
+     "needs_fact": [],
+     "note": "Residential units in San Francisco, per the summary; coverage limits are not given."
+    },
+    "exemptions": null,
+    "status": "in_force",
+    "status_establishable": true,
+    "status_basis": "derived",
+    "effective_date": "2024-10-14",
+    "citation": "San Francisco Rent Ordinance sec. 37.10C",
+    "quoted_span": "The law prohibits the sale or use of such algorithmic devices and allows a tenant or the City Attorney to bring a civil action if they believe an entity is in violation of the law.",
+    "supporting_spans": [
+     {
+      "id": "s1",
+      "text": "Legislation adding Section 37.10C to the Rent Ordinance went into effect on October 14, 2024.",
+      "supports": [
+       "effective_date",
+       "status",
+       "citation"
+      ]
+     }
+    ],
+    "epistemics": {
+     "jurisdiction": {
+      "category": "stated",
+      "basis": "San Francisco Rent Board item.",
+      "derivation_rule": null,
+      "span_ids": [
+       "s1"
+      ]
+     },
+     "category": {
+      "category": "stated",
+      "basis": "Algorithmic devices used to set rents.",
+      "derivation_rule": null,
+      "span_ids": [
+       "quoted_span"
+      ]
+     },
+     "title": {
+      "category": "derived",
+      "basis": "Composed from the section number.",
+      "derivation_rule": "TITLE_FROM_CAPTION_AND_SECTION",
+      "span_ids": [
+       "s1"
+      ]
+     },
+     "requirement": {
+      "category": "derived",
+      "basis": "Paraphrase of the summary.",
+      "derivation_rule": "PARAPHRASE_OF_QUOTED_SECTIONS",
+      "span_ids": [
+       "quoted_span"
+      ]
+     },
+     "key_value": {
+      "category": "unknown",
+      "basis": "No number given.",
+      "derivation_rule": null,
+      "span_ids": []
+     },
+     "coverage_conditions": {
+      "category": "inferred",
+      "basis": "The summary says residential units in San Francisco; limits are not given.",
+      "derivation_rule": null,
+      "span_ids": [
+       "quoted_span"
+      ]
+     },
+     "exemptions": {
+      "category": "unknown",
+      "basis": "The summary gives no exemptions.",
+      "derivation_rule": null,
+      "span_ids": []
+     },
+     "status": {
+      "category": "derived",
+      "basis": "Stated effective date October 14, 2024 is before the as-of date.",
+      "derivation_rule": "ENACTED_WITH_OPERATIVE_DATE_BEFORE_AS_OF",
+      "span_ids": [
+       "s1"
+      ]
+     },
+     "effective_date": {
+      "category": "stated",
+      "basis": "The page says the law went into effect on October 14, 2024.",
+      "derivation_rule": null,
+      "span_ids": [
+       "s1"
+      ]
+     },
+     "citation": {
+      "category": "stated",
+      "basis": "Section 37.10C of the Rent Ordinance is named.",
+      "derivation_rule": null,
+      "span_ids": [
+       "s1"
+      ]
+     },
+     "rental_housing_applicability": {
+      "category": "stated",
+      "basis": "The page is about the Rent Ordinance and tenants.",
+      "derivation_rule": null,
+      "span_ids": [
+       "quoted_span"
+      ]
+     }
+    },
+    "relations": [],
+    "confidence": 0.5,
+    "conflict_flag": false,
+    "conflict_note": "This is a Rent Board news item, not the ordinance text. The ordinance number, adoption date, penalties, exemptions and coverage limits are absent, and the definition of 'algorithmic device' is a paraphrase."
+   }
+  ]
+ }
+}

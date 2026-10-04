@@ -1,0 +1,12 @@
+SOURCE: https://ecode360.com/36623772
+RETRIEVED: 2026-10-04 02:27 UTC
+
+[SUMMARY, NOT SOURCE TEXT]
+Newark Code Chapter 19:2 (Rent Control Regulations; Rent Control Board), sections 19:2-1 through 19:2-32. Retrieved via WebFetch (model-mediated). Quoted text is as returned by the extractor, not byte-verified.
+
+"No landlord may request or receive an increase greater than the percentage increase in the Consumer Price Index (CPI) from the CPI 15 months prior to the month of the proposed rent increase to the CPI three months prior to the month of the proposed rent increase. In no case shall the allowable rent increase exceed 4%."
+
+"The allowable annual increase will not be permitted, if the dwelling is not in substantial compliance and/or if the landlord has not met the registration requirements."
+
+[SUMMARY, NOT SOURCE TEXT]
+Legislative history as returned by the extractor (latest entry): "Ord. No. 6PSF-I 06-17-2026". Earlier entries run from 1985 onward (e.g. 6 S+FM 9-4-1985, 6PSF-A(S) 3-7-2017); full list not reproduced here. R.O. 1966 C.S. 15:9B-1 through 15:9B-22 is cited as prior history.

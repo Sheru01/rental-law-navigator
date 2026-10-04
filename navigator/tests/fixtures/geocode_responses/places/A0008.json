@@ -1,0 +1,77 @@
+{
+  "result": {
+    "input": {
+      "location": {
+        "x": -74.058,
+        "y": 40.744
+      },
+      "benchmark": {
+        "id": "4",
+        "benchmarkName": "Public_AR_Current"
+      },
+      "vintage": {
+        "id": "4",
+        "vintageName": "Current_Current"
+      }
+    },
+    "geographies": {
+      "States": [
+        {
+          "STATE": "34",
+          "GEOID": "34",
+          "NAME": "New Jersey",
+          "STUSAB": "NJ",
+          "BASENAME": "New Jersey"
+        }
+      ],
+      "Counties": [
+        {
+          "STATE": "34",
+          "COUNTY": "017",
+          "GEOID": "34017",
+          "NAME": "Hudson County",
+          "BASENAME": "Hudson",
+          "FUNCSTAT": "A"
+        }
+      ],
+      "County Subdivisions": [
+        {
+          "STATE": "34",
+          "COUNTY": "017",
+          "COUSUB": "36000",
+          "GEOID": "3401736000",
+          "NAME": "Jersey City city",
+          "FUNCSTAT": "A"
+        }
+      ],
+      "Incorporated Places": [
+        {
+          "STATE": "34",
+          "PLACE": "36000",
+          "GEOID": "3436000",
+          "NAME": "Jersey City city",
+          "LSADC": "25",
+          "FUNCSTAT": "A"
+        }
+      ],
+      "Census Tracts": [
+        {
+          "STATE": "34",
+          "COUNTY": "017",
+          "TRACT": "000100",
+          "GEOID": "34017000100",
+          "NAME": "Census Tract 000100"
+        }
+      ],
+      "2020 Census Blocks": [
+        {
+          "STATE": "34",
+          "COUNTY": "017",
+          "TRACT": "000100",
+          "BLOCK": "1000",
+          "GEOID": "340170001001000"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,14 @@
+SOURCE: https://hudsoncountyview.com/jersey-city-council-approves-realpage-ban-and-increasing-benefits-for-laborers/
+RETRIEVED: 2026-10-04 02:28 UTC
+
+[SUMMARY, NOT SOURCE TEXT]
+News article (Hudson County View), not ordinance text. Retrieved via WebFetch (model-mediated). The extractor reported that the article does not quote the ordinance language; the short quoted phrases below are as returned by the extractor, not byte-verified.
+
+"rent-setting algorithms such as RealPage"
+
+"certain nonpublic data in revenue management software"
+
+"The House of Representatives is considering banning municipalities from these types of actions"
+
+[SUMMARY, NOT SOURCE TEXT]
+Per extractor: article dated May 22, 2025; council approved 9-0. The extractor first reported the "adoption date" as May 22, 2025, but that is the article date. InsiderNJ (see SUPP_JC_insidernj.txt) says the final vote was scheduled for May 21, 2025. The exact adoption date is therefore NOT confirmed. ORDINANCE NUMBER: not in this article. EFFECTIVE DATE: not in this article. Penalty reported as a "$2,000 daily fine" (extractor says paraphrased from context). Sponsor: Councilman James Solomon; realtors and MLS were excluded by his amendment. A companion wage and benefits measure also passed 9-0 (not relevant to rent).

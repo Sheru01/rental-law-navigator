@@ -1,0 +1,18 @@
+SOURCE: https://ecode360.com/36642000
+RETRIEVED: 2026-10-04 02:27 UTC
+
+[SUMMARY, NOT SOURCE TEXT]
+Newark Code Chapter 2:31 ("BAN the BOX"): Assistance for the Successful Reintegration of Formerly Incarcerated People Into the Community. Retrieved via WebFetch (model-mediated). Quoted text is as returned by the extractor, truncated by the extractor where ellipses appear; not byte-verified. NOT about rent control or algorithmic pricing.
+
+"Inquiry into and consideration of any applicant's criminal history shall take place only after the applicant has submitted a formal application."
+
+"Indictable offense convictions in New Jersey (or, if from any other state or jurisdiction, convictions for conduct which, if committed in New Jersey, would constitute an indictable offense) for eight years following the release from post-conviction custody..."
+
+"Any arrest or criminal accusation made against such person which is not then pending against that person and which did not result in a conviction..."
+
+"the degree of rehabilitation and good conduct or to the accuracy of the criminal record"
+
+"the amount of time that has passed since the conviction(s)."
+
+[SUMMARY, NOT SOURCE TEXT]
+Legislative history per extractor: Ordinance No. 6 PSF-B, 4-15-2015 (current; repealed prior ordinance); prior Ordinance No. 6 PSF-F, 9-19-2012 repealed in its entirety. Article 1 covers housing (landlords and brokers); Article 2 covers licensing.

@@ -1,0 +1,170 @@
+{
+ "_fixture_note": "CANNED stand-in for model output, used only by --transport echo. Not a real extraction.",
+ "response": {
+  "document": {
+   "source_kind": "primary_legal_text",
+   "states_legal_requirement": true,
+   "notes": "Ordinance 7,992-N.S. amending BMC ch. 13.63; only dated event is a passed-to-print meeting."
+  },
+  "rules": [
+   {
+    "jurisdiction": "Berkeley, CA",
+    "category": "algorithmic_rent_setting",
+    "instrument_type": "ordinance",
+    "source_kind": "primary_legal_text",
+    "title": "Berkeley Ord. 7,992-N.S.: coordinated pricing algorithms (BMC ch. 13.63)",
+    "requirement": "It is unlawful to sell, license or provide to Berkeley landlords a coordinated pricing algorithm that sets or recommends rents or occupancy levels, and unlawful for a landlord to use one when setting rents or occupancy levels for residential dwelling units in Berkeley. Operative status cannot be established from this document.",
+    "key_value": "Civil penalties up to $1,000 per violation; each month and each unit is a separate violation",
+    "coverage_conditions": {
+     "predicates": [
+      {
+       "fact": "jurisdiction",
+       "op": "eq",
+       "value": "Berkeley, CA"
+      }
+     ],
+     "needs_fact": [],
+     "note": "Residential dwelling units in the City of Berkeley, if and when the ordinance is in force."
+    },
+    "exemptions": "The definition excludes aggregated anonymous reports, affordable-housing limit tools, and market research, appraisal and software research or testing.",
+    "status": null,
+    "status_establishable": false,
+    "status_basis": "unknown",
+    "effective_date": null,
+    "citation": "Berkeley Municipal Code ch. 13.63, sec. 13.63.030 (Ordinance No. 7,992-N.S.)",
+    "quoted_span": "It shall be unlawful for a landlord to use a coordinated pricing algorithm described in subsection A when setting rents or occupancy levels for residential dwelling units in the City of Berkeley.",
+    "supporting_spans": [
+     {
+      "id": "s1",
+      "text": "At a regular meeting of the Council of the City of Berkeley held on November 18, 2025, this Ordinance was passed to print and ordered published by posting by the following vote:",
+      "supports": [
+       "status",
+       "effective_date"
+      ]
+     },
+     {
+      "id": "s2",
+      "text": "Copies of this Ordinance shall be posted for two days prior to adoption in the display case",
+      "supports": [
+       "status"
+      ]
+     },
+     {
+      "id": "s3",
+      "text": "Within 15 days of adoption, copies of this Ordinance shall",
+      "supports": [
+       "status"
+      ]
+     },
+     {
+      "id": "s4",
+      "text": "Section 1. That Berkeley Municipal Code 13.63 is amended to read as follows:",
+      "supports": [
+       "status",
+       "effective_date"
+      ]
+     },
+     {
+      "id": "s5",
+      "text": "civil penalties of up to $1,000 per violation",
+      "supports": [
+       "key_value"
+      ]
+     }
+    ],
+    "epistemics": {
+     "jurisdiction": {
+      "category": "stated",
+      "basis": "The ordinance is the Council of the City of Berkeley's.",
+      "derivation_rule": null,
+      "span_ids": [
+       "quoted_span"
+      ]
+     },
+     "category": {
+      "category": "stated",
+      "basis": "The chapter title and operative text concern coordinated pricing algorithms for rents.",
+      "derivation_rule": null,
+      "span_ids": [
+       "quoted_span"
+      ]
+     },
+     "title": {
+      "category": "derived",
+      "basis": "Composed from the ordinance number and chapter.",
+      "derivation_rule": "TITLE_FROM_CAPTION_AND_SECTION",
+      "span_ids": [
+       "s4"
+      ]
+     },
+     "requirement": {
+      "category": "derived",
+      "basis": "Paraphrase of 13.63.030 A and B.",
+      "derivation_rule": "PARAPHRASE_OF_QUOTED_SECTIONS",
+      "span_ids": [
+       "quoted_span"
+      ]
+     },
+     "key_value": {
+      "category": "stated",
+      "basis": "13.63.040 states the penalty cap.",
+      "derivation_rule": null,
+      "span_ids": [
+       "s5"
+      ]
+     },
+     "coverage_conditions": {
+      "category": "stated",
+      "basis": "Residential dwelling units in the City of Berkeley.",
+      "derivation_rule": null,
+      "span_ids": [
+       "quoted_span"
+      ]
+     },
+     "exemptions": {
+      "category": "derived",
+      "basis": "Summarises the exclusions in the 13.63.020 definition.",
+      "derivation_rule": "PARAPHRASE_OF_QUOTED_SECTIONS",
+      "span_ids": [
+       "quoted_span"
+      ]
+     },
+     "status": {
+      "category": "unknown",
+      "basis": "No adoption vote, certification or effective date appears; only passed to print.",
+      "derivation_rule": null,
+      "span_ids": [
+       "s1"
+      ]
+     },
+     "effective_date": {
+      "category": "unknown",
+      "basis": "The text states no effective date.",
+      "derivation_rule": null,
+      "span_ids": []
+     },
+     "citation": {
+      "category": "stated",
+      "basis": "Ordinance number and section appear in the text.",
+      "derivation_rule": null,
+      "span_ids": [
+       "s4"
+      ]
+     },
+     "rental_housing_applicability": {
+      "category": "stated",
+      "basis": "The ordinance is about residential dwelling units and landlords.",
+      "derivation_rule": null,
+      "span_ids": [
+       "quoted_span"
+      ]
+     }
+    },
+    "relations": [],
+    "confidence": 0.5,
+    "conflict_flag": true,
+    "conflict_note": "Operative status is not establishable: the only dated event is the 2025-11-18 council meeting at which the ordinance 'was passed to print and ordered published by posting'; section 2 still treats posting and filing as future steps; there is no adoption vote, certification or effective date. The ordinance amends ch. 13.63 'to read as follows', so an earlier version exists whose own operative date is also not stated."
+   }
+  ]
+ }
+}

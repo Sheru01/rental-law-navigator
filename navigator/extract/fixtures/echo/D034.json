@@ -1,0 +1,54 @@
+{
+ "_fixture_note": "CANNED stand-in for model output, used only by --transport echo. Not a real extraction.",
+ "response": {
+  "document": {
+   "source_kind": "secondary_commentary",
+   "states_legal_requirement": true,
+   "notes": "WebFetch summary of Hoboken ch. 158."
+  },
+  "rules": [
+   {
+    "jurisdiction": "Hoboken, NJ",
+    "category": "algorithmic_rent_setting",
+    "instrument_type": "ordinance",
+    "source_kind": "secondary_commentary",
+    "title": "Hoboken Ord. B-781: algorithmic rent fixing",
+    "requirement": "Landlords who rent residential dwelling units in Hoboken are prohibited from price fixing using algorithmic pricing.",
+    "key_value": "Fine up to $2,000 or community service up to 90 days",
+    "coverage_conditions": {
+     "predicates": [
+      {
+       "fact": "jurisdiction",
+       "op": "eq",
+       "value": "Hoboken, NJ"
+      }
+     ],
+     "needs_fact": [],
+     "note": "Residential dwelling units in Hoboken."
+    },
+    "exemptions": null,
+    "status": "in_force",
+    "status_establishable": true,
+    "status_basis": "inferred",
+    "effective_date": null,
+    "citation": "Hoboken Code ch. 158 (Ord. B-781, adopted 7-9-2025)",
+    "quoted_span": "in the City of Hoboken are prohibited from price fixing using algorithmic pricing.",
+    "supporting_spans": [],
+    "epistemics": {},
+    "relations": [],
+    "confidence": 0.5,
+    "conflict_flag": true,
+    "conflict_note": "Adopted 7-9-2025 by Ord. B-781; the page states no effective date."
+   }
+  ]
+ },
+ "repair_response": {
+  "repairs": [
+   {
+    "record_index": 0,
+    "span_id": "quoted_span",
+    "text": "Landlords who rent any residential dwelling unit"
+   }
+  ]
+ }
+}

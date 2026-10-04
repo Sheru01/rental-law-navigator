@@ -1,0 +1,17 @@
+{
+  "_comment": "Claims that live OUTSIDE the corpus text for a document. They are attached to that document's records as unverified, never as stated facts, and never used to fill effective_date or status. Data only: no code branches on a document id.",
+  "D001": [
+    {
+      "text": "2026-03-01 is reported as the effective date of Berkeley Ord. 7,992; README section 9 attributes it to the ordinance text, but the supplied D001 text contains no such date",
+      "origin": "README.md section 9",
+      "verified": false,
+      "sets_conflict_flag": true
+    },
+    {
+      "text": "2026-01 (month only) is reported as the effective date by an August 2026 law-firm alert (D002, link-only, no text in the corpus)",
+      "origin": "README.md section 9 and corpus_manifest.csv row D002",
+      "verified": false,
+      "sets_conflict_flag": true
+    }
+  ]
+}

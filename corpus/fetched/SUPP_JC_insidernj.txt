@@ -1,0 +1,10 @@
+SOURCE: https://www.insidernj.com/press-release/jersey-city-council-advances-ordinances-that-ban-ai-powered-rent-fixing-algorithms/
+RETRIEVED: 2026-10-04 02:28 UTC
+
+[SUMMARY, NOT SOURCE TEXT]
+Press release reposted on InsiderNJ about FIRST READING of the Jersey City ordinances. Supplementary source with no manifest doc_id. Retrieved via WebFetch (model-mediated). The extractor reported no operative ordinance language; the quoted fragment below is as returned by the extractor, paraphrase-like and not byte-verified.
+
+"outright bans Jersey City landlords from using confidential data in rental algorithms"
+
+[SUMMARY, NOT SOURCE TEXT]
+Per extractor: published May 8, 2025; ordinance numbers 25-056 (service worker wage standards) and 25-057 (algorithmic rent-fixing ban); first reading May 8, 2025; final council vote scheduled May 21, 2025. The pairing of 25-057 with the algorithmic ban rests on this single source and is unconfirmed. SECOND READING DATE and EFFECTIVE DATE: not present. Penalties: not present.

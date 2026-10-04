@@ -1,0 +1,8 @@
+"A0006","69 WESTLAND AV, Boston, MA, 02115","Match","Exact","69 WESTLAND AV, BOSTON, MA, 02115","-71.0880,42.3430","85600099","L","25","025","010400","2000"
+"A0007","4257 SAN PEDRO PL, Los Angeles, CA, 90011","Match","Exact","4257 SAN PEDRO PL, LOS ANGELES, CA, 90011"
+garbage,,, this is not a census line
+<html><body>Service Unavailable</body></html>
+"A0009","322 Western Ave, Cambridge, MA, ","Match","Exact","322 WESTERN AVE, CAMBRIDGE, MA","not-a-coordinate","1","L","25","017","352100","1000"
+"A0010","134 Oxford St, Cambridge, MA, ","Maybe","Exact"
+"A0011","834 RAYMOND BLVD, Newark, NJ, 08805,"Match
+

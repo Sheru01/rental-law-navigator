@@ -1,0 +1,11 @@
+{
+ "_fixture_note": "CANNED stand-in for model output, used only by --transport echo. Not a real extraction.",
+ "response": {
+  "document": {
+   "source_kind": "motion_or_report_request",
+   "states_legal_requirement": false,
+   "notes": "A 2024 Los Angeles motion instructing the Housing Department to report; it imposes no requirement."
+  },
+  "rules": []
+ }
+}
